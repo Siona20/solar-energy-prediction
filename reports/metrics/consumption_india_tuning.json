@@ -48,7 +48,7 @@
    "model__max_features": 1.0,
    "model__min_samples_leaf": 20
   },
-  "cv_mae_kwh": 0.7839103186997682,
+  "cv_mae_kwh": 0.7839103186997681,
   "cv_mae_by_fold_kwh": [
    0.887,
    0.613,
@@ -68,7 +68,7 @@
      "model__max_features": 1.0,
      "model__min_samples_leaf": 20
     },
-    "mae_kwh": 0.7839103186997682
+    "mae_kwh": 0.7839103186997681
    },
    {
     "params": {
@@ -243,6 +243,86 @@
      "estimator__model__min_samples_leaf": 100
     },
     "mae_kwh": 0.8575633688896953
+   }
+  ]
+ },
+ "hist_gradient_boosting_relative_absolute": {
+  "best_params": {
+   "estimator__model__learning_rate": 0.1,
+   "estimator__model__max_leaf_nodes": 15,
+   "estimator__model__min_samples_leaf": 100
+  },
+  "cv_mae_kwh": 0.8286025609424885,
+  "cv_mae_by_fold_kwh": [
+   0.967,
+   0.635,
+   0.63,
+   1.083
+  ],
+  "cv_results": [
+   {
+    "params": {
+     "estimator__model__learning_rate": 0.05,
+     "estimator__model__max_leaf_nodes": 15,
+     "estimator__model__min_samples_leaf": 20
+    },
+    "mae_kwh": 0.8362630210547417
+   },
+   {
+    "params": {
+     "estimator__model__learning_rate": 0.05,
+     "estimator__model__max_leaf_nodes": 15,
+     "estimator__model__min_samples_leaf": 100
+    },
+    "mae_kwh": 0.8294073332438594
+   },
+   {
+    "params": {
+     "estimator__model__learning_rate": 0.05,
+     "estimator__model__max_leaf_nodes": 31,
+     "estimator__model__min_samples_leaf": 20
+    },
+    "mae_kwh": 0.8387857431761508
+   },
+   {
+    "params": {
+     "estimator__model__learning_rate": 0.05,
+     "estimator__model__max_leaf_nodes": 31,
+     "estimator__model__min_samples_leaf": 100
+    },
+    "mae_kwh": 0.830601603939913
+   },
+   {
+    "params": {
+     "estimator__model__learning_rate": 0.1,
+     "estimator__model__max_leaf_nodes": 15,
+     "estimator__model__min_samples_leaf": 20
+    },
+    "mae_kwh": 0.8411573448378149
+   },
+   {
+    "params": {
+     "estimator__model__learning_rate": 0.1,
+     "estimator__model__max_leaf_nodes": 15,
+     "estimator__model__min_samples_leaf": 100
+    },
+    "mae_kwh": 0.8286025609424885
+   },
+   {
+    "params": {
+     "estimator__model__learning_rate": 0.1,
+     "estimator__model__max_leaf_nodes": 31,
+     "estimator__model__min_samples_leaf": 20
+    },
+    "mae_kwh": 0.8411030332365648
+   },
+   {
+    "params": {
+     "estimator__model__learning_rate": 0.1,
+     "estimator__model__max_leaf_nodes": 31,
+     "estimator__model__min_samples_leaf": 100
+    },
+    "mae_kwh": 0.8342012706937599
    }
   ]
  }

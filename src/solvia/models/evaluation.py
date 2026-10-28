@@ -163,6 +163,15 @@ def evaluate_consumption(track_name: str, cfg: dict) -> dict:
     for name, (factory, _) in cons.candidates(track, rs).items():
         models[name] = cm.point if name == cm.name else factory(track.features).set_params(
             **summary["tuning"][name]["best_params"]).fit(train[track.features], train[cons.TARGET])
+    # Phase 8 final model (ensemble refitted on train + validation): its validation score must come from the members
+    # fitted on train only; the train-only ensemble is also scored on test to show what refitting changed
+    final = summary.get("final_model")
+    valid_model, fit_data = cm.point, train
+    if final:
+        valid_model = cons.EnsembleRegressor([models[m] for m in final["members"]], final["members"])
+        if final["fit_on"] == "train_valid":
+            models[f"{cm.name} (members fitted on train only)"] = valid_model
+            fit_data = pd.concat([train, valid])
 
     subsets = {"valid": valid, "test": test}
     if track.meter_col:
@@ -176,14 +185,18 @@ def evaluate_consumption(track_name: str, cfg: dict) -> dict:
             p = np.clip(m.predict(d[track.features]), 0, None)
             preds[(name, sub)] = p
             rows.append(_cons_rows(name, "model", sub, d[cons.TARGET], p))
+        if final:
+            p = np.clip((valid_model if sub == "valid" else cm.point).predict(d[track.features]), 0, None)
+            preds[(cm.name, sub)] = p
+            rows.append(_cons_rows(cm.name, "ensemble", sub, d[cons.TARGET], p))
     table = pd.DataFrame(rows)
     bb = table[table["model"] == best_baseline].set_index("subset")["mae"]
     table["skill_vs_best_baseline_pct"] = (1 - table["mae"] / table["subset"].map(bb)) * 100
     table["selected"] = table["model"] == cm.name
 
-    p4 = summary["validation"][0]
+    p4 = next(r for r in summary["validation"] if r["model"] == summary["selected"])
     now = table[(table["model"] == cm.name) & (table["subset"] == "valid")]["mae"].iloc[0]
-    if p4["model"] != cm.name or not np.isclose(p4["mae"], now):
+    if summary["selected"] != cm.name or not np.isclose(p4["mae"], now):
         raise RuntimeError(f"{track.name}: saved model does not reproduce Phase 4 validation MAE ({now} vs {p4['mae']})")
 
     y = test[cons.TARGET].to_numpy()
@@ -197,10 +210,10 @@ def evaluate_consumption(track_name: str, cfg: dict) -> dict:
     interval["test_calibrated_by"] = groups
 
     out = {"track": track, "cm": cm, "table": table, "interval": interval, "best_baseline": best_baseline,
-           "valid": valid, "test": test, "train_rows": len(train),
+           "valid": valid, "test": test, "train_rows": len(train), "final": final,
            "pred": {s: preds[(cm.name, s)] for s in ("valid", "test")}}
     if track.meter_col:
-        seen = set(train[track.meter_col])
+        seen = set(fit_data[track.meter_col])                       # meters the saved model was fitted on
         out["breakdown"] = {"selected": cons.breakdown(test, out["pred"]["test"], track, seen),
                             "best_baseline": cons.breakdown(test, test[best_baseline].to_numpy(), track, seen)}
         e = test.assign(m=np.abs(y - out["pred"]["test"]), b=np.abs(y - test[best_baseline].to_numpy()))
@@ -208,7 +221,7 @@ def evaluate_consumption(track_name: str, cfg: dict) -> dict:
         out["share_meters_beating_baseline"] = {"test": float((e.groupby(track.meter_col)["m"].mean()
                                                                 < e.groupby(track.meter_col)["b"].mean()).mean()),
                                                 **{p: float((g["m"] < g["b"]).mean()) for p, g in per.groupby("period")}}
-    r = permutation_importance(cm.point, valid[track.features], valid[cons.TARGET], scoring="neg_mean_absolute_error",
+    r = permutation_importance(valid_model, valid[track.features], valid[cons.TARGET], scoring="neg_mean_absolute_error",
                                n_repeats=5, random_state=rs)
     out["importance"] = pd.Series(r.importances_mean, index=track.features).sort_values(ascending=False)
     return out
@@ -389,6 +402,19 @@ def _solar_pick(t: pd.DataFrame, **kw) -> pd.Series:
     return t[m].iloc[0]
 
 
+def _phase5_line(c: dict, sel: pd.DataFrame) -> list[str]:
+    """First (Phase 5) test result of this track, if the model has changed since and the archive exists."""
+    path = project_path(f"reports/archive_phase5/metrics/evaluation_consumption_{c['track'].name}.csv")
+    if not path.exists():
+        return []
+    old = pd.read_csv(path)
+    old = old[old["selected"]].set_index("subset")
+    if old["model"].iloc[0] == c["cm"].name:
+        return []
+    parts = [f"{s.replace('_', ' ')} {old.loc[s, 'mae']:.3f} → **{sel.loc[s, 'mae']:.3f}**" for s in old.index if s in sel.index]
+    return [f"**Change since the Phase 5 test run** (`{old['model'].iloc[0]}`, trained on train only): MAE " + ", ".join(parts) + ".", ""]
+
+
 def _cons_section(c: dict, title: str) -> list[str]:
     t, iv = c["table"], c["interval"]
     sel = t[t["selected"]].set_index("subset")
@@ -396,10 +422,12 @@ def _cons_section(c: dict, title: str) -> list[str]:
     order = ["valid", "test"] + [s for s in ("test_normal", "test_lockdown") if s in piv.columns]
     piv = piv[["model", "kind", *order]].sort_values("valid")
     lines = [f"## {title}", "",
-             f"Selected in Phase 4: `{c['cm'].name}`. Test MAE **{sel.loc['test', 'mae']:.3f} kWh/day** (validation "
+             (f"Final model (Phase 8): equal-weight ensemble of {', '.join(f'`{m}`' for m in c['final']['members'])}, "
+              f"refitted on {c['final']['fit_on'].replace('_', ' + ')}. " if c["final"] else f"Selected in Phase 4: `{c['cm'].name}`. ") +
+             f"Test MAE **{sel.loc['test', 'mae']:.3f} kWh/day** (validation "
              f"{sel.loc['valid', 'mae']:.3f}), R² {sel.loc['test', 'r2']:.3f}, MAPE {sel.loc['test', 'mape_pct']:.1f} %; "
              f"{sel.loc['test', 'skill_vs_best_baseline_pct']:+.1f} % vs the best validation baseline (`{c['best_baseline']}`).", "",
-             "MAE (kWh/day) of every baseline and model:", "",
+             *_phase5_line(c, sel), "MAE (kWh/day) of every baseline and model:", "",
              _md(piv, {k: "{:.3f}" for k in order}), ""]
     if "test_lockdown" in sel.index:
         lines += [f"Lockdown (from {load_config()['emarc']['lockdown_start']}): selected-model MAE "
@@ -434,8 +462,16 @@ def write_report(s: dict, india: dict, france: dict, figs: list[str], log_info: 
     v = _solar_pick(sel, split="valid", eval_set="healthy", plant="both", level="daily")
     te = _solar_pick(sel, split="test", eval_set="healthy", plant="both", level="daily")
     ti = _solar_pick(sel, split="test", eval_set="healthy", plant="both", level="interval")
-    lines = ["# Phase 5: test-set evaluation", "",
-             "*Generated by `python -m solvia.pipeline --steps evaluate`. The models were chosen on validation in Phase 4; "
+    archive = project_path("reports/archive_phase5")
+    lines = ["# Test-set evaluation", "",
+             *(["> **Second test run (Phase 8), approved by the project owner.** The India consumption model was changed on "
+                "validation evidence only (ensemble + refit on train + validation; `reports/improvement_experiments.md`) and "
+                "the test split was scored again. The first run (Phase 5) is kept unchanged in `reports/archive_phase5/`; "
+                "both are reported. The test split had been seen once before this decision, so the second India number "
+                "may be slightly optimistic. Solar and France models are unchanged (same file hashes).", ""]
+               if archive.exists() else []),
+             "*Generated by `python -m solvia.pipeline --steps evaluate`. The models were chosen on validation (Phase 4; India's "
+             "final model in Phase 8); "
              f"the test split was scored with them on {log_info['first_run_utc']} (UTC). Model file hashes are in "
              f"`reports/metrics/{LOG_FILE}`; a run with different model files is refused.*", "",
              "## B. Expected solar output (Kaggle plants, test days " + f"{s['test_days'][0]} … {s['test_days'][-1]})", "",
@@ -468,7 +504,9 @@ def _card(name: str, meta: dict, body: list[str]) -> None:
             f"- **Purpose:** {meta['objective']}",
             f"- **Model:** `{meta['model']}`" + (f", one per plant, trained on `{meta['training_set']}`" if "scope" in meta else "")
             + f"; hyperparameters {hp}",
-            f"- **Selected by:** {meta['selection']} (Phase 4); test split used once, afterwards (Phase 5)", ""]
+            f"- **Selected by:** {meta['selection']}" + ("; test split scored a second time for this model (Phase 8, approved "
+            "by the owner; first result in `reports/archive_phase5/`)" if meta.get("fit_on") == "train_valid"
+            else " (Phase 4); test split used once, afterwards (Phase 5)"), ""]
     project_path(f"reports/model_card_{name}.md").write_text("\n".join(head + body), encoding="utf-8")
 
 
@@ -511,9 +549,13 @@ def write_cards(s: dict, india: dict, france: dict) -> None:
                     "calendar and NASA POWER weather. Homes are never added together."]
             tun = json.loads((get_path("metrics") / "consumption_india_summary.json").read_text(encoding="utf-8"))["tuning"]
             f0 = {k: v["cv_mae_by_fold_kwh"][0] for k, v in tun.items()}
-            limits = [f"- `{c['cm'].name}` on the shortest-history CV fold: MAE {f0[c['cm'].name]:.2f} kWh vs "
-                      f"{min(v for k, v in f0.items() if k != c['cm'].name):.2f} for the best other model; a linear model extrapolates "
+            limits = [f"- Ridge (an ensemble member) on the shortest-history CV fold: MAE {f0['ridge']:.2f} kWh vs "
+                      f"{min(v for k, v in f0.items() if k != 'ridge'):.2f} for the best other model; a linear model extrapolates "
                       "when the season changes, so check a new deployment for a few weeks before relying on it.",
+                      *(["- The saved model is refitted on train + validation (Phase 8); its validation row comes from the "
+                         "members fitted on train only. The test split was scored a second time for this model, with the "
+                         "owner's approval; the first (Phase 5) result is kept in `reports/archive_phase5/`."]
+                        if c["final"] and c["final"]["fit_on"] == "train_valid" else []),
                       "- The 2020 lockdown changed behaviour; the model had never seen it (see test_lockdown row).",
                       f"- {c['test'][track_col].nunique() if (track_col := c['track'].meter_col) else 0} meters in the test split, "
                       "from 5 regions of two states; not representative of all Indian households.",

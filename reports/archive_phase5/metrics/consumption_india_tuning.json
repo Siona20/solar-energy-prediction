@@ -1,0 +1,249 @@
+{
+ "ridge": {
+  "best_params": {
+   "model__alpha": 1000.0
+  },
+  "cv_mae_kwh": 1.154447022740738,
+  "cv_mae_by_fold_kwh": [
+   2.284,
+   0.659,
+   0.636,
+   1.039
+  ],
+  "cv_results": [
+   {
+    "params": {
+     "model__alpha": 0.1
+    },
+    "mae_kwh": 1.3427290488145354
+   },
+   {
+    "params": {
+     "model__alpha": 1.0
+    },
+    "mae_kwh": 1.3438604490072463
+   },
+   {
+    "params": {
+     "model__alpha": 10.0
+    },
+    "mae_kwh": 1.3474240491259544
+   },
+   {
+    "params": {
+     "model__alpha": 100.0
+    },
+    "mae_kwh": 1.2873095238464352
+   },
+   {
+    "params": {
+     "model__alpha": 1000.0
+    },
+    "mae_kwh": 1.154447022740738
+   }
+  ]
+ },
+ "random_forest": {
+  "best_params": {
+   "model__max_features": 1.0,
+   "model__min_samples_leaf": 20
+  },
+  "cv_mae_kwh": 0.7839103186997682,
+  "cv_mae_by_fold_kwh": [
+   0.887,
+   0.613,
+   0.604,
+   1.032
+  ],
+  "cv_results": [
+   {
+    "params": {
+     "model__max_features": 1.0,
+     "model__min_samples_leaf": 5
+    },
+    "mae_kwh": 0.7857100926321638
+   },
+   {
+    "params": {
+     "model__max_features": 1.0,
+     "model__min_samples_leaf": 20
+    },
+    "mae_kwh": 0.7839103186997682
+   },
+   {
+    "params": {
+     "model__max_features": 0.33,
+     "model__min_samples_leaf": 5
+    },
+    "mae_kwh": 0.7930712671771998
+   },
+   {
+    "params": {
+     "model__max_features": 0.33,
+     "model__min_samples_leaf": 20
+    },
+    "mae_kwh": 0.8002139771532054
+   }
+  ]
+ },
+ "hist_gradient_boosting": {
+  "best_params": {
+   "model__learning_rate": 0.05,
+   "model__max_leaf_nodes": 15,
+   "model__min_samples_leaf": 20
+  },
+  "cv_mae_kwh": 0.8141490978512879,
+  "cv_mae_by_fold_kwh": [
+   0.95,
+   0.633,
+   0.614,
+   1.059
+  ],
+  "cv_results": [
+   {
+    "params": {
+     "model__learning_rate": 0.05,
+     "model__max_leaf_nodes": 15,
+     "model__min_samples_leaf": 20
+    },
+    "mae_kwh": 0.8141490978512879
+   },
+   {
+    "params": {
+     "model__learning_rate": 0.05,
+     "model__max_leaf_nodes": 15,
+     "model__min_samples_leaf": 100
+    },
+    "mae_kwh": 0.8462696964475143
+   },
+   {
+    "params": {
+     "model__learning_rate": 0.05,
+     "model__max_leaf_nodes": 31,
+     "model__min_samples_leaf": 20
+    },
+    "mae_kwh": 0.8228749704867865
+   },
+   {
+    "params": {
+     "model__learning_rate": 0.05,
+     "model__max_leaf_nodes": 31,
+     "model__min_samples_leaf": 100
+    },
+    "mae_kwh": 0.8529679571352015
+   },
+   {
+    "params": {
+     "model__learning_rate": 0.1,
+     "model__max_leaf_nodes": 15,
+     "model__min_samples_leaf": 20
+    },
+    "mae_kwh": 0.8419748371737557
+   },
+   {
+    "params": {
+     "model__learning_rate": 0.1,
+     "model__max_leaf_nodes": 15,
+     "model__min_samples_leaf": 100
+    },
+    "mae_kwh": 0.8626218188746042
+   },
+   {
+    "params": {
+     "model__learning_rate": 0.1,
+     "model__max_leaf_nodes": 31,
+     "model__min_samples_leaf": 20
+    },
+    "mae_kwh": 0.8401616549992553
+   },
+   {
+    "params": {
+     "model__learning_rate": 0.1,
+     "model__max_leaf_nodes": 31,
+     "model__min_samples_leaf": 100
+    },
+    "mae_kwh": 0.8705301042107803
+   }
+  ]
+ },
+ "hist_gradient_boosting_relative": {
+  "best_params": {
+   "estimator__model__learning_rate": 0.05,
+   "estimator__model__max_leaf_nodes": 15,
+   "estimator__model__min_samples_leaf": 100
+  },
+  "cv_mae_kwh": 0.8327022551749972,
+  "cv_mae_by_fold_kwh": [
+   0.983,
+   0.643,
+   0.625,
+   1.08
+  ],
+  "cv_results": [
+   {
+    "params": {
+     "estimator__model__learning_rate": 0.05,
+     "estimator__model__max_leaf_nodes": 15,
+     "estimator__model__min_samples_leaf": 20
+    },
+    "mae_kwh": 0.8567030117799044
+   },
+   {
+    "params": {
+     "estimator__model__learning_rate": 0.05,
+     "estimator__model__max_leaf_nodes": 15,
+     "estimator__model__min_samples_leaf": 100
+    },
+    "mae_kwh": 0.8327022551749972
+   },
+   {
+    "params": {
+     "estimator__model__learning_rate": 0.05,
+     "estimator__model__max_leaf_nodes": 31,
+     "estimator__model__min_samples_leaf": 20
+    },
+    "mae_kwh": 0.8705668632667629
+   },
+   {
+    "params": {
+     "estimator__model__learning_rate": 0.05,
+     "estimator__model__max_leaf_nodes": 31,
+     "estimator__model__min_samples_leaf": 100
+    },
+    "mae_kwh": 0.8368889428181617
+   },
+   {
+    "params": {
+     "estimator__model__learning_rate": 0.1,
+     "estimator__model__max_leaf_nodes": 15,
+     "estimator__model__min_samples_leaf": 20
+    },
+    "mae_kwh": 0.8720146764755846
+   },
+   {
+    "params": {
+     "estimator__model__learning_rate": 0.1,
+     "estimator__model__max_leaf_nodes": 15,
+     "estimator__model__min_samples_leaf": 100
+    },
+    "mae_kwh": 0.8435676113567948
+   },
+   {
+    "params": {
+     "estimator__model__learning_rate": 0.1,
+     "estimator__model__max_leaf_nodes": 31,
+     "estimator__model__min_samples_leaf": 20
+    },
+    "mae_kwh": 0.8830849119097012
+   },
+   {
+    "params": {
+     "estimator__model__learning_rate": 0.1,
+     "estimator__model__max_leaf_nodes": 31,
+     "estimator__model__min_samples_leaf": 100
+    },
+    "mae_kwh": 0.8575633688896953
+   }
+  ]
+ }
+}

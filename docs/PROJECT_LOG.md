@@ -369,3 +369,35 @@ Command: `streamlit run app/Home.py`. Code: `app/Home.py`, `app/pages/1_…7_*.p
   version 1, 11,233,523 bytes = our archive). Not an open licence: academic use with credit; the raw files are not
   redistributed (data/raw/ is excluded from git).
 - Prayas notice left to the owner (it is an email from them).
+
+## 2026-10-28 — Phase 8 (accuracy improvements, after the owner asked for higher accuracy)
+- **Rule kept:** every change was tried and chosen on train / validation only (`python -m solvia.pipeline --steps improve`,
+  `reports/improvement_experiments.md`); the test split was not used for any decision.
+- **Experiments (validation MAE; reference = Phase 4 selection):**
+  - India (Ridge 0.716): ensemble Ridge + RF + absolute-loss relative HGB **0.705 (−1.6 %)**; ensemble Ridge + RF 0.714;
+    absolute-loss relative HGB 0.715; absolute-loss HGB 0.730; wider HGB grid 0.745; ratio-target Ridge 0.777 (worse).
+  - India, more recent data (fit on train vs train + Jul–Sep 2019, scored on Oct–Dec 2019): Ridge 0.660 → 0.656, RF
+    0.679 → 0.653, absolute-loss relative HGB 0.655 → 0.648; meters never seen in fitting 26 → 3.
+  - France (Ridge 4.566): ensemble Ridge + RF 4.497 (−1.5 %); others no better; more recent data mixed (Ridge 4.074 → 4.024,
+    RF and HGB slightly worse).
+  - Solar (HGB 122.5 kWh): irradiation-monotonic HGB 120.7 but MAPE 1.96 → 1.99 % and Plant 1 slightly worse; wider grid
+    123.6; HGB + RF ensemble 128.6. Within noise on 5 validation days.
+- **Significance (day bootstrap, 2,000 resamples):** India 3-model ensemble gain 0.0113 kWh, 95 % CI [0.0078, 0.0146],
+  71 % of meters better → real. India Ridge + RF: CI [−0.0009, 0.0049]. France Ridge + RF: CI [−0.030, 0.176] → not shown.
+- **Adopted (India only):** `emarc.final_model` in config: equal-weight ensemble of ridge, random_forest and
+  hist_gradient_boosting_relative_absolute (new candidate: absolute-error loss on the ratio to the 30-day mean; members
+  fixed in advance), validation scored with members fitted on train only, saved model refitted on train + validation.
+  The best single model is now the absolute-loss relative HGB (0.715), so the quantile models use its settings; the
+  conformal adjustment (+0.09 kWh) comes from the train-only quantile models on validation.
+- Two bugs caught by the reproducibility check before any test number was written: the ensemble was first averaged after
+  clipping members (0.704843 vs 0.704833; fixed to mean-then-clip as the saved model does), and permutation importance
+  needs a `fit` method on the ensemble (added).
+- **Owner approved a second India test run.** Phase 5 report, metrics, cards, figures, India model and guard log copied /
+  moved to `reports/archive_phase5/` and `models/archive_phase5/` (nothing deleted).
+- **Second test run (06:00 UTC):** India MAE **0.711 → 0.679 kWh/day** (R² 0.909 → 0.913, MAPE 15.2 → 14.6 %); normal days
+  0.673 → 0.644, lockdown 0.748 → 0.712; same ensemble fitted on train only: 0.697 (so refitting on recent data gave
+  the larger part); beats the baseline on 86 % of meters (was 70 %); interval coverage 83.0 % (width 2.44 kWh). Solar
+  and France model files unchanged (same SHA-256), numbers unchanged. The second India number may be slightly
+  optimistic because the test split had been seen once (leakage check 9d).
+- Dashboard: India validation days marked in-sample (warning), "new meter" now means not in train + validation.
+- Tests: 68 pass.

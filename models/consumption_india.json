@@ -1,12 +1,12 @@
 {
   "name": "consumption_india",
-  "saved_utc": "2026-10-28T05:04:29+00:00",
+  "saved_utc": "2026-10-28T05:58:25+00:00",
   "python": "3.14.6",
   "scikit_learn": "1.9.1",
   "pandas": "3.1.0",
   "numpy": "2.5.4",
   "objective": "A: next-day consumption (kWh/day), Indian households (Prayas eMARC)",
-  "model": "ridge",
+  "model": "equal-weight ensemble of ridge, random_forest, hist_gradient_boosting_relative_absolute",
   "features": [
     "lag_1",
     "lag_2",
@@ -43,84 +43,96 @@
     "region"
   ],
   "target": "target_kwh",
-  "train_dates": "2018-01-25 to 2019-06-30",
-  "train_rows": 19896,
+  "fit_on": "train_valid",
+  "train_dates": "2018-01-25 to 2019-12-31",
+  "train_rows": 36604,
   "hyperparameters": {
-    "model__alpha": 1000.0
+    "ridge": {
+      "model__alpha": 1000.0
+    },
+    "random_forest": {
+      "model__max_features": 1.0,
+      "model__min_samples_leaf": 20
+    },
+    "hist_gradient_boosting_relative_absolute": {
+      "estimator__model__learning_rate": 0.1,
+      "estimator__model__max_leaf_nodes": 15,
+      "estimator__model__min_samples_leaf": 100
+    }
   },
-  "selection": "lowest validation MAE",
+  "selection": "ensemble with members fixed in advance (Phase 8), validation MAE with members fitted on train only; saved model refitted on train + validation",
   "validation_metrics": {
-    "model": "ridge",
-    "kind": "model",
+    "model": "ensemble",
+    "kind": "ensemble",
     "n": 16708,
-    "mae": 0.7160551382919637,
-    "rmse": 1.2081920170003848,
-    "r2": 0.8752549516446422,
-    "nmae": 0.14496437769876538,
-    "mape_pct": 15.917003558431203,
-    "skill_vs_best_baseline_pct": 6.118392400266936
+    "mae": 0.7048334298163011,
+    "rmse": 1.2061506119402374,
+    "r2": 0.8756761430315272,
+    "nmae": 0.14269255825512348,
+    "mape_pct": 15.726764939413112,
+    "skill_vs_best_baseline_pct": 7.589664618526182
   },
   "interval": {
-    "coverage_p10_p90": 0.7564041177878861,
+    "coverage_p10_p90": 0.7517356954752215,
     "target_coverage": 0.8,
-    "mean_width_kwh": 2.106788604219535,
-    "quantile_model": "hist_gradient_boosting",
-    "conformal_adjust_kwh": 0.081419896153748,
+    "mean_width_kwh": 2.0212951125608343,
+    "quantile_model": "hist_gradient_boosting_relative_absolute",
+    "conformal_adjust_kwh": 0.09234433663204422,
     "calibrated_coverage_valid": 0.8001556140770888,
-    "calibrated_mean_width_kwh": 2.2696235234185713
+    "calibrated_mean_width_kwh": 2.205978258871569
   },
   "test_metrics": {
     "test": [
       {
-        "model": "ridge",
-        "kind": "model",
+        "model": "ensemble",
+        "kind": "ensemble",
         "subset": "test",
         "n": 16052,
-        "mae": 0.7112352497758655,
-        "rmse": 1.2557661709017236,
-        "r2": 0.9086633153264357,
-        "nmae": 0.13691073151485944,
-        "mape_pct": 15.214579320152849,
-        "skill_vs_best_baseline_pct": 4.713240658649265
+        "mae": 0.678879874988782,
+        "rmse": 1.2286177680245838,
+        "r2": 0.912569841002734,
+        "nmae": 0.13068241531155958,
+        "mape_pct": 14.612459378728133,
+        "skill_vs_best_baseline_pct": 9.048007266051815
       },
       {
-        "model": "ridge",
-        "kind": "model",
+        "model": "ensemble",
+        "kind": "ensemble",
         "subset": "test_normal",
         "n": 7805,
-        "mae": 0.6725979234230359,
-        "rmse": 1.2783099303259469,
-        "r2": 0.8999998806290614,
-        "nmae": 0.154616011373453,
-        "mape_pct": 15.975024801533488,
-        "skill_vs_best_baseline_pct": 3.1170793198701863
+        "mae": 0.6436546113159505,
+        "rmse": 1.25922744468375,
+        "r2": 0.9029631803832036,
+        "nmae": 0.14796255718025608,
+        "mape_pct": 15.601736866172903,
+        "skill_vs_best_baseline_pct": 7.286156436284852
       },
       {
-        "model": "ridge",
-        "kind": "model",
+        "model": "ensemble",
+        "kind": "ensemble",
         "subset": "test_lockdown",
         "n": 8247,
-        "mae": 0.7478017990888075,
-        "rmse": 1.2340513935479405,
-        "r2": 0.9094901328286581,
-        "nmae": 0.12475063493558028,
-        "mape_pct": 14.54732894015572,
-        "skill_vs_best_baseline_pct": 6.031071803719268
+        "mae": 0.7122172319630092,
+        "rmse": 1.198929053350984,
+        "r2": 0.9145688204106275,
+        "nmae": 0.11881430615399638,
+        "mape_pct": 13.744421109605046,
+        "skill_vs_best_baseline_pct": 10.502635842765873
       }
     ],
     "interval_test": {
-      "conformal_adjust_kwh": 0.081419896153748,
+      "conformal_adjust_kwh": 0.09234433663204422,
       "test_raw": {
-        "coverage": 0.7721779217542986,
-        "mean_width_kwh": 2.402212041399049,
+        "coverage": 0.7865686518813855,
+        "mean_width_kwh": 2.256304931108311,
         "n": 16052
       },
       "test_calibrated": {
-        "coverage": 0.8124844256167456,
-        "mean_width_kwh": 2.565016634257113,
+        "coverage": 0.8300523299277348,
+        "mean_width_kwh": 2.4409763458993186,
         "n": 16052
       }
     },
-    "scored_utc": "2026-10-28T05:05:00+00:00"
+    "scored_utc": "2026-10-28T06:01:52+00:00"
   }
 }

@@ -235,17 +235,24 @@ def step_evaluate() -> None:
     run_evaluation()
 
 
+def step_improve() -> None:
+    """Phase 8 experiments: more accurate candidates, compared on validation only (not in the default run)."""
+    from solvia.models.improve import run_improvement_experiments
+    run_improvement_experiments()
+
+
 STEPS = {"clean": step_clean, "eda": step_eda, "features": step_features, "model_solar": step_model_solar,
          "monitor": step_monitor, "maintenance": step_maintenance,
          "energy_balance": step_energy_balance,
          "model_consumption_india": step_model_consumption_india, "model_consumption_france": step_model_consumption_france,
-         "evaluate": step_evaluate}
+         "evaluate": step_evaluate, "improve": step_improve}
+DEFAULT_STEPS = [s for s in STEPS if s != "improve"]
 
 
 def main() -> None:
     logging.basicConfig(level=logging.INFO, format="%(asctime)s %(levelname)s %(name)s: %(message)s")
     parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
-    parser.add_argument("--steps", nargs="+", choices=list(STEPS), default=list(STEPS))
+    parser.add_argument("--steps", nargs="+", choices=list(STEPS), default=DEFAULT_STEPS)
     for name in parser.parse_args().steps:
         log.info("=== step: %s ===", name)
         STEPS[name]()

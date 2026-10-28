@@ -4,14 +4,18 @@
 
 Training rows 19,896, validation rows 16,708. Target: kWh on the next day. 29 features (all from the past or the calendar).
 
-## Selected: `ridge`
+## Selected: `ensemble`
 
-Validation MAE **0.716 kWh/day** (RMSE 1.208, R² 0.875, MAPE 15.9 % on days ≥ 1 kWh), **6.1 % lower MAE than the best baseline** (`baseline_mean_7d`).
+Validation MAE **0.705 kWh/day** (RMSE 1.206, R² 0.876, MAPE 15.7 % on days ≥ 1 kWh), **7.6 % lower MAE than the best baseline** (`baseline_mean_7d`).
+
+Final model (Phase 8): equal-weight ensemble of `ridge`, `random_forest`, `hist_gradient_boosting_relative_absolute`, members fixed in advance. Its validation score above uses members fitted on the training split only; the saved model is then refitted on train + valid. Best single model: `hist_gradient_boosting_relative_absolute`.
 
 ## All baselines and models (validation)
 
 | model | kind | mae | rmse | r2 | nmae | mape_pct | skill_vs_best_baseline_pct |
 |---|---|---|---|---|---|---|---|
+| ensemble | ensemble | 0.705 | 1.206 | 0.876 | 0.143 | 15.7 | +7.6 % |
+| hist_gradient_boosting_relative_absolute | model | 0.715 | 1.232 | 0.870 | 0.145 | 16.1 | +6.2 % |
 | ridge | model | 0.716 | 1.208 | 0.875 | 0.145 | 15.9 | +6.1 % |
 | hist_gradient_boosting_relative | model | 0.726 | 1.242 | 0.868 | 0.147 | 16.4 | +4.8 % |
 | random_forest | model | 0.733 | 1.254 | 0.866 | 0.148 | 16.5 | +3.9 % |
@@ -24,42 +28,42 @@ Validation MAE **0.716 kWh/day** (RMSE 1.208, R² 0.875, MAPE 15.9 % on days ≥
 
 ## Per household (validation)
 
-Median per-meter MAE 0.579 kWh/day over 107 meters (best baseline 0.633); the model beats the best baseline for 78% of meters.
+Median per-meter MAE 0.563 kWh/day over 107 meters (best baseline 0.633); the model beats the best baseline for 87% of meters.
 
 **Meters seen in training vs new meters**
 
 | group | rows | meters | mean_kwh | mae | baseline_mae |
 |---|---|---|---|---|---|
-| new meter | 3668 | 26 | 5.65 | 0.852 | 0.899 |
-| seen in training | 13040 | 81 | 4.74 | 0.678 | 0.724 |
+| new meter | 3668 | 26 | 5.65 | 0.853 | 0.899 |
+| seen in training | 13040 | 81 | 4.74 | 0.663 | 0.724 |
 
 **By household type**
 
 | group | rows | meters | mean_kwh | mae | baseline_mae |
 |---|---|---|---|---|---|
-| Basic | 10193 | 68 | 4.64 | 0.699 | 0.752 |
-| Water Heaters but no AC | 3216 | 19 | 5.43 | 0.794 | 0.841 |
-| With Air Conditioners | 3299 | 20 | 5.38 | 0.692 | 0.720 |
+| Basic | 10193 | 68 | 4.64 | 0.696 | 0.752 |
+| Water Heaters but no AC | 3216 | 19 | 5.43 | 0.769 | 0.841 |
+| With Air Conditioners | 3299 | 20 | 5.38 | 0.670 | 0.720 |
 
 **By region**
 
 | group | rows | meters | mean_kwh | mae | baseline_mae |
 |---|---|---|---|---|---|
-| Aurangabad | 3472 | 23 | 5.91 | 0.878 | 0.930 |
-| Gonda | 1778 | 11 | 6.52 | 1.272 | 1.402 |
-| Kanpur rural | 863 | 8 | 4.28 | 0.650 | 0.714 |
-| Pune | 4057 | 25 | 4.04 | 0.589 | 0.617 |
-| Pune city | 6538 | 40 | 4.64 | 0.567 | 0.597 |
+| Aurangabad | 3472 | 23 | 5.91 | 0.877 | 0.930 |
+| Gonda | 1778 | 11 | 6.52 | 1.271 | 1.402 |
+| Kanpur rural | 863 | 8 | 4.28 | 0.657 | 0.714 |
+| Pune | 4057 | 25 | 4.04 | 0.577 | 0.617 |
+| Pune city | 6538 | 40 | 4.64 | 0.545 | 0.597 |
 
 ## Prediction interval (10th–90th percentile)
 
-Quantile HistGradientBoosting (`hist_gradient_boosting` settings): 75.6% of validation days fall inside the interval (target 80 %), mean width 2.11 kWh.
+Quantile HistGradientBoosting (`hist_gradient_boosting_relative_absolute` settings): 75.2% of validation days fall inside the interval (target 80 %), mean width 2.02 kWh.
 
-**Conformal adjustment** (computed on validation): each end is moved out by +0.08 kWh, giving 80.0% coverage on validation (80 % by construction, so not evidence) and a mean width of 2.27 kWh. The honest check is the test coverage in Phase 5.
+**Conformal adjustment** (computed on validation): each end is moved out by +0.09 kWh, giving 80.0% coverage on validation (80 % by construction, so not evidence) and a mean width of 2.21 kWh. The honest check is the test coverage in Phase 5.
 
 ## Experiment: target-day weather as a stand-in for a forecast (labelled)
 
-Adding `t2m_max_target_day`, `cdd_target_day`, `rh2m_target_day` changes validation MAE from 0.716 to 0.714 kWh/day. EXPERIMENT ONLY: uses the observed weather of the target day as a stand-in for a weather forecast; a real forecast is less accurate, so this is an upper bound on what forecasts could add.
+Adding `t2m_max_target_day`, `cdd_target_day`, `rh2m_target_day` changes validation MAE from 0.715 to 0.720 kWh/day. EXPERIMENT ONLY: uses the observed weather of the target day as a stand-in for a weather forecast; a real forecast is less accurate, so this is an upper bound on what forecasts could add.
 
 ## Tuning (expanding-window CV over whole training days)
 
@@ -69,6 +73,7 @@ Adding `t2m_max_target_day`, `cdd_target_day`, `rh2m_target_day` changes validat
 | random_forest | {'model__max_features': 1.0, 'model__min_samples_leaf': 20} | 0.784 | [0.887, 0.613, 0.604, 1.032] |
 | hist_gradient_boosting | {'model__learning_rate': 0.05, 'model__max_leaf_nodes': 15, 'model__min_samples_leaf': 20} | 0.814 | [0.95, 0.633, 0.614, 1.059] |
 | hist_gradient_boosting_relative | {'estimator__model__learning_rate': 0.05, 'estimator__model__max_leaf_nodes': 15, 'estimator__model__min_samples_leaf': 100} | 0.833 | [0.983, 0.643, 0.625, 1.08] |
+| hist_gradient_boosting_relative_absolute | {'estimator__model__learning_rate': 0.1, 'estimator__model__max_leaf_nodes': 15, 'estimator__model__min_samples_leaf': 100} | 0.829 | [0.967, 0.635, 0.63, 1.083] |
 
 The first fold trains on the shortest history; a model that is much worse there than on later folds is sensitive to how much history it has seen (linear models extrapolate when the season changes).
 

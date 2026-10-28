@@ -1,0 +1,11 @@
+{
+ "first_run_utc": "2026-10-28T03:52:48+00:00",
+ "last_run_utc": "2026-10-28T05:05:00+00:00",
+ "runs": 4,
+ "model_sha256": {
+  "solar_expected_output": "a34efc14faa1284317f7ee1faa49977f554ef929edf80de6c43f71fcdb532c9e",
+  "consumption_india": "b9bc39d21feb4df695a6e837cbd96fe7545940e98c993b71a5ae57ebb3ee2ad7",
+  "consumption_france": "114c65dc86b3dbcdc779fb43cad3e5474b3f93d3c128706d86da39edd155da12"
+ },
+ "note": "Models were chosen on validation before this run. Re-runs use identical model files."
+}

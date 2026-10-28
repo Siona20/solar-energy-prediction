@@ -16,4 +16,4 @@ data/processed/**
 !data/processed/.gitkeep
 
 # Large model files
-models/*.joblib
+models/**/*.joblib

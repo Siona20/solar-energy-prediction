@@ -1,0 +1,7 @@
+model,fitted_on,rows,mae_second_half_valid
+ridge,train only,19896,0.659943545401533
+ridge,train + first half of validation,28127,0.6563108178486142
+random_forest,train only,19896,0.6785680620632151
+random_forest,train + first half of validation,28127,0.6530961743398306
+hgb_relative_absolute_loss,train only,19896,0.6549762519762219
+hgb_relative_absolute_loss,train + first half of validation,28127,0.6484653675320966

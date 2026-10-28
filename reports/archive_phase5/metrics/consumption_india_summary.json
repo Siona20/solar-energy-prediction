@@ -1,0 +1,305 @@
+{
+ "track": "india",
+ "selected": "ridge",
+ "best_baseline": "baseline_mean_7d",
+ "rows": {
+  "train": 19896,
+  "valid": 16708
+ },
+ "validation": [
+  {
+   "model": "ridge",
+   "kind": "model",
+   "n": 16708,
+   "mae": 0.7160551382919637,
+   "rmse": 1.2081920170003848,
+   "r2": 0.8752549516446422,
+   "nmae": 0.14496437769876538,
+   "mape_pct": 15.917003558431203,
+   "skill_vs_best_baseline_pct": 6.118392400266936
+  },
+  {
+   "model": "hist_gradient_boosting_relative",
+   "kind": "model",
+   "n": 16708,
+   "mae": 0.7262701938109404,
+   "rmse": 1.2415522421470435,
+   "r2": 0.8682710017711802,
+   "nmae": 0.1470324016361385,
+   "mape_pct": 16.37429319069389,
+   "skill_vs_best_baseline_pct": 4.779101914719108
+  },
+  {
+   "model": "random_forest",
+   "kind": "model",
+   "n": 16708,
+   "mae": 0.7326990112612263,
+   "rmse": 1.253783768610567,
+   "r2": 0.8656626804867559,
+   "nmae": 0.1483339068850816,
+   "mape_pct": 16.49634042053909,
+   "skill_vs_best_baseline_pct": 3.936223084692525
+  },
+  {
+   "model": "hist_gradient_boosting",
+   "kind": "model",
+   "n": 16708,
+   "mae": 0.74870058989205,
+   "rmse": 1.2456640605976617,
+   "r2": 0.8673970270351781,
+   "nmae": 0.15157340446615952,
+   "mape_pct": 16.96975165269916,
+   "skill_vs_best_baseline_pct": 1.8382646375558198
+  },
+  {
+   "model": "baseline_mean_7d",
+   "kind": "baseline",
+   "n": 16708,
+   "mae": 0.7627214281895186,
+   "rmse": 1.290599413759205,
+   "r2": 0.8576575885564737,
+   "nmae": 0.154411903891575,
+   "mape_pct": 17.463944243734883,
+   "skill_vs_best_baseline_pct": 0.0
+  },
+  {
+   "model": "baseline_yesterday",
+   "kind": "baseline",
+   "n": 16708,
+   "mae": 0.7980062414711516,
+   "rmse": 1.3686522546293107,
+   "r2": 0.8399197970019116,
+   "nmae": 0.16155526580053384,
+   "mape_pct": 17.531879373789092,
+   "skill_vs_best_baseline_pct": -4.626173066277817
+  },
+  {
+   "model": "baseline_last_week",
+   "kind": "baseline",
+   "n": 16708,
+   "mae": 1.0601617494513604,
+   "rmse": 1.7737044902506809,
+   "r2": 0.7311475967548311,
+   "nmae": 0.21462828775426962,
+   "mape_pct": 24.1188804066646,
+   "skill_vs_best_baseline_pct": -38.99724201637807
+  }
+ ],
+ "tuning": {
+  "ridge": {
+   "best_params": {
+    "model__alpha": 1000.0
+   },
+   "cv_mae_kwh": 1.154447022740738,
+   "cv_mae_by_fold_kwh": [
+    2.284,
+    0.659,
+    0.636,
+    1.039
+   ]
+  },
+  "random_forest": {
+   "best_params": {
+    "model__max_features": 1.0,
+    "model__min_samples_leaf": 20
+   },
+   "cv_mae_kwh": 0.7839103186997682,
+   "cv_mae_by_fold_kwh": [
+    0.887,
+    0.613,
+    0.604,
+    1.032
+   ]
+  },
+  "hist_gradient_boosting": {
+   "best_params": {
+    "model__learning_rate": 0.05,
+    "model__max_leaf_nodes": 15,
+    "model__min_samples_leaf": 20
+   },
+   "cv_mae_kwh": 0.8141490978512879,
+   "cv_mae_by_fold_kwh": [
+    0.95,
+    0.633,
+    0.614,
+    1.059
+   ]
+  },
+  "hist_gradient_boosting_relative": {
+   "best_params": {
+    "estimator__model__learning_rate": 0.05,
+    "estimator__model__max_leaf_nodes": 15,
+    "estimator__model__min_samples_leaf": 100
+   },
+   "cv_mae_kwh": 0.8327022551749972,
+   "cv_mae_by_fold_kwh": [
+    0.983,
+    0.643,
+    0.625,
+    1.08
+   ]
+  }
+ },
+ "interval": {
+  "coverage_p10_p90": 0.7564041177878861,
+  "target_coverage": 0.8,
+  "mean_width_kwh": 2.106788604219535,
+  "quantile_model": "hist_gradient_boosting",
+  "conformal_adjust_kwh": 0.081419896153748,
+  "calibrated_coverage_valid": 0.8001556140770888,
+  "calibrated_mean_width_kwh": 2.2696235234185713
+ },
+ "forecast_proxy_experiment": {
+  "features_added": [
+   "t2m_max_target_day",
+   "cdd_target_day",
+   "rh2m_target_day"
+  ],
+  "valid_mae_without": 0.7160551382919637,
+  "valid_mae_with_forecast_proxy": 0.7138879067356029,
+  "note": "EXPERIMENT ONLY: uses the observed weather of the target day as a stand-in for a weather forecast; a real forecast is less accurate, so this is an upper bound on what forecasts could add."
+ },
+ "breakdown_selected": {
+  "meters": 107,
+  "per_meter_mae_median": 0.5791964056224148,
+  "per_meter_mae_p90": 1.271736604133463,
+  "by_meter_group": {
+   "new meter": {
+    "rows": 3668,
+    "meters": 26,
+    "mae": 0.8516098531679889,
+    "mean_kwh": 5.6549073064340245
+   },
+   "seen in training": {
+    "rows": 13040,
+    "meters": 81,
+    "mae": 0.6779251770829712,
+    "mean_kwh": 4.738296035621166
+   }
+  },
+  "by_household_type": {
+   "Basic": {
+    "rows": 10193,
+    "meters": 68,
+    "mae": 0.6992501204811101,
+    "mean_kwh": 4.640917152506622
+   },
+   "Water Heaters but no AC": {
+    "rows": 3216,
+    "meters": 19,
+    "mae": 0.7938499905648255,
+    "mean_kwh": 5.434624496268656
+   },
+   "With Air Conditioners": {
+    "rows": 3299,
+    "meters": 20,
+    "mae": 0.692140407051135,
+    "mean_kwh": 5.3794966320097
+   }
+  },
+  "by_region": {
+   "Aurangabad": {
+    "rows": 3472,
+    "meters": 23,
+    "mae": 0.8779351289569477,
+    "mean_kwh": 5.905040322580645
+   },
+   "Gonda": {
+    "rows": 1778,
+    "meters": 11,
+    "mae": 1.2719072311245392,
+    "mean_kwh": 6.523402709223847
+   },
+   "Kanpur rural": {
+    "rows": 863,
+    "meters": 8,
+    "mae": 0.650140873064478,
+    "mean_kwh": 4.280433961181923
+   },
+   "Pune": {
+    "rows": 4057,
+    "meters": 25,
+    "mae": 0.5887660159613004,
+    "mean_kwh": 4.042790218141484
+   },
+   "Pune city": {
+    "rows": 6538,
+    "meters": 40,
+    "mae": 0.5666124389254412,
+    "mean_kwh": 4.639500743958397
+   }
+  }
+ },
+ "breakdown_best_baseline": {
+  "meters": 107,
+  "per_meter_mae_median": 0.6330079858030169,
+  "per_meter_mae_p90": 1.3144909778337517,
+  "by_meter_group": {
+   "new meter": {
+    "rows": 3668,
+    "meters": 26,
+    "mae": 0.899152905436984,
+    "mean_kwh": 5.6549073064340245
+   },
+   "seen in training": {
+    "rows": 13040,
+    "meters": 81,
+    "mae": 0.7243448439453697,
+    "mean_kwh": 4.738296035621166
+   }
+  },
+  "by_household_type": {
+   "Basic": {
+    "rows": 10193,
+    "meters": 68,
+    "mae": 0.7517631622028188,
+    "mean_kwh": 4.640917152506622
+   },
+   "Water Heaters but no AC": {
+    "rows": 3216,
+    "meters": 19,
+    "mae": 0.8408175371357499,
+    "mean_kwh": 5.434624496268656
+   },
+   "With Air Conditioners": {
+    "rows": 3299,
+    "meters": 20,
+    "mae": 0.7204481692720739,
+    "mean_kwh": 5.3794966320097
+   }
+  },
+  "by_region": {
+   "Aurangabad": {
+    "rows": 3472,
+    "meters": 23,
+    "mae": 0.9302234200131666,
+    "mean_kwh": 5.905040322580645
+   },
+   "Gonda": {
+    "rows": 1778,
+    "meters": 11,
+    "mae": 1.4023280765306123,
+    "mean_kwh": 6.523402709223847
+   },
+   "Kanpur rural": {
+    "rows": 863,
+    "meters": 8,
+    "mae": 0.7142178532527728,
+    "mean_kwh": 4.280433961181923
+   },
+   "Pune": {
+    "rows": 4057,
+    "meters": 25,
+    "mae": 0.617042454464359,
+    "mean_kwh": 4.042790218141484
+   },
+   "Pune city": {
+    "rows": 6538,
+    "meters": 40,
+    "mae": 0.5966294497880522,
+    "mean_kwh": 4.639500743958397
+   }
+  }
+ },
+ "share_of_meters_where_model_beats_baseline": 0.7757009345794392
+}

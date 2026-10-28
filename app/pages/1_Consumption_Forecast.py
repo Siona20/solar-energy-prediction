@@ -13,8 +13,10 @@ track = st.radio("Households", ["India (Prayas eMARC)", "France (UCI, one home)"
 key = "india" if track.startswith("India") else "france"
 r = C.consumption(key)
 model, baseline = r.attrs["model"], r.attrs["baseline"]
+in_sample = r.attrs["in_sample_splits"]
 split = st.segmented_control("Days", ["Test", "Validation", "Both"], default="Test",
-                             help="Both splits are out-of-sample. Test was scored once in Phase 5.") or "Test"
+                             help="Test days are always out-of-sample." + (" This model was refitted on the validation days too."
+                                                                          if in_sample else " Validation days are out-of-sample too.")) or "Test"
 
 if key == "india":
     m = C.meters()
@@ -31,12 +33,15 @@ if key == "india":
     st.caption("Each meter is its own series: the forecast for this home uses only this home's own history, its type and "
                "region, the calendar and yesterday's weather. Homes are never added together."
                + ("" if mm.set_index("deployment_id").loc[meter, "seen_in_training"]
-                  else " **This meter was not in the training data**: the model has never seen this home."))
+                  else " **The saved model was never fitted on this meter**: it has never seen this home."))
 
 sel = r if split == "Both" else r[r["split"] == ("test" if split == "Test" else "valid")]
 if sel.empty:
     st.warning("This meter has no days in the chosen split.")
     st.stop()
+if in_sample and split != "Test":
+    st.warning("The saved model was refitted on the validation days (Jul–Dec 2019), so its forecasts on those days are "
+               "in-sample and look better than they would on new data. Use **Test** for an honest view.", icon="⚠️")
 show_base = st.toggle(f"Show the best simple baseline ({baseline.replace('_', ' ')})", value=False)
 
 g = sel.set_index("date")[["actual_kwh", "forecast_kwh", "low_kwh", "high_kwh", "baseline_kwh"]].asfreq("D").reset_index()

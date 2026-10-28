@@ -61,6 +61,12 @@ emarc:                          # Indian households (each meter is its own serie
     Gonda: gonda
   lockdown_start: "2020-03-25"  # national COVID-19 lockdown; reported separately, not a feature
   cv_splits: 4                  # expanding-window CV folds over training days (tuning only)
+  # Phase 8 (reports/improvement_experiments.md): equal-weight ensemble with members fixed in advance beat Ridge on
+  # validation (0.716 -> 0.705 kWh/day, day-bootstrap 95 % CI of the gain 0.008-0.015, 71 % of meters better);
+  # refitting on train + validation helped every model on later validation days and cut unseen meters 26 -> 3.
+  final_model:
+    ensemble: [ridge, random_forest, hist_gradient_boosting_relative_absolute]
+    fit_on: train_valid         # validation metrics still come from the members fitted on train only
   split:
     train_end: "2019-06-30"
     valid_end: "2019-12-31"     # test = 2020-01-01 .. 2020-06-30

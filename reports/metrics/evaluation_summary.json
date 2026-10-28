@@ -1,44 +1,44 @@
 {
  "solar_selected": "hist_gradient_boosting",
  "india_interval": {
-  "conformal_adjust_kwh": 0.081419896153748,
+  "conformal_adjust_kwh": 0.09234433663204422,
   "test_raw": {
-   "coverage": 0.7721779217542986,
-   "mean_width_kwh": 2.402212041399049,
+   "coverage": 0.7865686518813855,
+   "mean_width_kwh": 2.256304931108311,
    "n": 16052
   },
   "test_calibrated": {
-   "coverage": 0.8124844256167456,
-   "mean_width_kwh": 2.565016634257113,
+   "coverage": 0.8300523299277348,
+   "mean_width_kwh": 2.4409763458993186,
    "n": 16052
   },
   "test_calibrated_by": {
    "period": {
     "lockdown": {
-     "coverage": 0.8352128046562386,
-     "mean_width_kwh": 2.892965620934203,
+     "coverage": 0.8389717473020493,
+     "mean_width_kwh": 2.757150422058765,
      "n": 8247
     },
     "normal": {
-     "coverage": 0.788468930172966,
-     "mean_width_kwh": 2.2184957767137483,
+     "coverage": 0.820627802690583,
+     "mean_width_kwh": 2.1068972163558266,
      "n": 7805
     }
    },
    "household_type": {
     "Basic": {
-     "coverage": 0.8018384131591679,
-     "mean_width_kwh": 2.4596148518581007,
+     "coverage": 0.8308659893565554,
+     "mean_width_kwh": 2.3271850404126186,
      "n": 10335
     },
     "Water Heaters but no AC": {
-     "coverage": 0.8385016886705557,
-     "mean_width_kwh": 2.8905331717286806,
+     "coverage": 0.8348173165489714,
+     "mean_width_kwh": 2.660497701854038,
      "n": 3257
     },
     "With Air Conditioners": {
-     "coverage": 0.8227642276422764,
-     "mean_width_kwh": 2.5768540564314617,
+     "coverage": 0.8203252032520325,
+     "mean_width_kwh": 2.6283958929970925,
      "n": 2460
     }
    }
@@ -61,39 +61,39 @@
  "india_breakdown_test": {
   "selected": {
    "meters": 104,
-   "per_meter_mae_median": 0.5388578996294144,
-   "per_meter_mae_p90": 1.5132815735147949,
+   "per_meter_mae_median": 0.5058243967926974,
+   "per_meter_mae_p90": 1.3924134733002045,
    "by_meter_group": {
     "new meter": {
-     "rows": 4088,
-     "meters": 28,
-     "mae": 0.897340512071692,
-     "mean_kwh": 6.094405613747554
+     "rows": 184,
+     "meters": 2,
+     "mae": 0.8455986525593219,
+     "mean_kwh": 3.1213595054347825
     },
     "seen in training": {
-     "rows": 11964,
-     "meters": 76,
-     "mae": 0.6476446185266731,
-     "mean_kwh": 4.88752372872785
+     "rows": 15868,
+     "meters": 102,
+     "mae": 0.6769466600232553,
+     "mean_kwh": 5.218927016038569
     }
    },
    "by_household_type": {
     "Basic": {
      "rows": 10335,
      "meters": 67,
-     "mae": 0.6790857873565519,
+     "mae": 0.6467450100015504,
      "mean_kwh": 4.844394532801161
     },
     "Water Heaters but no AC": {
      "rows": 3257,
      "meters": 20,
-     "mae": 0.7425419432388527,
+     "mae": 0.6986136168624106,
      "mean_kwh": 5.883951957015658
     },
     "With Air Conditioners": {
      "rows": 2460,
      "meters": 17,
-     "mae": 0.8048526455054006,
+     "mae": 0.7877583434280633,
      "mean_kwh": 5.7550467556910565
     }
    },
@@ -101,31 +101,31 @@
     "Aurangabad": {
      "rows": 3373,
      "meters": 23,
-     "mae": 0.9719553373337189,
+     "mae": 0.9157111619461894,
      "mean_kwh": 6.983012155351318
     },
     "Gonda": {
      "rows": 1897,
      "meters": 11,
-     "mae": 0.9996046711339008,
+     "mae": 0.9626293580606953,
      "mean_kwh": 5.792651779388509
     },
     "Kanpur rural": {
      "rows": 1534,
      "meters": 10,
-     "mae": 0.5431124145741318,
+     "mae": 0.5087363162484736,
      "mean_kwh": 3.2900560052151238
     },
     "Pune": {
      "rows": 3532,
      "meters": 23,
-     "mae": 0.6282996071082237,
+     "mae": 0.6051312580336355,
      "mean_kwh": 4.232868138448471
     },
     "Pune city": {
      "rows": 5716,
      "meters": 37,
-     "mae": 0.558048313361019,
+     "mae": 0.5361884183580011,
      "mean_kwh": 5.046967711161652
     }
    }
@@ -136,16 +136,16 @@
    "per_meter_mae_p90": 1.4620606948680186,
    "by_meter_group": {
     "new meter": {
-     "rows": 4088,
-     "meters": 28,
-     "mae": 0.9122116069797783,
-     "mean_kwh": 6.094405613747554
+     "rows": 184,
+     "meters": 2,
+     "mae": 0.959715847826087,
+     "mean_kwh": 3.1213595054347825
     },
     "seen in training": {
-     "rows": 11964,
-     "meters": 76,
-     "mae": 0.689764492328175,
-     "mean_kwh": 4.88752372872785
+     "rows": 15868,
+     "meters": 102,
+     "mae": 0.7439422560844228,
+     "mean_kwh": 5.218927016038569
     }
    },
    "by_household_type": {
@@ -203,9 +203,9 @@
   }
  },
  "india_share_meters_beating_baseline": {
-  "test": 0.7019230769230769,
-  "lockdown": 0.6288659793814433,
-  "normal": 0.6019417475728155
+  "test": 0.8557692307692307,
+  "lockdown": 0.8247422680412371,
+  "normal": 0.7669902912621359
  },
  "importance_top": {
   "solar_Plant 1": {
@@ -223,11 +223,11 @@
    "ambient_temp_c": 3.734
   },
   "india": {
-   "lag_1": 0.803,
-   "lag_2": 0.224,
-   "roll_mean_7": 0.168,
-   "roll_mean_30": 0.16,
-   "same_weekday_mean_4w": 0.051
+   "lag_1": 0.805,
+   "roll_mean_30": 0.617,
+   "roll_mean_7": 0.14,
+   "lag_2": 0.057,
+   "trend_7_vs_30": 0.032
   },
   "france": {
    "is_weekend": 0.181,

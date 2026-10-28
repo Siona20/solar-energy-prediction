@@ -1,0 +1,126 @@
+{
+  "name": "consumption_india",
+  "saved_utc": "2026-10-28T05:04:29+00:00",
+  "python": "3.14.6",
+  "scikit_learn": "1.9.1",
+  "pandas": "3.1.0",
+  "numpy": "2.5.4",
+  "objective": "A: next-day consumption (kWh/day), Indian households (Prayas eMARC)",
+  "model": "ridge",
+  "features": [
+    "lag_1",
+    "lag_2",
+    "lag_7",
+    "lag_14",
+    "roll_mean_7",
+    "roll_std_7",
+    "roll_mean_30",
+    "roll_std_30",
+    "same_weekday_mean_4w",
+    "trend_7_vs_30",
+    "peak_kw_lag_1",
+    "base_kw_lag_1",
+    "peak_kw_mean_7d",
+    "evening_share_mean_7d",
+    "day_of_week",
+    "month",
+    "is_weekend",
+    "is_holiday",
+    "doy_sin",
+    "doy_cos",
+    "t2m_lag_1",
+    "t2m_max_lag_1",
+    "t2m_mean_3d",
+    "cdd_lag_1",
+    "cdd_sum_7d",
+    "rh2m_lag_1",
+    "precip_lag_1",
+    "household_type",
+    "region"
+  ],
+  "categorical": [
+    "household_type",
+    "region"
+  ],
+  "target": "target_kwh",
+  "train_dates": "2018-01-25 to 2019-06-30",
+  "train_rows": 19896,
+  "hyperparameters": {
+    "model__alpha": 1000.0
+  },
+  "selection": "lowest validation MAE",
+  "validation_metrics": {
+    "model": "ridge",
+    "kind": "model",
+    "n": 16708,
+    "mae": 0.7160551382919637,
+    "rmse": 1.2081920170003848,
+    "r2": 0.8752549516446422,
+    "nmae": 0.14496437769876538,
+    "mape_pct": 15.917003558431203,
+    "skill_vs_best_baseline_pct": 6.118392400266936
+  },
+  "interval": {
+    "coverage_p10_p90": 0.7564041177878861,
+    "target_coverage": 0.8,
+    "mean_width_kwh": 2.106788604219535,
+    "quantile_model": "hist_gradient_boosting",
+    "conformal_adjust_kwh": 0.081419896153748,
+    "calibrated_coverage_valid": 0.8001556140770888,
+    "calibrated_mean_width_kwh": 2.2696235234185713
+  },
+  "test_metrics": {
+    "test": [
+      {
+        "model": "ridge",
+        "kind": "model",
+        "subset": "test",
+        "n": 16052,
+        "mae": 0.7112352497758655,
+        "rmse": 1.2557661709017236,
+        "r2": 0.9086633153264357,
+        "nmae": 0.13691073151485944,
+        "mape_pct": 15.214579320152849,
+        "skill_vs_best_baseline_pct": 4.713240658649265
+      },
+      {
+        "model": "ridge",
+        "kind": "model",
+        "subset": "test_normal",
+        "n": 7805,
+        "mae": 0.6725979234230359,
+        "rmse": 1.2783099303259469,
+        "r2": 0.8999998806290614,
+        "nmae": 0.154616011373453,
+        "mape_pct": 15.975024801533488,
+        "skill_vs_best_baseline_pct": 3.1170793198701863
+      },
+      {
+        "model": "ridge",
+        "kind": "model",
+        "subset": "test_lockdown",
+        "n": 8247,
+        "mae": 0.7478017990888075,
+        "rmse": 1.2340513935479405,
+        "r2": 0.9094901328286581,
+        "nmae": 0.12475063493558028,
+        "mape_pct": 14.54732894015572,
+        "skill_vs_best_baseline_pct": 6.031071803719268
+      }
+    ],
+    "interval_test": {
+      "conformal_adjust_kwh": 0.081419896153748,
+      "test_raw": {
+        "coverage": 0.7721779217542986,
+        "mean_width_kwh": 2.402212041399049,
+        "n": 16052
+      },
+      "test_calibrated": {
+        "coverage": 0.8124844256167456,
+        "mean_width_kwh": 2.565016634257113,
+        "n": 16052
+      }
+    },
+    "scored_utc": "2026-10-28T05:05:00+00:00"
+  }
+}

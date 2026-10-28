@@ -1,0 +1,119 @@
+{
+ "india": {
+  "ridge": {
+   "model__alpha": 1000.0
+  },
+  "random_forest": {
+   "model__max_features": 1.0,
+   "model__min_samples_leaf": 20
+  },
+  "hist_gradient_boosting": {
+   "model__learning_rate": 0.05,
+   "model__max_leaf_nodes": 15,
+   "model__min_samples_leaf": 20
+  },
+  "hist_gradient_boosting_relative": {
+   "estimator__model__learning_rate": 0.05,
+   "estimator__model__max_leaf_nodes": 15,
+   "estimator__model__min_samples_leaf": 100
+  },
+  "hgb_absolute_loss": {
+   "model__learning_rate": 0.05,
+   "model__max_leaf_nodes": 15,
+   "model__min_samples_leaf": 20
+  },
+  "hgb_relative_absolute_loss": {
+   "estimator__model__learning_rate": 0.1,
+   "estimator__model__max_leaf_nodes": 15,
+   "estimator__model__min_samples_leaf": 100
+  },
+  "ridge_relative": {
+   "estimator__model__alpha": 1000.0
+  },
+  "hgb_wide_grid": {
+   "model__l2_regularization": 1.0,
+   "model__learning_rate": 0.03,
+   "model__max_leaf_nodes": 15,
+   "model__min_samples_leaf": 20
+  }
+ },
+ "france": {
+  "ridge": {
+   "model__alpha": 100.0
+  },
+  "random_forest": {
+   "model__max_features": 0.33,
+   "model__min_samples_leaf": 5
+  },
+  "hist_gradient_boosting": {
+   "model__learning_rate": 0.05,
+   "model__max_leaf_nodes": 31,
+   "model__min_samples_leaf": 20
+  },
+  "hgb_absolute_loss": {
+   "model__learning_rate": 0.05,
+   "model__max_leaf_nodes": 31,
+   "model__min_samples_leaf": 20
+  },
+  "hgb_relative_absolute_loss": {
+   "estimator__model__learning_rate": 0.05,
+   "estimator__model__max_leaf_nodes": 15,
+   "estimator__model__min_samples_leaf": 100
+  },
+  "ridge_relative": {
+   "estimator__model__alpha": 100.0
+  },
+  "hgb_wide_grid": {
+   "model__l2_regularization": 0.0,
+   "model__learning_rate": 0.03,
+   "model__max_leaf_nodes": 7,
+   "model__min_samples_leaf": 20
+  }
+ },
+ "solar": {
+  "hist_gradient_boosting (Phase 4)/Plant 1": {
+   "model__learning_rate": 0.05,
+   "model__max_leaf_nodes": 15,
+   "model__min_samples_leaf": 100
+  },
+  "hist_gradient_boosting (Phase 4)/Plant 2": {
+   "model__learning_rate": 0.05,
+   "model__max_leaf_nodes": 15,
+   "model__min_samples_leaf": 100
+  },
+  "random_forest (Phase 4)/Plant 1": {
+   "model__max_features": 1.0,
+   "model__min_samples_leaf": 20
+  },
+  "random_forest (Phase 4)/Plant 2": {
+   "model__max_features": 1.0,
+   "model__min_samples_leaf": 5
+  },
+  "hgb_wide_grid/Plant 1": {
+   "model__l2_regularization": 1.0,
+   "model__learning_rate": 0.03,
+   "model__max_leaf_nodes": 15,
+   "model__min_samples_leaf": 100,
+   "cv_mae_kw": 36.73
+  },
+  "hgb_wide_grid/Plant 2": {
+   "model__l2_regularization": 0.0,
+   "model__learning_rate": 0.03,
+   "model__max_leaf_nodes": 15,
+   "model__min_samples_leaf": 100,
+   "cv_mae_kw": 43.09
+  },
+  "hgb_monotonic_irradiation/Plant 1": {
+   "model__learning_rate": 0.05,
+   "model__max_leaf_nodes": 15,
+   "model__min_samples_leaf": 100,
+   "cv_mae_kw": 36.66
+  },
+  "hgb_monotonic_irradiation/Plant 2": {
+   "model__learning_rate": 0.05,
+   "model__max_leaf_nodes": 31,
+   "model__min_samples_leaf": 20,
+   "cv_mae_kw": 41.78
+  }
+ }
+}

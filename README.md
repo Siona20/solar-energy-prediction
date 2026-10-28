@@ -8,7 +8,7 @@ reason and evidence for each action, and estimates how much of a home's use roof
 Everything is shown in a Streamlit dashboard. **Indian data comes first**; one French household is kept
 as a comparison track.
 
-> **Status:** all phases (0–7) complete. Progress and decisions: [docs/ROADMAP.md](docs/ROADMAP.md),
+> **Status:** all phases complete (0–7, plus Phase 8: accuracy improvements, see below). Progress and decisions: [docs/ROADMAP.md](docs/ROADMAP.md),
 > [docs/PROJECT_LOG.md](docs/PROJECT_LOG.md).
 > Reports: [data audit](reports/data_audit.md) · [cleaning](reports/cleaning_report.md) · [EDA](reports/eda_summary.md) ·
 > [features](reports/features_report.md) · [solar model](reports/solar_model_report.md) ·
@@ -23,13 +23,22 @@ recorded in `reports/metrics/test_run_log.json`, and scoring changed models on t
 
 | Objective | Data | Selected model | Test result | Simple baseline |
 |---|---|---|---|---|
-| A. Next-day consumption, **India** | Prayas eMARC, 104 meters, Jan–Jun 2020 | Ridge, one model across meters (each row = one meter-day) | MAE **0.711 kWh/day** (R² 0.909); lockdown days 0.748 | 7-day mean 0.746 |
+| A. Next-day consumption, **India** | Prayas eMARC, 104 meters, Jan–Jun 2020 | equal-weight ensemble (Ridge + Random Forest + absolute-loss gradient boosting on the ratio to the home's 30-day mean), one model across meters, refitted on train + validation (Phase 8) | MAE **0.679 kWh/day** (R² 0.913); lockdown days 0.712. First test run (Phase 5, Ridge): 0.711 | 7-day mean 0.746 |
 | A. Next-day consumption, France | UCI, one home, 2010 | Ridge | MAE **4.259 kWh/day** (R² 0.490) | 7-day mean 4.375 |
-| A. 80 % prediction interval | same | quantile gradient boosting + conformal adjustment (validation) | coverage **81.2 %** India, **83.0 %** France | — |
+| A. 80 % prediction interval | same | quantile gradient boosting + conformal adjustment (validation) | coverage **83.0 %** India, **83.0 %** France | — |
 | B. Expected solar output | Kaggle, 2 Indian plants, 5 test days | gradient boosting per plant, trained on healthy inverters | daily error **176.8 kWh per inverter-day (2.76 %)** | k × irradiation 365.6 kWh |
 | C. Performance monitoring | Kaggle plants, 27 days | out-of-sample expected output, PR rules | 0 % false alarms and 99.8 % of 20 % losses caught in one day (simulated faults) | — |
 | D. Maintenance | monitoring results + estimated rain | rules R0–R7 with evidence | Plant 2: losses are inverter shutdowns in bright sun (PR 0.797 vs 0.959 while running), not dust → read event logs | — |
 | E. Energy balance (estimate) | NASA POWER 2001–2025 + measured load and PV shapes | kWp × GHI × PR, 15-minute direct use | typical Pune home sized to its yearly use covers **41–47 %** of its use directly (no battery) | — |
+
+**Phase 8 (accuracy improvements).** Eight changes were tried on train/validation only
+([reports/improvement_experiments.md](reports/improvement_experiments.md)). Only two helped India beyond noise: an
+equal-weight ensemble with fixed members (validation 0.716 → 0.705 kWh/day; day-bootstrap 95 % CI of the gain
+0.008–0.015) and refitting on the most recent data (train + validation). With the owner's approval the test split was
+scored a second time for the changed India model: 0.711 → **0.679** kWh/day (the ensemble alone 0.697; refitting
+the rest); the model now beats the baseline on 86 % of meters (was 70 %). Because the test split had been seen once
+before, the second number may be slightly optimistic; the first run is kept in `reports/archive_phase5/`. France
+(ensemble gain not significant) and solar (gains within noise on 5 validation days) were left unchanged.
 
 Every number above was produced by the code in this repository. The full tables, with per-meter, per-region and
 lockdown breakdowns, are in [reports/evaluation_report.md](reports/evaluation_report.md), with one model card per
@@ -57,6 +66,7 @@ NASA POWER weather can be fetched with `python -m solvia.data.download_nasa_powe
 | Phase 1 cleaning · 2 EDA figures · 3 features | `python -m solvia.pipeline --steps clean eda features` |
 | Phase 4 training (models, monitoring, maintenance, energy balance) | `python -m solvia.pipeline --steps model_solar monitor maintenance energy_balance model_consumption_india model_consumption_france` |
 | Phase 5 test evaluation (once; refuses changed models) | `python -m solvia.pipeline --steps evaluate` |
+| Phase 8 improvement experiments (validation only; not in the default run) | `python -m solvia.pipeline --steps improve` |
 | Phase 6 dashboard | `streamlit run app/Home.py` → http://localhost:8501 |
 | Tests | `pytest` |
 
@@ -150,10 +160,13 @@ Full list with paths, links, download dates and MD5 manifests: [data/README.md](
   dust-vs-rain conclusions rest on 27 days with 5 rainy ones.
 - **Shutdown cause unknown.** Plant 2's inverters switch off in bright sun; the data cannot tell grid
   over-voltage, overload, over-temperature trips or curtailment apart.
-- **Ridge and short history.** The selected India model was much worse on the earliest, shortest-history CV fold
-  (MAE 2.28 kWh vs 0.89 for Random Forest); a new deployment should be checked for a few weeks before relying on it.
-- **Selection was not revisited.** Random Forest scored slightly lower test MAE than the selected model for France
-  and solar; the choice made on validation was kept so the test result stays unbiased.
+- **Ridge and short history.** Ridge (a member of the India ensemble) was much worse on the earliest,
+  shortest-history CV fold (MAE 2.28 kWh vs 0.89 for Random Forest); a new deployment should be checked for a few
+  weeks before relying on it.
+- **India test split used twice.** The India model was changed after the first test run (decided on validation only)
+  and scored again with the owner's approval; both results are reported.
+- **Selection was not revisited for France and solar.** Random Forest scored slightly lower test MAE than the
+  selected model for both; the choice made on validation was kept so those test results stay unbiased.
 - **Monitoring thresholds** (e.g. the peer gate PR < 0.95) were set while looking at a window that includes the
   5 solar test days; the expected-output model itself never saw them (leakage check 9c).
 - **Sample.** 112 model-eligible eMARC meters in two states and one French home are not representative of all

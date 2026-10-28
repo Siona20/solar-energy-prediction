@@ -54,7 +54,8 @@ def model_metadata(name: str) -> dict:
 # --------------------------------------------------------------------------- consumption
 def consumption_replay(track: str) -> pd.DataFrame:
     """Validation and test days with the saved model's next-day forecast, its 80 % interval and the best baseline.
-    Both splits are out-of-sample (the model was fitted on the training split only)."""
+    Test is always out-of-sample; validation is in-sample when the saved model was refitted on train + validation
+    (listed in attrs["in_sample_splits"])."""
     tr = cons.TRACKS[track]
     df = cons.load_track(tr)
     df = df[df["split"].isin(["valid", "test"])].reset_index(drop=True)
@@ -66,14 +67,17 @@ def consumption_replay(track: str) -> pd.DataFrame:
     for col in ("period", tr.meter_col, "household_type", "region"):
         if col and col in df.columns:
             out[col] = df[col].to_numpy()
-    out.attrs |= {"model": cm.name, "baseline": baseline}
+    fit_on = model_metadata(f"consumption_{track}").get("fit_on", "train")
+    out.attrs |= {"model": cm.name, "baseline": baseline,
+                  "in_sample_splits": ["valid"] if fit_on == "train_valid" else []}
     return out
 
 
 def india_meters(replay: pd.DataFrame) -> pd.DataFrame:
-    """One row per eMARC meter in the replay, with whether the model saw it in training."""
+    """One row per eMARC meter in the replay, with whether the saved model was fitted on any of its days."""
     df = cons.load_track(cons.TRACKS["india"])
-    seen = set(df.loc[df["split"] == "train", "deployment_id"])
+    fit_splits = ["train", "valid"] if model_metadata("consumption_india").get("fit_on") == "train_valid" else ["train"]
+    seen = set(df.loc[df["split"].isin(fit_splits), "deployment_id"])     # meters the saved model was fitted on
     m = (replay.groupby("deployment_id")
          .agg(region=("region", "first"), household_type=("household_type", "first"), days=("date", "size"),
               first_day=("date", "min"), last_day=("date", "max"), mean_kwh=("actual_kwh", "mean")).reset_index())

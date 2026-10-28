@@ -86,3 +86,9 @@ Every step from the original project brief, plus the extra fine-tuning steps add
 - [x] README: setup, phases, dashboard, sources and licences, limitations
 - [x] `python -m solvia.pipeline` runs everything (raw → test evaluation in 4 min 51 s; byte-identical models; raw data unchanged)
 - [x] ➕ git repository (local, branch main; history grouped by phase, created at the end; no remote)
+
+## Phase 8 — Accuracy improvements (requested after Phase 7)
+- [x] Experiments on train/validation only: absolute-error loss, ratio-target Ridge, wider grids with L2, equal-weight ensembles, more-recent-data backtest, monotonic solar model (`--steps improve`, `reports/improvement_experiments.md`)
+- [x] Significance check (day bootstrap) before adopting anything
+- [x] India: ensemble (Ridge + RF + absolute-loss relative HGB) refitted on train + validation; France and solar unchanged
+- [x] Phase 5 outputs archived; second India test run with the owner's approval, both results reported; dashboard flags in-sample validation days

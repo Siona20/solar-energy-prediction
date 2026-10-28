@@ -4,14 +4,14 @@
 
 - **File:** `models/consumption_india.joblib` (+ `.json` metadata); scikit-learn 1.9.1, Python 3.14.6
 - **Purpose:** A: next-day consumption (kWh/day), Indian households (Prayas eMARC)
-- **Model:** `ridge`; hyperparameters {'model__alpha': 1000.0}
-- **Selected by:** lowest validation MAE (Phase 4); test split used once, afterwards (Phase 5)
+- **Model:** `equal-weight ensemble of ridge, random_forest, hist_gradient_boosting_relative_absolute`; hyperparameters {'ridge': {'model__alpha': 1000.0}, 'random_forest': {'model__max_features': 1.0, 'model__min_samples_leaf': 20}, 'hist_gradient_boosting_relative_absolute': {'estimator__model__learning_rate': 0.1, 'estimator__model__max_leaf_nodes': 15, 'estimator__model__min_samples_leaf': 100}}
+- **Selected by:** ensemble with members fixed in advance (Phase 8), validation MAE with members fitted on train only; saved model refitted on train + validation; test split scored a second time for this model (Phase 8, approved by the owner; first result in `reports/archive_phase5/`)
 
 ## Data
 
 Prayas (Energy Group) eMARC smart-meter data: 15-minute readings from Indian homes in Maharashtra and Uttar Pradesh, 2018–2020, used for non-commercial academic purposes with credit to Prayas (Energy Group). One row per meter-day; features come only from that meter's own past, its household type and region, the calendar and NASA POWER weather. Homes are never added together.
 
-Training rows: 19,896 (2018-01-25 to 2019-06-30).
+Training rows: 36,604 (2018-01-25 to 2019-12-31).
 
 ## Inputs and output
 
@@ -23,12 +23,12 @@ Output: kWh used on the next day (clipped at 0) and an 80 % interval.
 
 | subset | selected MAE | best baseline MAE | R² | MAPE |
 |---|---|---|---|---|
-| valid | 0.716 | 0.763 | 0.875 | 15.9 % |
-| test | 0.711 | 0.746 | 0.909 | 15.2 % |
-| test_normal | 0.673 | 0.694 | 0.900 | 16.0 % |
-| test_lockdown | 0.748 | 0.796 | 0.909 | 14.5 % |
+| valid | 0.705 | 0.763 | 0.876 | 15.7 % |
+| test | 0.679 | 0.746 | 0.913 | 14.6 % |
+| test_normal | 0.644 | 0.694 | 0.903 | 15.6 % |
+| test_lockdown | 0.712 | 0.796 | 0.915 | 13.7 % |
 
-80 % interval on test: 81.2% coverage, mean width 2.57 kWh.
+80 % interval on test: 83.0% coverage, mean width 2.44 kWh.
 
 ## Intended use
 
@@ -36,7 +36,8 @@ Day-ahead planning of a home's electricity use and its solar balance in the dash
 
 ## Limits
 
-- `ridge` on the shortest-history CV fold: MAE 2.28 kWh vs 0.89 for the best other model; a linear model extrapolates when the season changes, so check a new deployment for a few weeks before relying on it.
+- Ridge (an ensemble member) on the shortest-history CV fold: MAE 2.28 kWh vs 0.89 for the best other model; a linear model extrapolates when the season changes, so check a new deployment for a few weeks before relying on it.
+- The saved model is refitted on train + validation (Phase 8); its validation row comes from the members fitted on train only. The test split was scored a second time for this model, with the owner's approval; the first (Phase 5) result is kept in `reports/archive_phase5/`.
 - The 2020 lockdown changed behaviour; the model had never seen it (see test_lockdown row).
 - 104 meters in the test split, from 5 regions of two states; not representative of all Indian households.
 - Uses yesterday's observed weather, not a forecast.

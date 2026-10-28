@@ -6,6 +6,8 @@ Same procedure for both tracks:
   ratio to the home's own 30-day mean, so one model can serve homes using 0.4 or 20 kWh/day).
 - Tuning: grid search with expanding-window CV over whole training days (never valid/test days).
 - Selection: lowest validation MAE. The test split is not used here (Phase 5, once).
+- Optional `final_model` in the config (Phase 8, India): an equal-weight ensemble of fixed members, scored on
+  validation with members fitted on train, then refitted on train + validation for the saved model.
 - Extras: 10th-90th percentile intervals (quantile HistGradientBoosting, widened by a conformal adjustment
   computed on validation so that 80 % of validation days fall inside) and the labelled forecast-proxy
   experiment (target-day weather standing in for a weather forecast).
@@ -101,6 +103,22 @@ class ConsumptionModel:
         return np.clip(lo - q, 0, None), np.clip(hi + q, 0, None)
 
 
+class EnsembleRegressor(BaseEstimator, RegressorMixin):
+    """Equal-weight mean of already fitted regressors (members are fixed in advance, not fitted on validation)."""
+
+    def __init__(self, members=None, names=None):
+        self.members = members
+        self.names = names
+
+    def fit(self, X, y):
+        """Refit every member on (X, y); not used by the pipeline, which builds the ensemble from fitted members."""
+        self.members = [clone(m).fit(X, y) for m in self.members]
+        return self
+
+    def predict(self, X):
+        return np.mean([m.predict(X) for m in self.members], axis=0)
+
+
 def conformal_adjustment(y: np.ndarray, lo: np.ndarray, hi: np.ndarray, coverage: float = 0.8) -> float:
     """Conformalized quantile regression: the amount q such that [lo - q, hi + q] contains `coverage` of the
     calibration days (finite-sample quantile of max(lo - y, y - hi)). q < 0 narrows an interval that is too wide."""
@@ -124,6 +142,12 @@ def candidates(track: Track, rs: int) -> dict[str, tuple]:
     if track.relative_candidates:
         out["hist_gradient_boosting_relative"] = (
             lambda f: RelativeTarget(make_pipeline(HistGradientBoostingRegressor(max_iter=400, random_state=rs), f,
+                                                   linear=False, categorical=cat)),
+            {f"estimator__{k}": v for k, v in hgb_grid.items()})
+        # Phase 8: absolute-error loss matches the MAE metric (ensemble member)
+        out["hist_gradient_boosting_relative_absolute"] = (
+            lambda f: RelativeTarget(make_pipeline(HistGradientBoostingRegressor(max_iter=400, loss="absolute_error",
+                                                                                 random_state=rs), f,
                                                    linear=False, categorical=cat)),
             {f"estimator__{k}": v for k, v in hgb_grid.items()})
     return out
@@ -180,14 +204,21 @@ def run_consumption(track_name: str) -> dict:
         preds[name] = np.clip(model.predict(valid[track.features]), 0, None)
         results.append({"model": name, "kind": "model", **regression_metrics(valid[TARGET], preds[name], MAPE_MIN_KWH)})
         log.info("%s / %s: CV MAE %.3f, valid MAE %.3f %s", track.name, name, info["cv_mae_kwh"], results[-1]["mae"], info["best_params"])
+    final = cfg[track.config_key].get("final_model")
+    if final:
+        # same definition as the saved model: mean of the members' raw predictions, then clipped at 0
+        preds["ensemble"] = np.clip(np.mean([fitted[m].predict(valid[track.features]) for m in final["ensemble"]], axis=0), 0, None)
+        results.append({"model": "ensemble", "kind": "ensemble", **regression_metrics(valid[TARGET], preds["ensemble"], MAPE_MIN_KWH)})
     table = pd.DataFrame(results).sort_values("mae").reset_index(drop=True)
     best_baseline = table[table["kind"] == "baseline"].iloc[0]
-    best = table[table["kind"] == "model"].iloc[0]
+    best = table[table["kind"] == "model"].iloc[0]                  # best single model (quantile settings, proxy)
+    selected = "ensemble" if final else best["model"]
     table["skill_vs_best_baseline_pct"] = (1 - table["mae"] / best_baseline["mae"]) * 100
+    fit_data = pd.concat([train, valid]) if final and final["fit_on"] == "train_valid" else train
 
     # 10th / 90th percentile models with the tuned HistGradientBoosting settings of the selected target form
     hgb_name = best["model"] if best["model"].startswith("hist_gradient_boosting") else "hist_gradient_boosting"
-    rel = hgb_name.endswith("_relative")
+    rel = "relative" in hgb_name
     params = {k.replace("estimator__", ""): v for k, v in tuning[hgb_name]["best_params"].items()}
     quant = {}
     for q in (0.1, 0.9):
@@ -195,7 +226,7 @@ def run_consumption(track_name: str) -> dict:
                              track.features, linear=False, categorical=track.categorical).set_params(**params)
         quant[q] = (RelativeTarget(pipe) if rel else pipe).fit(train[track.features], train[TARGET])
     point = fitted[best["model"]]
-    cm = ConsumptionModel(track.name, best["model"], list(track.features), point, quant[0.1], quant[0.9])
+    cm = ConsumptionModel(track.name, selected, list(track.features), point, quant[0.1], quant[0.9])
     y = valid[TARGET].to_numpy()
     lo, hi = cm.predict_interval(valid, calibrated=False)
     cm.interval_adjust_kwh = conformal_adjustment(y, lo, hi, 0.8)
@@ -205,6 +236,15 @@ def run_consumption(track_name: str) -> dict:
                 "conformal_adjust_kwh": cm.interval_adjust_kwh,
                 "calibrated_coverage_valid": float(((y >= clo) & (y <= chi)).mean()),
                 "calibrated_mean_width_kwh": float(np.mean(chi - clo))}
+    if final:
+        # the saved model: members refitted (same tuned settings) on fit_data; the conformal adjustment from the
+        # train-only quantile models on validation is kept, which is conservative after refitting on more data
+        cand = candidates(track, rs)
+        cm.point = EnsembleRegressor([cand[m][0](track.features).set_params(**tuning[m]["best_params"])
+                                      .fit(fit_data[track.features], fit_data[TARGET]) for m in final["ensemble"]],
+                                     list(final["ensemble"]))
+        if fit_data is not train:
+            cm.p10, cm.p90 = (clone(m).fit(fit_data[track.features], fit_data[TARGET]) for m in (cm.p10, cm.p90))
 
     # forecast-proxy experiment (labelled): same selected configuration + target-day weather
     feats_proxy = list(track.features) + list(track.proxy)
@@ -219,24 +259,32 @@ def run_consumption(track_name: str) -> dict:
     extra = {}
     if track.meter_col:
         seen = set(train[track.meter_col])
-        extra = {"breakdown_selected": breakdown(valid, preds[best["model"]], track, seen),
+        extra = {"breakdown_selected": breakdown(valid, preds[selected], track, seen),
                  "breakdown_best_baseline": breakdown(valid, preds[best_baseline["model"]], track, seen)}
-        e = valid.assign(m=np.abs(y - preds[best["model"]]), b=np.abs(y - preds[best_baseline["model"]]))
+        e = valid.assign(m=np.abs(y - preds[selected]), b=np.abs(y - preds[best_baseline["model"]]))
         per = e.groupby(track.meter_col)[["m", "b"]].mean()
         extra["share_of_meters_where_model_beats_baseline"] = float((per["m"] < per["b"]).mean())
 
-    cm.info = {"valid_mae": float(best["mae"]), "best_params": tuning[best["model"]]["best_params"]}
+    members = final["ensemble"] if final else [best["model"]]
+    fit_on = final["fit_on"] if final else "train"
+    cm.info = {"valid_mae": float(table.loc[table["model"] == selected, "mae"].iloc[0]), "fit_on": fit_on,
+               "best_params": {m: tuning[m]["best_params"] for m in members}}
     save_model(cm, f"consumption_{track.name}", {
-        "objective": f"A: next-day consumption (kWh/day), {track.title}", "model": best["model"],
-        "features": track.features, "categorical": track.categorical, "target": TARGET,
-        "train_dates": f"{train['date'].min().date()} to {train['date'].max().date()}", "train_rows": int(len(train)),
-        "hyperparameters": tuning[best["model"]]["best_params"], "selection": "lowest validation MAE",
-        "validation_metrics": table[table["model"] == best["model"]].iloc[0].to_dict(),
+        "objective": f"A: next-day consumption (kWh/day), {track.title}",
+        "model": f"equal-weight ensemble of {', '.join(members)}" if final else best["model"],
+        "features": track.features, "categorical": track.categorical, "target": TARGET, "fit_on": fit_on,
+        "train_dates": f"{fit_data['date'].min().date()} to {fit_data['date'].max().date()}", "train_rows": int(len(fit_data)),
+        "hyperparameters": cm.info["best_params"] if final else tuning[best["model"]]["best_params"],
+        "selection": ("ensemble with members fixed in advance (Phase 8), validation MAE with members fitted on train only; "
+                      "saved model refitted on train + validation" if final else "lowest validation MAE"),
+        "validation_metrics": table[table["model"] == selected].iloc[0].to_dict(),
         "interval": interval, "test_metrics": "not computed (Phase 5)"})
 
     metrics = get_path("metrics")
     table.to_csv(metrics / f"consumption_{track.name}_validation.csv", index=False)
-    summary = {"track": track.name, "selected": best["model"], "best_baseline": best_baseline["model"],
+    summary = {"track": track.name, "selected": selected, "best_single_model": best["model"],
+               "final_model": {"members": members, "fit_on": fit_on} if final else None,
+               "best_baseline": best_baseline["model"],
                "rows": {"train": int(len(train)), "valid": int(len(valid))}, "validation": table.to_dict(orient="records"),
                "tuning": {k: {kk: vv for kk, vv in v.items() if kk != "cv_results"} for k, v in tuning.items()},
                "interval": interval, "forecast_proxy_experiment": proxy, **extra}
@@ -264,6 +312,10 @@ def write_report(track: Track, s: dict, table: pd.DataFrame) -> None:
              f"## Selected: `{s['selected']}`", "",
              f"Validation MAE **{sel['mae']:.3f} kWh/day** (RMSE {sel['rmse']:.3f}, R² {sel['r2']:.3f}, MAPE {sel['mape_pct']:.1f} % on days "
              f"≥ {MAPE_MIN_KWH:g} kWh), **{sel['skill_vs_best_baseline_pct']:.1f} % lower MAE than the best baseline** (`{s['best_baseline']}`).", "",
+             *([f"Final model (Phase 8): equal-weight ensemble of {', '.join(f'`{m}`' for m in s['final_model']['members'])}, "
+                f"members fixed in advance. Its validation score above uses members fitted on the training split only; the "
+                f"saved model is then refitted on {s['final_model']['fit_on'].replace('_', ' + ')}. Best single model: "
+                f"`{s['best_single_model']}`.", ""] if s.get("final_model") else []),
              "## All baselines and models (validation)", "",
              _md_table(table, ["model", "kind", "mae", "rmse", "r2", "nmae", "mape_pct", "skill_vs_best_baseline_pct"],
                        {"mae": "{:.3f}", "rmse": "{:.3f}", "r2": "{:.3f}", "nmae": "{:.3f}", "mape_pct": "{:.1f}",

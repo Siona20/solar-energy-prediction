@@ -1,0 +1,139 @@
+{
+ "track": "france",
+ "selected": "ridge",
+ "best_baseline": "baseline_mean_7d",
+ "rows": {
+  "train": 709,
+  "valid": 352
+ },
+ "validation": [
+  {
+   "model": "ridge",
+   "kind": "model",
+   "n": 352,
+   "mae": 4.565869929507387,
+   "rmse": 5.7685068794081324,
+   "r2": 0.5545986075390417,
+   "nmae": 0.17526176119191153,
+   "mape_pct": 18.40620291061679,
+   "skill_vs_best_baseline_pct": 5.370737708334072
+  },
+  {
+   "model": "random_forest",
+   "kind": "model",
+   "n": 352,
+   "mae": 4.592441137833112,
+   "rmse": 5.77998902742019,
+   "r2": 0.5528237099221437,
+   "nmae": 0.17628170193487228,
+   "mape_pct": 19.51773181426832,
+   "skill_vs_best_baseline_pct": 4.820040057966968
+  },
+  {
+   "model": "baseline_mean_7d",
+   "kind": "baseline",
+   "n": 352,
+   "mae": 4.825008479337481,
+   "rmse": 6.397802088343715,
+   "r2": 0.4521188693352848,
+   "nmae": 0.18520884232587637,
+   "mape_pct": 19.700340646303303,
+   "skill_vs_best_baseline_pct": 0.0
+  },
+  {
+   "model": "hist_gradient_boosting",
+   "kind": "model",
+   "n": 352,
+   "mae": 5.158341532724788,
+   "rmse": 6.532612399694928,
+   "r2": 0.42878642174950177,
+   "nmae": 0.1980038931928729,
+   "mape_pct": 21.76751915165722,
+   "skill_vs_best_baseline_pct": -6.908444924289059
+  },
+  {
+   "model": "baseline_last_week",
+   "kind": "baseline",
+   "n": 352,
+   "mae": 5.825095806037387,
+   "rmse": 7.6594696281109185,
+   "r2": 0.2147243382441606,
+   "nmae": 0.2235973792157231,
+   "mape_pct": 24.52869680330536,
+   "skill_vs_best_baseline_pct": -20.727162055417313
+  },
+  {
+   "model": "baseline_yesterday",
+   "kind": "baseline",
+   "n": 352,
+   "mae": 6.315675695263991,
+   "rmse": 8.062445499532746,
+   "r2": 0.12992172583713046,
+   "nmae": 0.2424283789416535,
+   "mape_pct": 24.522950239891774,
+   "skill_vs_best_baseline_pct": -30.894603031478862
+  }
+ ],
+ "tuning": {
+  "ridge": {
+   "best_params": {
+    "model__alpha": 100.0
+   },
+   "cv_mae_kwh": 5.098225864707179,
+   "cv_mae_by_fold_kwh": [
+    4.778,
+    5.557,
+    5.425,
+    4.249,
+    5.482
+   ]
+  },
+  "random_forest": {
+   "best_params": {
+    "model__max_features": 0.33,
+    "model__min_samples_leaf": 5
+   },
+   "cv_mae_kwh": 5.255664902283803,
+   "cv_mae_by_fold_kwh": [
+    4.645,
+    5.664,
+    5.232,
+    5.178,
+    5.558
+   ]
+  },
+  "hist_gradient_boosting": {
+   "best_params": {
+    "model__learning_rate": 0.05,
+    "model__max_leaf_nodes": 31,
+    "model__min_samples_leaf": 20
+   },
+   "cv_mae_kwh": 6.130968630919948,
+   "cv_mae_by_fold_kwh": [
+    5.753,
+    6.822,
+    6.68,
+    5.352,
+    6.047
+   ]
+  }
+ },
+ "interval": {
+  "coverage_p10_p90": 0.5482954545454546,
+  "target_coverage": 0.8,
+  "mean_width_kwh": 9.017688155312596,
+  "quantile_model": "hist_gradient_boosting",
+  "conformal_adjust_kwh": 2.6790881010787544,
+  "calibrated_coverage_valid": 0.8068181818181818,
+  "calibrated_mean_width_kwh": 14.375864357470105
+ },
+ "forecast_proxy_experiment": {
+  "features_added": [
+   "t2m_target_day",
+   "hdd_target_day"
+  ],
+  "valid_mae_without": 4.565869929507387,
+  "valid_mae_with_forecast_proxy": 4.591684066723231,
+  "note": "EXPERIMENT ONLY: uses the observed weather of the target day as a stand-in for a weather forecast; a real forecast is less accurate, so this is an upper bound on what forecasts could add."
+ }
+}

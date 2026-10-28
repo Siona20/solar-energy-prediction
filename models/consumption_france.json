@@ -1,0 +1,95 @@
+{
+  "name": "consumption_france",
+  "saved_utc": "2026-10-28T05:04:50+00:00",
+  "python": "3.14.6",
+  "scikit_learn": "1.9.1",
+  "pandas": "3.1.0",
+  "numpy": "2.5.4",
+  "objective": "A: next-day consumption (kWh/day), French household (UCI, Sceaux)",
+  "model": "ridge",
+  "features": [
+    "lag_1",
+    "lag_2",
+    "lag_7",
+    "lag_14",
+    "roll_mean_7",
+    "roll_std_7",
+    "roll_mean_30",
+    "roll_std_30",
+    "same_weekday_mean_4w",
+    "trend_7_vs_30",
+    "sub3_kwh_lag_1",
+    "peak_power_kw_lag_1",
+    "day_of_week",
+    "month",
+    "is_weekend",
+    "is_holiday",
+    "is_school_holiday",
+    "doy_sin",
+    "doy_cos",
+    "t2m_lag_1",
+    "t2m_min_lag_1",
+    "t2m_mean_3d",
+    "hdd_lag_1",
+    "hdd_sum_7d",
+    "ghi_lag_1"
+  ],
+  "categorical": [],
+  "target": "target_kwh",
+  "train_dates": "2007-01-10 to 2008-12-31",
+  "train_rows": 709,
+  "hyperparameters": {
+    "model__alpha": 100.0
+  },
+  "selection": "lowest validation MAE",
+  "validation_metrics": {
+    "model": "ridge",
+    "kind": "model",
+    "n": 352,
+    "mae": 4.565869929507387,
+    "rmse": 5.7685068794081324,
+    "r2": 0.5545986075390417,
+    "nmae": 0.17526176119191153,
+    "mape_pct": 18.40620291061679,
+    "skill_vs_best_baseline_pct": 5.370737708334072
+  },
+  "interval": {
+    "coverage_p10_p90": 0.5482954545454546,
+    "target_coverage": 0.8,
+    "mean_width_kwh": 9.017688155312596,
+    "quantile_model": "hist_gradient_boosting",
+    "conformal_adjust_kwh": 2.6790881010787544,
+    "calibrated_coverage_valid": 0.8068181818181818,
+    "calibrated_mean_width_kwh": 14.375864357470105
+  },
+  "test_metrics": {
+    "test": [
+      {
+        "model": "ridge",
+        "kind": "model",
+        "subset": "test",
+        "n": 282,
+        "mae": 4.258739014975159,
+        "rmse": 5.734983887125353,
+        "r2": 0.4900177068716429,
+        "nmae": 0.16965180400747223,
+        "mape_pct": 18.401770532314504,
+        "skill_vs_best_baseline_pct": 2.6640973959907166
+      }
+    ],
+    "interval_test": {
+      "conformal_adjust_kwh": 2.6790881010787544,
+      "test_raw": {
+        "coverage": 0.6418439716312057,
+        "mean_width_kwh": 8.950057600560525,
+        "n": 282
+      },
+      "test_calibrated": {
+        "coverage": 0.8297872340425532,
+        "mean_width_kwh": 14.308233802718034,
+        "n": 282
+      }
+    },
+    "scored_utc": "2026-10-28T05:05:00+00:00"
+  }
+}

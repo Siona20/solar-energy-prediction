@@ -1,0 +1,549 @@
+{
+  "solar": [
+    {
+      "name": "daily_power_curves",
+      "title": "Daily power curves",
+      "takeaway": "Output follows the sun: zero at night and peaking around midday (Plant 1 mean peak 981 kW per inverter, Plant 2 676 kW); Plant 2's lower midday output despite similar sunlight hints at outages.",
+      "file": "s01_daily_power_curves.png",
+      "stats": {
+        "Plant 1": {
+          "peak_hour": 12.0,
+          "peak_mean_ac_kw": 981.2
+        },
+        "Plant 2": {
+          "peak_hour": 12.25,
+          "peak_mean_ac_kw": 676.5
+        }
+      }
+    },
+    {
+      "name": "ac_vs_irradiation",
+      "title": "AC power vs irradiation",
+      "takeaway": "Power is almost a straight line in irradiation (operating rows: r = 0.986 Plant 1, 0.948 Plant 2); Plant 2's 3,774 'off in daylight' readings drag its overall r down to 0.66, so they must be excluded when learning expected output.",
+      "file": "s02_ac_vs_irradiation.png",
+      "stats": {
+        "Plant 1": {
+          "corr_all_daytime": 0.9798,
+          "corr_operating": 0.9858,
+          "off_rows": 63
+        },
+        "Plant 2": {
+          "corr_all_daytime": 0.6559,
+          "corr_operating": 0.9483,
+          "off_rows": 3774
+        }
+      }
+    },
+    {
+      "name": "module_temperature_effect",
+      "title": "Module temperature effect",
+      "takeaway": "Hotter panels convert sunlight less efficiently: output per unit irradiation changes by -0.45%/\u00b0C (Plant 1) and -0.39%/\u00b0C (Plant 2), so module temperature is a useful second feature.",
+      "file": "s03_module_temperature_effect.png",
+      "stats": {
+        "Plant 1": {
+          "pct_change_per_degC": -0.447,
+          "rows": 23100
+        },
+        "Plant 2": {
+          "pct_change_per_degC": -0.393,
+          "rows": 18159
+        }
+      }
+    },
+    {
+      "name": "plant_comparison",
+      "title": "Plant 1 vs Plant 2",
+      "takeaway": "Both plants get similar sunlight (5.34 vs 5.43 kWh/m\u00b2/day), but Plant 2 produces less per inverter (5755 vs 7075 kWh/day); the gap is about performance, not weather.",
+      "file": "s05_plant_comparison.png",
+      "stats": {
+        "Plant 1": {
+          "mean_kwh_per_inverter_day": 7075.0,
+          "mean_irradiation_kwh_m2_day": 5.34,
+          "kwh_per_inverter_per_kwh_m2": 1330.0
+        },
+        "Plant 2": {
+          "mean_kwh_per_inverter_day": 5755.0,
+          "mean_irradiation_kwh_m2_day": 5.43,
+          "kwh_per_inverter_per_kwh_m2": 1112.0
+        }
+      }
+    },
+    {
+      "name": "inverter_comparison",
+      "title": "Inverter comparison",
+      "takeaway": "Plant 1's inverters are tightly grouped (best median only 16% above the worst); Plant 2 is far more uneven (89% gap). Its inverters are the same size (peak 1173\u20131385 kW) and the low ones have the most 'off in daylight' intervals (r = -0.88), so the gap is lost output, not smaller hardware.",
+      "file": "s04_inverter_comparison.png",
+      "stats": {
+        "Plant 1": {
+          "lowest_median_kwh": 6405.0,
+          "highest_median_kwh": 7453.0,
+          "highest_over_lowest": 1.164,
+          "max_ac_kw_range": [
+            1265.0,
+            1411.0
+          ],
+          "corr_median_vs_off_intervals": -0.954
+        },
+        "Plant 2": {
+          "lowest_median_kwh": 3741.0,
+          "highest_median_kwh": 7063.0,
+          "highest_over_lowest": 1.888,
+          "max_ac_kw_range": [
+            1173.0,
+            1385.0
+          ],
+          "corr_median_vs_off_intervals": -0.882
+        }
+      }
+    },
+    {
+      "name": "inverter_heatmap",
+      "title": "Inverter \u00d7 day heatmap",
+      "takeaway": "Under-performance is concentrated: 229 of Plant 2's 716 inverter-days are below 85% of the plant median vs 7 in Plant 1. They come in runs on the same inverters (persistent issues), but on 24 days many Plant 2 inverters drop together, which pulls the median down and makes healthy ones look high, so monitoring must also compare each inverter with model-expected output, not only with its peers.",
+      "file": "s06_inverter_daily_heatmap.png",
+      "stats": {
+        "Plant 1": {
+          "inverter_days_below_0.85": 7,
+          "inverter_days": 748,
+          "days_with_over_30pct_inverters_low": 0,
+          "missing_inverter_days": 0
+        },
+        "Plant 2": {
+          "inverter_days_below_0.85": 229,
+          "inverter_days": 716,
+          "days_with_over_30pct_inverters_low": 24,
+          "missing_inverter_days": 32
+        }
+      }
+    },
+    {
+      "name": "peer_ratio_distribution",
+      "title": "Threshold check",
+      "takeaway": "Normal days sit tightly around 1.0 (Plant 1 5th percentile 0.92), so 0.85 is well outside normal variation: it flags 0.9% of Plant 1 and 32.0% of Plant 2 inverter-days. Keeping 0.85.",
+      "file": "s07_peer_ratio_distribution.png",
+      "stats": {
+        "Plant 1": {
+          "p05": 0.921,
+          "p50": 1.0,
+          "share_below_threshold": 0.0094
+        },
+        "Plant 2": {
+          "p05": 0.352,
+          "p50": 1.0,
+          "share_below_threshold": 0.3198
+        }
+      }
+    }
+  ],
+  "india": [
+    {
+      "name": "city_ranking",
+      "title": "City ranking (25-year average)",
+      "takeaway": "Over 25 years the sunniest city is Jaisalmer (5.72 kWh/m\u00b2/day) and the least sunny Shillong (4.28); the best region on average is West (5.39) and the weakest North-East (4.41). A 1 kWp system in the top city gets 1.34\u00d7 the sunlight of one in the bottom city.",
+      "file": "i03_city_ranking_annual.png",
+      "stats": {
+        "top": "jaisalmer",
+        "bottom": "shillong",
+        "by_region": {
+          "West": 5.39,
+          "South": 5.27,
+          "Central": 5.14,
+          "Islands": 5.03,
+          "North": 4.88,
+          "East": 4.68,
+          "North-East": 4.41
+        }
+      }
+    },
+    {
+      "name": "monthly_heatmap",
+      "title": "Monthly heatmap",
+      "takeaway": "49 of 50 cities have their sunniest month in March\u2013May. 18 are darkest during the monsoon (Jun\u2013Sep) and 32 in Nov\u2013Jan. The seasonal swing ranges from 1.4 kWh/m\u00b2/day (Shillong) to 4.2 (Leh), so a monthly estimate is far more honest than one annual number.",
+      "file": "i04_monthly_ghi_heatmap.png",
+      "stats": {
+        "spring_best": 49,
+        "monsoon_darkest": 18,
+        "winter_darkest": 32,
+        "swing_min": "shillong",
+        "swing_max": "leh"
+      }
+    },
+    {
+      "name": "monthly_climate",
+      "title": "Monthly sun and rain",
+      "takeaway": "Jaisalmer (desert, 269 mm/year), Delhi (782 mm) and Anantapur (645 mm, near the estimated plant location) all peak in spring (May, May, Apr), lose sunshine when the monsoon rain arrives, and are darkest in early winter (Dec, Jan, Nov). The sunny, nearly rainless spring is when dust builds up unwashed.",
+      "file": "i02_monthly_sun_and_rain.png",
+      "stats": {
+        "jaisalmer": {
+          "best_month": "May",
+          "worst_month": "Dec",
+          "rain_mm_year": 269.0
+        },
+        "delhi": {
+          "best_month": "May",
+          "worst_month": "Jan",
+          "rain_mm_year": 782.0
+        },
+        "anantapur": {
+          "best_month": "Apr",
+          "worst_month": "Nov",
+          "rain_mm_year": 645.0
+        }
+      }
+    },
+    {
+      "name": "rain_and_dry_months",
+      "title": "Rain and dry months",
+      "takeaway": "Rainfall ranges from 269 mm/year (Jaisalmer) to 3686 (Mangaluru); a median of 82% falls in Jun\u2013Sep. Cities with many dry months (e.g. Bhuj: 8) get no natural panel washing for most of the year, which is when the cleaning rule matters.",
+      "file": "i05_rain_and_dry_months.png",
+      "stats": {
+        "median_share_jun_sep": 0.818
+      }
+    },
+    {
+      "name": "nasa_vs_niti",
+      "title": "NASA vs NITI",
+      "takeaway": "For the long-term Kheda averages the two sources agree on the seasonal shape (r = 0.88) and NITI is 0.90\u00d7 NASA on average. For December 2024 across 35 districts NITI is only 0.67\u00d7 NASA (rank agreement 0.86), confirming the audit finding that the single-month NITI file reads low; NASA POWER is used for the energy balance.",
+      "file": "i06_nasa_vs_niti.png",
+      "stats": {
+        "matched_districts": 35,
+        "dec2024_niti_over_nasa_median": 0.672,
+        "dec2024_rank_corr": 0.857,
+        "kheda_monthly_corr": 0.88,
+        "kheda_niti_over_nasa": 0.897
+      }
+    },
+    {
+      "name": "plant_location_match",
+      "title": "Estimated plant location",
+      "takeaway": "Both plants match the southern Deccan plateau best: Plant 1 \u2192 Anantapur (r = 0.65, temperature r = 0.87), Plant 2 \u2192 Anantapur (r = 0.76, temperature r = 0.86), against a median of 0.12 / 0.32 over all 50 cities. This is an estimate at city resolution, not a confirmed site; NASA rainfall at the best match (84 mm over the 34 days) is used only as labelled 'estimated rainfall'.",
+      "file": "i07_plant_location_match.png",
+      "stats": {
+        "best": {
+          "Plant 1": "anantapur",
+          "Plant 2": "anantapur"
+        },
+        "top5": {
+          "Plant 1": [
+            "anantapur",
+            "bengaluru",
+            "hyderabad",
+            "coimbatore",
+            "kurnool"
+          ],
+          "Plant 2": [
+            "anantapur",
+            "hyderabad",
+            "kurnool",
+            "bengaluru",
+            "vijayawada"
+          ]
+        },
+        "best_r": {
+          "Plant 1": 0.653,
+          "Plant 2": 0.764
+        },
+        "median_r": {
+          "Plant 1": 0.124,
+          "Plant 2": 0.322
+        }
+      }
+    },
+    {
+      "name": "plant_location_grid",
+      "title": "Estimated plant location on a 1\u00b0 grid",
+      "takeaway": "On 169 1\u00b0 cells (10\u201322\u00b0N, 72\u201384\u00b0E) the r-weighted centre of the 5 best cells is 13.6\u00b0N 77.0\u00b0E for Plant 1 (best r = 0.70, 3 cells within 0.05) and 14.6\u00b0N 77.2\u00b0E for Plant 2 (best r = 0.78, 4 cells within 0.05), both in the southern interior Deccan and consistent with the city match (i07). Plant 1 is the less certain of the two; 34 days cannot pin a site more precisely than a region.",
+      "file": "i08_plant_location_grid.png",
+      "stats": {
+        "estimates": {
+          "Plant 1": {
+            "est_latitude": 13.56,
+            "est_longitude": 77.0,
+            "best_cell": "grid_11.00N_77.00E",
+            "best_r": 0.696,
+            "cells_within_0.05": 3,
+            "median_r": 0.415
+          },
+          "Plant 2": {
+            "est_latitude": 14.58,
+            "est_longitude": 77.19,
+            "best_cell": "grid_14.00N_76.00E",
+            "best_r": 0.782,
+            "cells_within_0.05": 4,
+            "median_r": 0.529
+          }
+        }
+      }
+    },
+    {
+      "name": "district_ranking",
+      "title": "District ranking",
+      "takeaway": "In December 2024 the sunniest district was Kollam (Kerala, 3.68 kWh/m\u00b2/day) and the least sunny Muzaffarabad (Jammu and Kashmir, 1.16); one winter month only, so use it to rank, not as an annual value.",
+      "file": "i01_district_ranking.png",
+      "stats": {
+        "n_districts": 646,
+        "top": "Kollam",
+        "bottom": "Muzaffarabad"
+      }
+    }
+  ],
+  "india_households": [
+    {
+      "name": "households_overview",
+      "title": "Who is in the eMARC sample",
+      "takeaway": "116 whole-home meters with measured data (94 in Maharashtra, 22 in Uttar Pradesh), 116 households. 73 are 'Basic' homes, 22 have water heaters and 21 have air conditioners (all in Pune city, Pune, Aurangabad). Half the meters reported for at least 442 days (84 for a year or more).",
+      "file": "e01_households_overview.png",
+      "stats": {
+        "meters": 116,
+        "households": 116,
+        "counts": {
+          "Basic": {
+            "Pune city": 12,
+            "Pune": 21,
+            "Aurangabad": 21,
+            "Kanpur rural": 10,
+            "Gonda": 9
+          },
+          "Water Heaters but no AC": {
+            "Pune city": 16,
+            "Pune": 0,
+            "Aurangabad": 3,
+            "Kanpur rural": 0,
+            "Gonda": 3
+          },
+          "With Air Conditioners": {
+            "Pune city": 14,
+            "Pune": 4,
+            "Aurangabad": 3,
+            "Kanpur rural": 0,
+            "Gonda": 0
+          }
+        },
+        "median_days": 441.5
+      }
+    },
+    {
+      "name": "consumption_by_type",
+      "title": "Daily use by household type",
+      "takeaway": "The typical (median) household uses 3.9 kWh/day in a Basic home, 4.7 with a water heater and 5.8 with AC. Spread within each group is wide (0.4\u201320.0 kWh/day overall), so the household's own history matters more than its type label.",
+      "file": "e02_consumption_by_type.png",
+      "stats": {
+        "median_by_type": {
+          "Basic": 3.94,
+          "Water Heaters but no AC": 4.65,
+          "With Air Conditioners": 5.79
+        },
+        "range": [
+          0.39,
+          19.98
+        ]
+      }
+    },
+    {
+      "name": "seasonal_by_region",
+      "title": "Seasonal pattern by region",
+      "takeaway": "Use peaks in the hot months, not in winter as in France: peak month is Aurangabad May (1.37\u00d7), Gonda Jun (1.39\u00d7), Kanpur rural Aug (1.47\u00d7), Pune May (1.38\u00d7), Pune city May (1.36\u00d7); the lowest month is Aurangabad Jan, Gonda Nov, Kanpur rural Feb, Pune Jan, Pune city Jan. Only meters with \u2265 300 measured days (97) are used. Cooling (fans, coolers, AC) drives the seasonal cycle, so temperature features should matter more here than for the French household.",
+      "file": "e03_seasonal_by_region.png",
+      "stats": {
+        "peak_month": {
+          "Aurangabad": 5,
+          "Gonda": 6,
+          "Kanpur rural": 8,
+          "Pune": 5,
+          "Pune city": 5
+        },
+        "peak_index": {
+          "Aurangabad": 1.374,
+          "Gonda": 1.388,
+          "Kanpur rural": 1.475,
+          "Pune": 1.381,
+          "Pune city": 1.361
+        },
+        "meters": 97
+      }
+    },
+    {
+      "name": "temperature_response",
+      "title": "Temperature response",
+      "takeaway": "Above 30 \u00b0C each extra degree of daily maximum adds about 2.9% of a Basic home's average use, 2.0% for water-heater homes and 6.2% for AC homes. Per meter, the median correlation between daily use and maximum temperature is 0.45 (92% of meters positive). Cooling degree-days are therefore included as features.",
+      "file": "e04_temperature_response.png",
+      "stats": {
+        "slope_per_degC_above_30": {
+          "Basic": 0.0294,
+          "Water Heaters but no AC": 0.0204,
+          "With Air Conditioners": 0.0622
+        },
+        "median_corr": 0.45,
+        "share_positive": 0.922
+      }
+    },
+    {
+      "name": "load_profile",
+      "title": "Daily load shape and the solar window",
+      "takeaway": "Only 25% (Basic), 29% (water heater) and 26% (AC) of daily use falls in 9:00\u201316:00 when rooftop solar produces most. The peak is at 21:15, 7:45, 8:45 respectively. Without a battery, most solar output in these homes would be exported, not used directly; the energy balance therefore reports this share alongside the daily totals.",
+      "file": "e05_load_profile.png",
+      "stats": {
+        "solar_hours_share": {
+          "Basic": 0.248,
+          "Water Heaters but no AC": 0.294,
+          "With Air Conditioners": 0.264
+        },
+        "peak_hour": {
+          "Basic": 21.25,
+          "Water Heaters but no AC": 7.75,
+          "With Air Conditioners": 8.75
+        }
+      }
+    },
+    {
+      "name": "lockdown_effect",
+      "title": "Lockdown shift (test-set warning)",
+      "takeaway": "For the 54 meters with \u2265 60 measured days in both windows, median use changed by +7% (63% of homes used more; not adjusted for the two years' different weather). The model never sees a lockdown in training, so test results are reported separately for 'normal' days (Jan\u201324 Mar 2020) and 'lockdown' days.",
+      "file": "e06_lockdown_effect.png",
+      "stats": {
+        "meters": 54,
+        "median_change": 0.0701,
+        "share_increase": 0.63
+      }
+    }
+  ],
+  "consumption": [
+    {
+      "name": "daily_trend",
+      "title": "Daily trend",
+      "takeaway": "Consumption follows a clear yearly cycle: winter days (Dec\u2013Feb) average 34.0 kWh vs 17.4 kWh in summer (Jun\u2013Aug), 2.0\u00d7 higher; there is no strong long-term trend.",
+      "file": "c01_daily_trend.png",
+      "stats": {
+        "winter_mean": 33.98,
+        "summer_mean": 17.41,
+        "yearly_mean": {
+          "2006": 45.12,
+          "2007": 26.82,
+          "2008": 25.73,
+          "2009": 25.87,
+          "2010": 25.45
+        }
+      }
+    },
+    {
+      "name": "weekday_vs_weekend",
+      "title": "Weekday vs weekend",
+      "takeaway": "Weekend days use 29.6 kWh on average vs 24.8 kWh on weekdays (+19%), so day of week is a useful feature; the highest day is Sat.",
+      "file": "c02_weekday_vs_weekend.png",
+      "stats": {
+        "weekday_mean": 24.84,
+        "weekend_mean": 29.59,
+        "by_weekday": {
+          "Mon": 24.02,
+          "Tue": 25.66,
+          "Wed": 25.98,
+          "Thu": 23.48,
+          "Fri": 25.03,
+          "Sat": 29.92,
+          "Sun": 29.26
+        }
+      }
+    },
+    {
+      "name": "monthly_pattern",
+      "title": "Monthly seasonality",
+      "takeaway": "All years share a winter-high, summer-low shape: highest in Dec (35.7 kWh/day), lowest in Aug (13.7 kWh/day). August varies most between years (only 6.6 kWh/day in 2008, likely the household away on holiday), a pattern lag features alone cannot foresee.",
+      "file": "c03_monthly_pattern.png",
+      "stats": {
+        "by_month": {
+          "Jan": 35.07,
+          "Feb": 31.21,
+          "Mar": 29.52,
+          "Apr": 25.16,
+          "May": 24.71,
+          "Jun": 21.84,
+          "Jul": 16.81,
+          "Aug": 13.66,
+          "Sep": 23.41,
+          "Oct": 27.29,
+          "Nov": 31.02,
+          "Dec": 35.66
+        },
+        "years": [
+          2007,
+          2008,
+          2009,
+          2010
+        ],
+        "august_by_year": {
+          "2007": 18.34,
+          "2008": 6.64,
+          "2009": 15.73,
+          "2010": 14.02
+        }
+      }
+    },
+    {
+      "name": "submetering_shares",
+      "title": "Sub-metering shares",
+      "takeaway": "The unmetered rest of the house is the largest share (51%); the water heater + AC meter accounts for 36%, kitchen 6% and laundry 7%.",
+      "file": "c04_submetering_shares.png",
+      "stats": {
+        "overall_share_pct": {
+          "sub1_kwh": 6.2,
+          "sub2_kwh": 7.1,
+          "sub3_kwh": 35.5,
+          "unmetered_kwh": 51.2
+        }
+      }
+    },
+    {
+      "name": "missing_data_map",
+      "title": "Missing data",
+      "takeaway": "Missing data is rare and clustered: 22 of 1440 days fall below 90% coverage, mostly in a few multi-day outages (2007, 2009 and several in 2010), so only short gaps were interpolated.",
+      "file": "c05_missing_data_map.png",
+      "stats": {
+        "days_below_90pct": 22,
+        "total_days": 1440
+      }
+    },
+    {
+      "name": "distribution",
+      "title": "Distribution",
+      "takeaway": "Daily consumption is right-skewed (skewness 0.57): most days use 20\u201332 kWh, with a tail of heavy days up to 80 kWh, so MAE is a more robust headline metric than RMSE.",
+      "file": "c06_distribution.png",
+      "stats": {
+        "skew": 0.565,
+        "q25": 19.65,
+        "q75": 31.65,
+        "max": 79.56
+      }
+    },
+    {
+      "name": "autocorrelation",
+      "title": "Autocorrelation",
+      "takeaway": "Yesterday is the strongest single predictor (r = 0.61), with bumps every 7 days (lag 7 r = 0.55, lag 14 r = 0.48); this supports lag 1, 2, 7 and 14 features and weekly rolling averages.",
+      "file": "c07_autocorrelation.png",
+      "stats": {
+        "acf": {
+          "1": 0.609,
+          "2": 0.477,
+          "3": 0.538,
+          "7": 0.548,
+          "14": 0.484,
+          "21": 0.462,
+          "28": 0.395,
+          "30": 0.265,
+          "60": 0.146
+        }
+      }
+    },
+    {
+      "name": "temperature_effect",
+      "title": "Temperature effect",
+      "takeaway": "Days below 5 \u00b0C average 33.1 kWh vs 17.4 kWh above 18 \u00b0C; below the heating base each 1 \u00b0C colder adds about 0.81 kWh. Yesterday's temperature correlates r = -0.56 with consumption, which is why past temperature is now a feature.",
+      "file": "c08_temperature_effect.png",
+      "stats": {
+        "cold_mean": 33.12,
+        "warm_mean": 17.44,
+        "kwh_per_degC_below_base": 0.815,
+        "corr_with_yesterday_temp": -0.563
+      }
+    }
+  ]
+}

@@ -1,0 +1,172 @@
+{
+ "ridge": {
+  "best_params": {
+   "model__alpha": 100.0
+  },
+  "cv_mae_kwh": 5.098225864707179,
+  "cv_mae_by_fold_kwh": [
+   4.778,
+   5.557,
+   5.425,
+   4.249,
+   5.482
+  ],
+  "cv_results": [
+   {
+    "params": {
+     "model__alpha": 0.1
+    },
+    "mae_kwh": 11.715675010585247
+   },
+   {
+    "params": {
+     "model__alpha": 1.0
+    },
+    "mae_kwh": 10.010121441170691
+   },
+   {
+    "params": {
+     "model__alpha": 10.0
+    },
+    "mae_kwh": 6.393436049687938
+   },
+   {
+    "params": {
+     "model__alpha": 100.0
+    },
+    "mae_kwh": 5.098225864707179
+   },
+   {
+    "params": {
+     "model__alpha": 1000.0
+    },
+    "mae_kwh": 5.50238399041071
+   }
+  ]
+ },
+ "random_forest": {
+  "best_params": {
+   "model__max_features": 0.33,
+   "model__min_samples_leaf": 5
+  },
+  "cv_mae_kwh": 5.255664902283803,
+  "cv_mae_by_fold_kwh": [
+   4.645,
+   5.664,
+   5.232,
+   5.178,
+   5.558
+  ],
+  "cv_results": [
+   {
+    "params": {
+     "model__max_features": 1.0,
+     "model__min_samples_leaf": 5
+    },
+    "mae_kwh": 5.33601228147581
+   },
+   {
+    "params": {
+     "model__max_features": 1.0,
+     "model__min_samples_leaf": 20
+    },
+    "mae_kwh": 5.326154272222391
+   },
+   {
+    "params": {
+     "model__max_features": 0.33,
+     "model__min_samples_leaf": 5
+    },
+    "mae_kwh": 5.255664902283803
+   },
+   {
+    "params": {
+     "model__max_features": 0.33,
+     "model__min_samples_leaf": 20
+    },
+    "mae_kwh": 5.3830025507912485
+   }
+  ]
+ },
+ "hist_gradient_boosting": {
+  "best_params": {
+   "model__learning_rate": 0.05,
+   "model__max_leaf_nodes": 31,
+   "model__min_samples_leaf": 20
+  },
+  "cv_mae_kwh": 6.130968630919948,
+  "cv_mae_by_fold_kwh": [
+   5.753,
+   6.822,
+   6.68,
+   5.352,
+   6.047
+  ],
+  "cv_results": [
+   {
+    "params": {
+     "model__learning_rate": 0.05,
+     "model__max_leaf_nodes": 15,
+     "model__min_samples_leaf": 20
+    },
+    "mae_kwh": 6.151242054254995
+   },
+   {
+    "params": {
+     "model__learning_rate": 0.05,
+     "model__max_leaf_nodes": 15,
+     "model__min_samples_leaf": 100
+    },
+    "mae_kwh": 6.880324216844929
+   },
+   {
+    "params": {
+     "model__learning_rate": 0.05,
+     "model__max_leaf_nodes": 31,
+     "model__min_samples_leaf": 20
+    },
+    "mae_kwh": 6.130968630919948
+   },
+   {
+    "params": {
+     "model__learning_rate": 0.05,
+     "model__max_leaf_nodes": 31,
+     "model__min_samples_leaf": 100
+    },
+    "mae_kwh": 6.880324216844929
+   },
+   {
+    "params": {
+     "model__learning_rate": 0.1,
+     "model__max_leaf_nodes": 15,
+     "model__min_samples_leaf": 20
+    },
+    "mae_kwh": 6.218521789826211
+   },
+   {
+    "params": {
+     "model__learning_rate": 0.1,
+     "model__max_leaf_nodes": 15,
+     "model__min_samples_leaf": 100
+    },
+    "mae_kwh": 7.015298770505687
+   },
+   {
+    "params": {
+     "model__learning_rate": 0.1,
+     "model__max_leaf_nodes": 31,
+     "model__min_samples_leaf": 20
+    },
+    "mae_kwh": 6.135839457260112
+   },
+   {
+    "params": {
+     "model__learning_rate": 0.1,
+     "model__max_leaf_nodes": 31,
+     "model__min_samples_leaf": 100
+    },
+    "mae_kwh": 7.015298770505687
+   }
+  ]
+ }
+}

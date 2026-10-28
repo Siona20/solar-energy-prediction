@@ -1,0 +1,282 @@
+{
+ "monitored_days": "2020-05-22 to 2020-06-17 (27 days)",
+ "inverter_days": 1160,
+ "status_counts": {
+  "Plant 1": {
+   "ok": 544,
+   "watch": 50,
+   "alert": 0
+  },
+  "Plant 2": {
+   "ok": 354,
+   "watch": 130,
+   "alert": 82
+  }
+ },
+ "healthy_reference_pr": {
+  "Plant 1": {
+   "median": 1.007,
+   "p05": 0.942,
+   "p95": 1.038
+  },
+  "Plant 2": {
+   "median": 0.981,
+   "p05": 0.887,
+   "p95": 1.039
+  }
+ },
+ "shutdown_share_of_lost_energy": {
+  "Plant 1": 0.741,
+  "Plant 2": 0.846
+ },
+ "mean_plant_pr": {
+  "Plant 1": 0.996,
+  "Plant 2": 0.797
+ },
+ "mean_plant_running_pr": {
+  "Plant 1": 0.999,
+  "Plant 2": 0.959
+ },
+ "corr_running_pr_vs_est_rain": {
+  "Plant 1": 0.191,
+  "Plant 2": 0.012
+ },
+ "out_of_sample_daily_mae_kwh_healthy": {
+  "Plant 1": 152.0,
+  "Plant 2": 267.4
+ },
+ "inverters_with_alert": {
+  "Plant 1": 0,
+  "Plant 2": 14
+ },
+ "plant_days_share_low_ge_0.6": {
+  "Plant 1": 0,
+  "Plant 2": 1
+ },
+ "isolation_forest": {
+  "flag_rate": 0.1862,
+  "rule_flags": 216,
+  "iforest_flags": 216,
+  "both": 198,
+  "rule_only": 18,
+  "iforest_only": 18,
+  "jaccard": 0.846,
+  "iforest_only_median_pr": 0.93,
+  "rule_only_median_pr": 0.647
+ },
+ "injected_faults": [
+  {
+   "plant": "Plant 1",
+   "output_kept": 1.0,
+   "loss_pct": 0,
+   "inverter_days": 570,
+   "flagged_share": 0.0
+  },
+  {
+   "plant": "Plant 1",
+   "output_kept": 0.95,
+   "loss_pct": 5,
+   "inverter_days": 570,
+   "flagged_share": 0.0
+  },
+  {
+   "plant": "Plant 1",
+   "output_kept": 0.9,
+   "loss_pct": 10,
+   "inverter_days": 570,
+   "flagged_share": 0.054385964912280704
+  },
+  {
+   "plant": "Plant 1",
+   "output_kept": 0.85,
+   "loss_pct": 15,
+   "inverter_days": 570,
+   "flagged_share": 0.40350877192982454
+  },
+  {
+   "plant": "Plant 1",
+   "output_kept": 0.8,
+   "loss_pct": 20,
+   "inverter_days": 570,
+   "flagged_share": 0.9982456140350877
+  },
+  {
+   "plant": "Plant 1",
+   "output_kept": 0.7,
+   "loss_pct": 30,
+   "inverter_days": 570,
+   "flagged_share": 1.0
+  },
+  {
+   "plant": "Plant 1",
+   "output_kept": 0.5,
+   "loss_pct": 50,
+   "inverter_days": 570,
+   "flagged_share": 1.0
+  }
+ ],
+ "rain_effect_estimate": [
+  {
+   "plant": "Plant 1",
+   "group": "other days",
+   "days": 21,
+   "mean_plant_pr": 0.9941704656462177,
+   "mean_pr_change": 0.0006861850876230971,
+   "mean_running_pr": 0.9985076999612549,
+   "mean_irradiation_kwh_m2": 5.71367842083295,
+   "corr_pr_vs_irradiation_all_days": -0.17406933593787535
+  },
+  {
+   "plant": "Plant 1",
+   "group": "after rain",
+   "days": 5,
+   "mean_plant_pr": 1.0051034719491199,
+   "mean_pr_change": 0.0033106665815212377,
+   "mean_running_pr": 1.0051034719491199,
+   "mean_irradiation_kwh_m2": 4.429680427299165,
+   "corr_pr_vs_irradiation_all_days": -0.17406933593787535
+  },
+  {
+   "plant": "Plant 2",
+   "group": "other days",
+   "days": 21,
+   "mean_plant_pr": 0.7747651186786525,
+   "mean_pr_change": 0.004130390922438995,
+   "mean_running_pr": 0.9566778574274931,
+   "mean_irradiation_kwh_m2": 5.713116953527534,
+   "corr_pr_vs_irradiation_all_days": -0.6768796708920769
+  },
+  {
+   "plant": "Plant 2",
+   "group": "after rain",
+   "days": 5,
+   "mean_plant_pr": 0.9045810949759574,
+   "mean_pr_change": 0.03179054633953162,
+   "mean_running_pr": 0.9602150423819875,
+   "mean_irradiation_kwh_m2": 4.038188512741625,
+   "corr_pr_vs_irradiation_all_days": -0.6768796708920769
+  }
+ ],
+ "trips_by_irradiance": [
+  {
+   "group": "other inverters",
+   "irradiation_band_kw_m2": "(0.1, 0.4]",
+   "intervals": 8998,
+   "off_share": 0.0,
+   "inverters": 22,
+   "plant": "Plant 1"
+  },
+  {
+   "group": "other inverters",
+   "irradiation_band_kw_m2": "(0.4, 0.6]",
+   "intervals": 6622,
+   "off_share": 0.0028692237994563576,
+   "inverters": 22,
+   "plant": "Plant 1"
+  },
+  {
+   "group": "other inverters",
+   "irradiation_band_kw_m2": "(0.6, 0.8]",
+   "intervals": 5192,
+   "off_share": 0.001926040061633282,
+   "inverters": 22,
+   "plant": "Plant 1"
+  },
+  {
+   "group": "other inverters",
+   "irradiation_band_kw_m2": "(0.8, 1.0]",
+   "intervals": 3388,
+   "off_share": 0.007378984651711925,
+   "inverters": 22,
+   "plant": "Plant 1"
+  },
+  {
+   "group": "other inverters",
+   "irradiation_band_kw_m2": "(1.0, 1.4]",
+   "intervals": 638,
+   "off_share": 0.0109717868338558,
+   "inverters": 22,
+   "plant": "Plant 1"
+  },
+  {
+   "group": "often-low inverters",
+   "irradiation_band_kw_m2": "(0.1, 0.4]",
+   "intervals": 3073,
+   "off_share": 0.019850309144158803,
+   "inverters": 7,
+   "plant": "Plant 2"
+  },
+  {
+   "group": "often-low inverters",
+   "irradiation_band_kw_m2": "(0.4, 0.6]",
+   "intervals": 1659,
+   "off_share": 0.08800482218203737,
+   "inverters": 7,
+   "plant": "Plant 2"
+  },
+  {
+   "group": "often-low inverters",
+   "irradiation_band_kw_m2": "(0.6, 0.8]",
+   "intervals": 1498,
+   "off_share": 0.3104138851802403,
+   "inverters": 7,
+   "plant": "Plant 2"
+  },
+  {
+   "group": "often-low inverters",
+   "irradiation_band_kw_m2": "(0.8, 1.0]",
+   "intervals": 1477,
+   "off_share": 0.5280974949221394,
+   "inverters": 7,
+   "plant": "Plant 2"
+  },
+  {
+   "group": "often-low inverters",
+   "irradiation_band_kw_m2": "(1.0, 1.4]",
+   "intervals": 70,
+   "off_share": 0.5714285714285714,
+   "inverters": 7,
+   "plant": "Plant 2"
+  },
+  {
+   "group": "other inverters",
+   "irradiation_band_kw_m2": "(0.1, 0.4]",
+   "intervals": 6289,
+   "off_share": 0.012720623310542217,
+   "inverters": 15,
+   "plant": "Plant 2"
+  },
+  {
+   "group": "other inverters",
+   "irradiation_band_kw_m2": "(0.4, 0.6]",
+   "intervals": 3299,
+   "off_share": 0.059108820854804484,
+   "inverters": 15,
+   "plant": "Plant 2"
+  },
+  {
+   "group": "other inverters",
+   "irradiation_band_kw_m2": "(0.6, 0.8]",
+   "intervals": 2882,
+   "off_share": 0.18077723802914641,
+   "inverters": 15,
+   "plant": "Plant 2"
+  },
+  {
+   "group": "other inverters",
+   "irradiation_band_kw_m2": "(0.8, 1.0]",
+   "intervals": 2701,
+   "off_share": 0.23509811181044057,
+   "inverters": 15,
+   "plant": "Plant 2"
+  },
+  {
+   "group": "other inverters",
+   "irradiation_band_kw_m2": "(1.0, 1.4]",
+   "intervals": 150,
+   "off_share": 0.26,
+   "inverters": 15,
+   "plant": "Plant 2"
+  }
+ ]
+}

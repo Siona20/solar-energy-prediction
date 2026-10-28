@@ -1,0 +1,44 @@
+{
+ "rule_counts_plant_days": {
+  "4135001": {
+   "R0 no_action": 25,
+   "R1 inverter_offline": 6,
+   "R2 inverter_underperforming": 0,
+   "R7 not_reporting": 0
+  },
+  "4136001": {
+   "R0 no_action": 1,
+   "R1 inverter_offline": 126,
+   "R2 inverter_underperforming": 79,
+   "R7 not_reporting": 28
+  }
+ },
+ "inverters_with_R2": {
+  "4136001": 14
+ },
+ "latest_day": "2020-06-17",
+ "latest": [
+  {
+   "plant_id": "4135001",
+   "date": "2020-06-17",
+   "target": "plant",
+   "rule": "R0 no_action",
+   "severity": "info",
+   "action": "No action needed.",
+   "reason": "All inverters are within the expected range today.",
+   "estimated_location": "anantapur",
+   "dry_months": "[1, 2]"
+  },
+  {
+   "plant_id": "4136001",
+   "date": "2020-06-17",
+   "target": "plant",
+   "rule": "R0 no_action",
+   "severity": "info",
+   "action": "No action needed.",
+   "reason": "All inverters are within the expected range today.",
+   "estimated_location": "anantapur",
+   "dry_months": "[1, 2]"
+  }
+ ]
+}

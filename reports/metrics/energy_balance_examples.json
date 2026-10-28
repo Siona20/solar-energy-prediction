@@ -1,0 +1,42 @@
+{
+ "pv_share_09_16": 0.806,
+ "scenarios_pune": [
+  {
+   "household_type": "Basic",
+   "daily_use_kwh": 3.94,
+   "kwp": 1.5,
+   "solar_kwh": 2083.7,
+   "consumption_kwh": 1440.6,
+   "direct_use_kwh": 595.5,
+   "export_kwh": 1488.2,
+   "grid_import_kwh": 845.1,
+   "self_sufficiency_pct": 41.3,
+   "self_consumption_pct": 28.6
+  },
+  {
+   "household_type": "Water Heaters but no AC",
+   "daily_use_kwh": 4.65,
+   "kwp": 1.5,
+   "solar_kwh": 2083.7,
+   "consumption_kwh": 1699.0,
+   "direct_use_kwh": 805.2,
+   "export_kwh": 1278.5,
+   "grid_import_kwh": 893.8,
+   "self_sufficiency_pct": 47.4,
+   "self_consumption_pct": 38.6
+  },
+  {
+   "household_type": "With Air Conditioners",
+   "daily_use_kwh": 5.79,
+   "kwp": 2.0,
+   "solar_kwh": 2778.3,
+   "consumption_kwh": 2115.5,
+   "direct_use_kwh": 909.4,
+   "export_kwh": 1869.0,
+   "grid_import_kwh": 1206.1,
+   "self_sufficiency_pct": 43.0,
+   "self_consumption_pct": 32.7
+  }
+ ],
+ "performance_ratio": 0.75
+}

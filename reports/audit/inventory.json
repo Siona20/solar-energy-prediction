@@ -1,0 +1,2920 @@
+{
+  "inventory": [
+    {
+      "path": "electricity_demand_solar_wind/April 2022.xlsx",
+      "size_mb": 1.73,
+      "ext": ".xlsx",
+      "md5": "a11a4508074489e354a1a6dec2a2ea33"
+    },
+    {
+      "path": "electricity_demand_solar_wind/April 2023.xlsx",
+      "size_mb": 47.89,
+      "ext": ".xlsx",
+      "md5": "bfde6af35616a3d9784e5c76b23b91f2"
+    },
+    {
+      "path": "electricity_demand_solar_wind/August 2022.xlsx",
+      "size_mb": 1.67,
+      "ext": ".xlsx",
+      "md5": "c5f714e9e13a583ed07d6983c711932e"
+    },
+    {
+      "path": "electricity_demand_solar_wind/August 2023.xlsx",
+      "size_mb": 48.86,
+      "ext": ".xlsx",
+      "md5": "7f9126e79da8d18e71973c26c43f4e66"
+    },
+    {
+      "path": "electricity_demand_solar_wind/December 2021.xlsx",
+      "size_mb": 1.65,
+      "ext": ".xlsx",
+      "md5": "fef976f4b94f697b83102876e167eac8"
+    },
+    {
+      "path": "electricity_demand_solar_wind/December 2022.xlsx",
+      "size_mb": 49.89,
+      "ext": ".xlsx",
+      "md5": "c54e93e44b9ed6a83efaffc3f46b5fd4"
+    },
+    {
+      "path": "electricity_demand_solar_wind/December 2023.xlsx",
+      "size_mb": 49.67,
+      "ext": ".xlsx",
+      "md5": "91219872fa6b71fae798af365864a199"
+    },
+    {
+      "path": "electricity_demand_solar_wind/February 2022.xlsx",
+      "size_mb": 1.59,
+      "ext": ".xlsx",
+      "md5": "487cea80edaac1bb5d14e385b007aec4"
+    },
+    {
+      "path": "electricity_demand_solar_wind/February 2023.xlsx",
+      "size_mb": 44.81,
+      "ext": ".xlsx",
+      "md5": "2f89aeecc7d28eb77b78ecad35474df2"
+    },
+    {
+      "path": "electricity_demand_solar_wind/January 2022.xlsx",
+      "size_mb": 1.75,
+      "ext": ".xlsx",
+      "md5": "0d914d3d4e332221b237cc2abc411fbe"
+    },
+    {
+      "path": "electricity_demand_solar_wind/January 2023.xlsx",
+      "size_mb": 49.68,
+      "ext": ".xlsx",
+      "md5": "be3f3f0ea073ba35e990bf8a515c71b5"
+    },
+    {
+      "path": "electricity_demand_solar_wind/January 2024- June 2025.xlsx",
+      "size_mb": 0.66,
+      "ext": ".xlsx",
+      "md5": "e67e9d421fa7f3df93046e65cc2e088d"
+    },
+    {
+      "path": "electricity_demand_solar_wind/July 2022.xlsx",
+      "size_mb": 1.65,
+      "ext": ".xlsx",
+      "md5": "095897088c0596cd8902459ae4c8ab41"
+    },
+    {
+      "path": "electricity_demand_solar_wind/July 2023.xlsx",
+      "size_mb": 48.97,
+      "ext": ".xlsx",
+      "md5": "d1c27f7fff3fbeda77021cc241142b5b"
+    },
+    {
+      "path": "electricity_demand_solar_wind/June 2022.xlsx",
+      "size_mb": 1.61,
+      "ext": ".xlsx",
+      "md5": "0acc9cdd60fd9ddb0de4351d3ae034c6"
+    },
+    {
+      "path": "electricity_demand_solar_wind/June 2023.xlsx",
+      "size_mb": 46.67,
+      "ext": ".xlsx",
+      "md5": "4d0cc73ff9668e1ad8bfb02df5ffbd10"
+    },
+    {
+      "path": "electricity_demand_solar_wind/March 2022.xlsx",
+      "size_mb": 1.7,
+      "ext": ".xlsx",
+      "md5": "c55beb959513408658cdf5788501dda9"
+    },
+    {
+      "path": "electricity_demand_solar_wind/March 2023.xlsx",
+      "size_mb": 49.48,
+      "ext": ".xlsx",
+      "md5": "49a61ce613aa94dd481218ab5fd31ade"
+    },
+    {
+      "path": "electricity_demand_solar_wind/May 2022.xlsx",
+      "size_mb": 1.68,
+      "ext": ".xlsx",
+      "md5": "4baaa4636cf359cab602a63e398f8ffe"
+    },
+    {
+      "path": "electricity_demand_solar_wind/May 2023.xlsx",
+      "size_mb": 48.85,
+      "ext": ".xlsx",
+      "md5": "23fde6140d7b1110bd99271e95a34089"
+    },
+    {
+      "path": "electricity_demand_solar_wind/November 2021.xlsx",
+      "size_mb": 1.54,
+      "ext": ".xlsx",
+      "md5": "2d72aa7759e53b144b43bbcfb3048479"
+    },
+    {
+      "path": "electricity_demand_solar_wind/November 2022.xlsx",
+      "size_mb": 48.27,
+      "ext": ".xlsx",
+      "md5": "8bd3eacdb7b48c167211fc16a4f35845"
+    },
+    {
+      "path": "electricity_demand_solar_wind/Novemeber 2023.xlsx",
+      "size_mb": 48.14,
+      "ext": ".xlsx",
+      "md5": "28a09a39c1acf5e9c74781fb6f9e7309"
+    },
+    {
+      "path": "electricity_demand_solar_wind/October 2021.xlsx",
+      "size_mb": 1.59,
+      "ext": ".xlsx",
+      "md5": "186db7aea4fa671dd367a364354c31ee"
+    },
+    {
+      "path": "electricity_demand_solar_wind/October 2022.xlsx",
+      "size_mb": 47.75,
+      "ext": ".xlsx",
+      "md5": "7e1b20833079eb65b54b63648669e89d"
+    },
+    {
+      "path": "electricity_demand_solar_wind/October 2023.xlsx",
+      "size_mb": 49.49,
+      "ext": ".xlsx",
+      "md5": "1ae42aa2c365ff622890cc54394c2e44"
+    },
+    {
+      "path": "electricity_demand_solar_wind/September 2021.xlsx",
+      "size_mb": 1.47,
+      "ext": ".xlsx",
+      "md5": "e963dd21b3711c368ee4bef00463a889"
+    },
+    {
+      "path": "electricity_demand_solar_wind/September 2022.xlsx",
+      "size_mb": 1.63,
+      "ext": ".xlsx",
+      "md5": "27163dfb162a76d300855e58d4c53c5b"
+    },
+    {
+      "path": "electricity_demand_solar_wind/September 2023.xlsx",
+      "size_mb": 47.37,
+      "ext": ".xlsx",
+      "md5": "9d724b34db23c22067efc6a4d77704e0"
+    },
+    {
+      "path": "india_solar_irradiance/india_solar_irradiance.xlsx",
+      "size_mb": 0.06,
+      "ext": ".xlsx",
+      "md5": "939226f068ea8fd57647a2306a407e6f"
+    },
+    {
+      "path": "to_identify/chatgpt_datasets/Monthly Average Insolation.xlsx",
+      "size_mb": 0.01,
+      "ext": ".xlsx",
+      "md5": "441a002acefdb4d93ccb5df683421087"
+    },
+    {
+      "path": "to_identify/chatgpt_datasets/POWER_Point_Daily_20240101_20251231_022d31N_073d18E_LST (1).csv",
+      "size_mb": 0.03,
+      "ext": ".csv",
+      "md5": "9f0ca8987203a5803d999ac9103e9590"
+    },
+    {
+      "path": "to_identify/chatgpt_datasets/POWER_Point_Daily_20240101_20251231_022d31N_073d18E_LST.csv",
+      "size_mb": 0.03,
+      "ext": ".csv",
+      "md5": "9f0ca8987203a5803d999ac9103e9590"
+    },
+    {
+      "path": "to_identify/chatgpt_datasets/POWER_Point_Hourly_20240101_20251231_022d31N_073d18E_LST.csv",
+      "size_mb": 0.49,
+      "ext": ".csv",
+      "md5": "ad56a128e509aa5e6fda88de557fa247"
+    },
+    {
+      "path": "to_identify/chatgpt_datasets/Plant_1_Weather_Sensor_Data.csv",
+      "size_mb": 0.29,
+      "ext": ".csv",
+      "md5": "35d879bab7476bbffeda6e908b34d549"
+    },
+    {
+      "path": "to_identify/chatgpt_datasets/Plant_2_Generation_Data.csv",
+      "size_mb": 5.81,
+      "ext": ".csv",
+      "md5": "11781a72587e36657450f4088ed14591"
+    },
+    {
+      "path": "to_identify/chatgpt_datasets/archive.zip",
+      "size_mb": 1.99,
+      "ext": ".zip",
+      "md5": "132b49faba3e4a67627f7e19c841a308",
+      "members": [
+        {
+          "name": "Plant_1_Generation_Data.csv",
+          "size_mb": 4.84,
+          "date": "2020-08-18",
+          "md5": "97fd3db0b78b1218acfb6fac42a3ea17"
+        },
+        {
+          "name": "Plant_1_Weather_Sensor_Data.csv",
+          "size_mb": 0.29,
+          "date": "2020-08-18",
+          "md5": "35d879bab7476bbffeda6e908b34d549"
+        },
+        {
+          "name": "Plant_2_Generation_Data.csv",
+          "size_mb": 5.81,
+          "date": "2020-08-18",
+          "md5": "11781a72587e36657450f4088ed14591"
+        },
+        {
+          "name": "Plant_2_Weather_Sensor_Data.csv",
+          "size_mb": 0.3,
+          "date": "2020-08-18",
+          "md5": "e4b320aea4412808315773a206e63160"
+        }
+      ]
+    },
+    {
+      "path": "to_identify/chatgpt_datasets/individual+household+electric+power+consumption.zip",
+      "size_mb": 20.64,
+      "ext": ".zip",
+      "md5": "41f51806846b6b567b8ae701a300a3de",
+      "members": [
+        {
+          "name": "household_power_consumption.txt",
+          "size_mb": 132.96,
+          "date": "2012-10-12",
+          "md5": "e05286cd4a257d80c3f0407b350df7dd"
+        }
+      ]
+    },
+    {
+      "path": "to_identify/chatgpt_datasets/solar_rediation_tel_hr_nca_gj_2021_2025.csv",
+      "size_mb": 4.91,
+      "ext": ".csv",
+      "md5": "76b583c36af108441d38958e60561975"
+    },
+    {
+      "path": "to_identify/chatgpt_datasets/systems.csv",
+      "size_mb": 0.02,
+      "ext": ".csv",
+      "md5": "928a091f08e08412ebdbb5b8be3e9c09"
+    },
+    {
+      "path": "to_identify/chatgpt_datasets/systems_20250729.csv",
+      "size_mb": 0.38,
+      "ext": ".csv",
+      "md5": "2a2e460645749c2def67599d3b6f2a93"
+    },
+    {
+      "path": "to_identify/claude_datasets/POWER_Point_Daily_20230101_20251231_028d61N_077d21E_LST.csv",
+      "size_mb": 0.03,
+      "ext": ".csv",
+      "md5": "ffc3c6a6ee726b8c5b02e1716c24a277"
+    },
+    {
+      "path": "to_identify/claude_datasets/PV360_data.zip",
+      "size_mb": 0.7,
+      "ext": ".zip",
+      "md5": "480bbb9a2eb1212228aa7fc631456499",
+      "members": [
+        {
+          "name": "PV360_data/",
+          "size_mb": 0.0,
+          "date": "2026-07-23",
+          "md5": null
+        },
+        {
+          "name": "PV360_data/README.md",
+          "size_mb": 0.01,
+          "date": "2026-07-23",
+          "md5": "bc97aac7d3ebdf8282f5723df2ebddb2"
+        },
+        {
+          "name": "PV360_data/data/",
+          "size_mb": 0.0,
+          "date": "2026-07-23",
+          "md5": null
+        },
+        {
+          "name": "PV360_data/data/daily_with_weather.csv",
+          "size_mb": 0.04,
+          "date": "2026-07-23",
+          "md5": "fa2f5d4d1373aaa7a29dae5efe71c765"
+        },
+        {
+          "name": "PV360_data/data/system_specifications.json",
+          "size_mb": 0.0,
+          "date": "2026-07-23",
+          "md5": "6ea641318e7db9a9213ba8f32e313d57"
+        },
+        {
+          "name": "PV360_data/data/measured_5min.csv",
+          "size_mb": 3.79,
+          "date": "2026-07-23",
+          "md5": "90f161a46f2f662614324071f68e286c"
+        },
+        {
+          "name": "PV360_data/data/nasa_power_daily.csv",
+          "size_mb": 0.01,
+          "date": "2026-07-23",
+          "md5": "b58041416a597b971229b91074f66cb3"
+        },
+        {
+          "name": "PV360_data/results/",
+          "size_mb": 0.0,
+          "date": "2026-07-23",
+          "md5": null
+        },
+        {
+          "name": "PV360_data/results/economic_cashflow_25yr.csv",
+          "size_mb": 0.0,
+          "date": "2026-07-23",
+          "md5": "b824f7f88c2604a562ad1bb7fdb64741"
+        },
+        {
+          "name": "PV360_data/results/battery_sizing_sweep.csv",
+          "size_mb": 0.0,
+          "date": "2026-07-23",
+          "md5": "d801ab68f89d9dca6ddfb1c2cfa71e2c"
+        },
+        {
+          "name": "PV360_data/results/monthly_performance.csv",
+          "size_mb": 0.0,
+          "date": "2026-07-23",
+          "md5": "e56b2558a35c4baed8bf57afbbeff23c"
+        },
+        {
+          "name": "PV360_data/results/forecast_feature_importance.csv",
+          "size_mb": 0.0,
+          "date": "2026-07-23",
+          "md5": "814fc485730bafccefa582dd7bcebedb"
+        },
+        {
+          "name": "PV360_data/results/forecast_model_comparison.csv",
+          "size_mb": 0.0,
+          "date": "2026-07-23",
+          "md5": "c944bf78cfb4052dea42cd261e91395f"
+        },
+        {
+          "name": "PV360_data/LICENSE.txt",
+          "size_mb": 0.0,
+          "date": "2026-07-23",
+          "md5": "e4450fcba9da01848d8b93765aa0f2d5"
+        },
+        {
+          "name": "PV360_data/code/",
+          "size_mb": 0.0,
+          "date": "2026-07-23",
+          "md5": null
+        },
+        {
+          "name": "PV360_data/code/pv_analytics.py",
+          "size_mb": 0.0,
+          "date": "2026-07-23",
+          "md5": "f8c0a1c7afb7dfe7850857b7c13bb923"
+        }
+      ]
+    },
+    {
+      "path": "to_identify/claude_datasets/Plant_1_Weather_Sensor_Data-7nwRaJ (1).csv",
+      "size_mb": 0.29,
+      "ext": ".csv",
+      "md5": "35d879bab7476bbffeda6e908b34d549"
+    },
+    {
+      "path": "to_identify/claude_datasets/Plant_1_Weather_Sensor_Data-7nwRaJ.csv",
+      "size_mb": 0.29,
+      "ext": ".csv",
+      "md5": "35d879bab7476bbffeda6e908b34d549"
+    },
+    {
+      "path": "to_identify/claude_datasets/archive.zip",
+      "size_mb": 1.99,
+      "ext": ".zip",
+      "md5": "132b49faba3e4a67627f7e19c841a308",
+      "members": [
+        {
+          "name": "Plant_1_Generation_Data.csv",
+          "size_mb": 4.84,
+          "date": "2020-08-18",
+          "md5": "97fd3db0b78b1218acfb6fac42a3ea17"
+        },
+        {
+          "name": "Plant_1_Weather_Sensor_Data.csv",
+          "size_mb": 0.29,
+          "date": "2020-08-18",
+          "md5": "35d879bab7476bbffeda6e908b34d549"
+        },
+        {
+          "name": "Plant_2_Generation_Data.csv",
+          "size_mb": 5.81,
+          "date": "2020-08-18",
+          "md5": "11781a72587e36657450f4088ed14591"
+        },
+        {
+          "name": "Plant_2_Weather_Sensor_Data.csv",
+          "size_mb": 0.3,
+          "date": "2020-08-18",
+          "md5": "e4b320aea4412808315773a206e63160"
+        }
+      ]
+    },
+    {
+      "path": "to_identify/dataset_1/India Map Solar Irradiance.xlsx",
+      "size_mb": 0.06,
+      "ext": ".xlsx",
+      "md5": "939226f068ea8fd57647a2306a407e6f"
+    },
+    {
+      "path": "to_identify/dataset_1/Monthly Average Insolation.xlsx",
+      "size_mb": 0.01,
+      "ext": ".xlsx",
+      "md5": "441a002acefdb4d93ccb5df683421087"
+    },
+    {
+      "path": "to_identify/dataset_1/POWER_Point_Daily_20240101_20251231_022d31N_073d18E_LST (1).csv",
+      "size_mb": 0.03,
+      "ext": ".csv",
+      "md5": "9f0ca8987203a5803d999ac9103e9590"
+    },
+    {
+      "path": "to_identify/dataset_1/POWER_Point_Daily_20240101_20251231_022d31N_073d18E_LST.csv",
+      "size_mb": 0.03,
+      "ext": ".csv",
+      "md5": "9f0ca8987203a5803d999ac9103e9590"
+    },
+    {
+      "path": "to_identify/dataset_1/POWER_Point_Hourly_20240101_20251231_022d31N_073d18E_LST.csv",
+      "size_mb": 0.49,
+      "ext": ".csv",
+      "md5": "ad56a128e509aa5e6fda88de557fa247"
+    },
+    {
+      "path": "to_identify/dataset_1/Plant_1_Weather_Sensor_Data.csv",
+      "size_mb": 0.29,
+      "ext": ".csv",
+      "md5": "35d879bab7476bbffeda6e908b34d549"
+    },
+    {
+      "path": "to_identify/dataset_1/Plant_2_Generation_Data.csv",
+      "size_mb": 5.81,
+      "ext": ".csv",
+      "md5": "11781a72587e36657450f4088ed14591"
+    },
+    {
+      "path": "to_identify/dataset_1/individual+household+electric+power+consumption.zip",
+      "size_mb": 20.64,
+      "ext": ".zip",
+      "md5": "41f51806846b6b567b8ae701a300a3de",
+      "members": [
+        {
+          "name": "household_power_consumption.txt",
+          "size_mb": 132.96,
+          "date": "2012-10-12",
+          "md5": "e05286cd4a257d80c3f0407b350df7dd"
+        }
+      ]
+    },
+    {
+      "path": "to_identify/dataset_1/solar_rediation_tel_hr_nca_gj_2021_2025.csv",
+      "size_mb": 4.91,
+      "ext": ".csv",
+      "md5": "76b583c36af108441d38958e60561975"
+    },
+    {
+      "path": "to_identify/dataset_1/systems.csv",
+      "size_mb": 0.02,
+      "ext": ".csv",
+      "md5": "928a091f08e08412ebdbb5b8be3e9c09"
+    },
+    {
+      "path": "to_identify/dataset_1/systems_20250729.csv",
+      "size_mb": 0.38,
+      "ext": ".csv",
+      "md5": "2a2e460645749c2def67599d3b6f2a93"
+    },
+    {
+      "path": "to_identify/solar_pv/PV_Rooftop_RGA/PV_Future_PV_cfs.png",
+      "size_mb": 1.48,
+      "ext": ".png",
+      "md5": "060a44ba95d34f5cba86fa92cc0e79fe"
+    },
+    {
+      "path": "to_identify/solar_pv/PV_Rooftop_RGA/solar_PV_Rooftop_RGA.csv",
+      "size_mb": 945.22,
+      "ext": ".csv",
+      "md5": "bf5a6b16adc2057f4aeb46a80f59ff6f"
+    },
+    {
+      "path": "to_identify/solar_pv/PV_Rooftop_RGB/PV_Future_PV_cfs.png",
+      "size_mb": 1.48,
+      "ext": ".png",
+      "md5": "b2d6091d3242bfa21a534a1384aafbb2"
+    },
+    {
+      "path": "to_identify/solar_pv/PV_Rooftop_RGB/solar_PV_Rooftop_RGB.csv",
+      "size_mb": 939.57,
+      "ext": ".csv",
+      "md5": "cea135c95898119019ab540b68fe2dc7"
+    },
+    {
+      "path": "to_identify/solar_pv/PV_Rooftop_RGC/PV_Future_PV_cfs.png",
+      "size_mb": 1.49,
+      "ext": ".png",
+      "md5": "2aebab4a3be61bc7b8e4d8d38ee01c60"
+    },
+    {
+      "path": "to_identify/solar_pv/PV_Rooftop_RGC/solar_PV_Rooftop_RGC.csv",
+      "size_mb": 939.57,
+      "ext": ".csv",
+      "md5": "3334113501b51e4c27520109273b33c4"
+    },
+    {
+      "path": "to_identify/solar_pv/PV_Utility_scale_no_tracking_RGA/PV_Future_PV_cfs.png",
+      "size_mb": 1.47,
+      "ext": ".png",
+      "md5": "665ebb9c8c18373f526190d3b4273c95"
+    },
+    {
+      "path": "to_identify/solar_pv/PV_Utility_scale_no_tracking_RGA/solar_PV_no_tracking_RGA.csv",
+      "size_mb": 939.57,
+      "ext": ".csv",
+      "md5": "e4e422575342fd9b1b782cf74f07ccc9"
+    },
+    {
+      "path": "to_identify/solar_pv/PV_Utility_scale_no_tracking_RGB/PV_Future_PV_cfs.png",
+      "size_mb": 1.47,
+      "ext": ".png",
+      "md5": "0b23f5a1a2b907aac1ea0141daaf3065"
+    },
+    {
+      "path": "to_identify/solar_pv/PV_Utility_scale_no_tracking_RGB/solar_PV_no_tracking_RGB.csv",
+      "size_mb": 933.93,
+      "ext": ".csv",
+      "md5": "a110e8337571464f6d07808d122401db"
+    },
+    {
+      "path": "to_identify/solar_pv/PV_Utility_scale_no_tracking_RGC/PV_Future_PV_cfs.png",
+      "size_mb": 1.47,
+      "ext": ".png",
+      "md5": "3ece1db13c8f238e7c0e0d963a3d1489"
+    },
+    {
+      "path": "to_identify/solar_pv/PV_Utility_scale_no_tracking_RGC/solar_PV_no_tracking_RGC.csv",
+      "size_mb": 933.93,
+      "ext": ".csv",
+      "md5": "da716164f098664d54ac35a2ec82b727"
+    },
+    {
+      "path": "to_identify/solar_pv/PV_Utility_scale_tracking_RGA/PV_Future_PV_cfs.png",
+      "size_mb": 1.47,
+      "ext": ".png",
+      "md5": "e8146bb34db94ced69127f7d774034a9"
+    },
+    {
+      "path": "to_identify/solar_pv/PV_Utility_scale_tracking_RGA/solar_PV_tracking_RGA.csv",
+      "size_mb": 939.57,
+      "ext": ".csv",
+      "md5": "62fed92044d1550cdb7c486213feadc2"
+    },
+    {
+      "path": "to_identify/solar_pv/PV_Utility_scale_tracking_RGB/PV_Future_PV_cfs.png",
+      "size_mb": 1.46,
+      "ext": ".png",
+      "md5": "c4589d4d6c6431aaaffffe1c9b713627"
+    },
+    {
+      "path": "to_identify/solar_pv/PV_Utility_scale_tracking_RGB/solar_PV_tracking_RGB.csv",
+      "size_mb": 933.93,
+      "ext": ".csv",
+      "md5": "e51b1bf4ea4ff34e488b5220b9301d27"
+    },
+    {
+      "path": "to_identify/solar_pv/PV_Utility_scale_tracking_RGC/PV_Future_PV_cfs.png",
+      "size_mb": 1.47,
+      "ext": ".png",
+      "md5": "c2fa1959bc73eb6266dbd6fab413c02a"
+    },
+    {
+      "path": "to_identify/solar_pv/PV_Utility_scale_tracking_RGC/solar_PV_tracking_RGC.csv",
+      "size_mb": 933.93,
+      "ext": ".csv",
+      "md5": "b33167526f2d98932f34c5daa376e31b"
+    },
+    {
+      "path": "uci_household_power/household_power_consumption.txt",
+      "size_mb": 132.96,
+      "ext": ".txt",
+      "md5": "e05286cd4a257d80c3f0407b350df7dd"
+    }
+  ],
+  "duplicate_groups": [
+    [
+      "india_solar_irradiance/india_solar_irradiance.xlsx",
+      "to_identify/dataset_1/India Map Solar Irradiance.xlsx"
+    ],
+    [
+      "to_identify/chatgpt_datasets/Monthly Average Insolation.xlsx",
+      "to_identify/dataset_1/Monthly Average Insolation.xlsx"
+    ],
+    [
+      "to_identify/chatgpt_datasets/POWER_Point_Daily_20240101_20251231_022d31N_073d18E_LST (1).csv",
+      "to_identify/chatgpt_datasets/POWER_Point_Daily_20240101_20251231_022d31N_073d18E_LST.csv",
+      "to_identify/dataset_1/POWER_Point_Daily_20240101_20251231_022d31N_073d18E_LST (1).csv",
+      "to_identify/dataset_1/POWER_Point_Daily_20240101_20251231_022d31N_073d18E_LST.csv"
+    ],
+    [
+      "to_identify/chatgpt_datasets/POWER_Point_Hourly_20240101_20251231_022d31N_073d18E_LST.csv",
+      "to_identify/dataset_1/POWER_Point_Hourly_20240101_20251231_022d31N_073d18E_LST.csv"
+    ],
+    [
+      "to_identify/chatgpt_datasets/Plant_1_Weather_Sensor_Data.csv",
+      "to_identify/chatgpt_datasets/archive.zip::Plant_1_Weather_Sensor_Data.csv",
+      "to_identify/claude_datasets/Plant_1_Weather_Sensor_Data-7nwRaJ (1).csv",
+      "to_identify/claude_datasets/Plant_1_Weather_Sensor_Data-7nwRaJ.csv",
+      "to_identify/claude_datasets/archive.zip::Plant_1_Weather_Sensor_Data.csv",
+      "to_identify/dataset_1/Plant_1_Weather_Sensor_Data.csv"
+    ],
+    [
+      "to_identify/chatgpt_datasets/Plant_2_Generation_Data.csv",
+      "to_identify/chatgpt_datasets/archive.zip::Plant_2_Generation_Data.csv",
+      "to_identify/claude_datasets/archive.zip::Plant_2_Generation_Data.csv",
+      "to_identify/dataset_1/Plant_2_Generation_Data.csv"
+    ],
+    [
+      "to_identify/chatgpt_datasets/archive.zip",
+      "to_identify/claude_datasets/archive.zip"
+    ],
+    [
+      "to_identify/chatgpt_datasets/archive.zip::Plant_1_Generation_Data.csv",
+      "to_identify/claude_datasets/archive.zip::Plant_1_Generation_Data.csv"
+    ],
+    [
+      "to_identify/chatgpt_datasets/archive.zip::Plant_2_Weather_Sensor_Data.csv",
+      "to_identify/claude_datasets/archive.zip::Plant_2_Weather_Sensor_Data.csv"
+    ],
+    [
+      "to_identify/chatgpt_datasets/individual+household+electric+power+consumption.zip",
+      "to_identify/dataset_1/individual+household+electric+power+consumption.zip"
+    ],
+    [
+      "to_identify/chatgpt_datasets/individual+household+electric+power+consumption.zip::household_power_consumption.txt",
+      "to_identify/dataset_1/individual+household+electric+power+consumption.zip::household_power_consumption.txt",
+      "uci_household_power/household_power_consumption.txt"
+    ],
+    [
+      "to_identify/chatgpt_datasets/solar_rediation_tel_hr_nca_gj_2021_2025.csv",
+      "to_identify/dataset_1/solar_rediation_tel_hr_nca_gj_2021_2025.csv"
+    ],
+    [
+      "to_identify/chatgpt_datasets/systems.csv",
+      "to_identify/dataset_1/systems.csv"
+    ],
+    [
+      "to_identify/chatgpt_datasets/systems_20250729.csv",
+      "to_identify/dataset_1/systems_20250729.csv"
+    ]
+  ],
+  "uci": {
+    "header_sample": [
+      "Date;Time;Global_active_power;Global_reactive_power;Voltage;Global_intensity;Sub_metering_1;Sub_metering_2;Sub_metering_3",
+      "16/12/2006;17:24:00;4.216;0.418;234.840;18.400;0.000;1.000;17.000",
+      "16/12/2006;17:25:00;5.360;0.436;233.630;23.000;0.000;1.000;16.000"
+    ],
+    "rows": 2075259,
+    "columns": 9,
+    "dtypes": {
+      "Date": "str",
+      "Time": "str",
+      "Global_active_power": "float64",
+      "Global_reactive_power": "float64",
+      "Voltage": "float64",
+      "Global_intensity": "float64",
+      "Sub_metering_1": "float64",
+      "Sub_metering_2": "float64",
+      "Sub_metering_3": "float64"
+    },
+    "missing_pct": {
+      "Global_active_power": 1.252,
+      "Global_reactive_power": 1.252,
+      "Voltage": 1.252,
+      "Global_intensity": 1.252,
+      "Sub_metering_1": 1.252,
+      "Sub_metering_2": 1.252,
+      "Sub_metering_3": 1.252
+    },
+    "duplicate_rows": 0,
+    "datetime_parse_failures": 0,
+    "duplicate_timestamps": 0,
+    "time": {
+      "start": "2006-12-16 17:24:00",
+      "end": "2010-11-26 21:02:00",
+      "unique_timestamps": 2075259,
+      "modal_interval": "0 days 00:01:00",
+      "share_at_modal_interval": 1.0,
+      "largest_gap": "0 days 00:01:00"
+    },
+    "rows_all_measurements_missing": 25979,
+    "describe": {
+      "Global_active_power": {
+        "count": 2049280.0,
+        "mean": 1.092,
+        "std": 1.057,
+        "min": 0.076,
+        "25%": 0.308,
+        "50%": 0.602,
+        "75%": 1.528,
+        "max": 11.122
+      },
+      "Global_reactive_power": {
+        "count": 2049280.0,
+        "mean": 0.124,
+        "std": 0.113,
+        "min": 0.0,
+        "25%": 0.048,
+        "50%": 0.1,
+        "75%": 0.194,
+        "max": 1.39
+      },
+      "Voltage": {
+        "count": 2049280.0,
+        "mean": 240.84,
+        "std": 3.24,
+        "min": 223.2,
+        "25%": 238.99,
+        "50%": 241.01,
+        "75%": 242.89,
+        "max": 254.15
+      },
+      "Global_intensity": {
+        "count": 2049280.0,
+        "mean": 4.628,
+        "std": 4.444,
+        "min": 0.2,
+        "25%": 1.4,
+        "50%": 2.6,
+        "75%": 6.4,
+        "max": 48.4
+      },
+      "Sub_metering_1": {
+        "count": 2049280.0,
+        "mean": 1.122,
+        "std": 6.153,
+        "min": 0.0,
+        "25%": 0.0,
+        "50%": 0.0,
+        "75%": 0.0,
+        "max": 88.0
+      },
+      "Sub_metering_2": {
+        "count": 2049280.0,
+        "mean": 1.299,
+        "std": 5.822,
+        "min": 0.0,
+        "25%": 0.0,
+        "50%": 0.0,
+        "75%": 1.0,
+        "max": 80.0
+      },
+      "Sub_metering_3": {
+        "count": 2049280.0,
+        "mean": 6.458,
+        "std": 8.437,
+        "min": 0.0,
+        "25%": 0.0,
+        "50%": 1.0,
+        "75%": 17.0,
+        "max": 31.0
+      }
+    },
+    "implied_power_factor_median": 0.9925,
+    "implied_power_factor_share_gt_1.05": 0.05754,
+    "unmetered_wh_per_min_median": 5.5,
+    "unmetered_share_below_minus1wh": 2e-05,
+    "daily_coverage": {
+      "calendar_days": 1442,
+      "days_ge_90pct": 1418,
+      "days_lt_90pct": 24,
+      "days_zero": 9,
+      "first_day_coverage": 0.275,
+      "last_day_coverage": 0.877
+    },
+    "daily_kwh_on_good_days": {
+      "count": 1418.0,
+      "mean": 26.19,
+      "std": 10.0,
+      "min": 4.17,
+      "25%": 19.65,
+      "50%": 25.92,
+      "75%": 31.67,
+      "max": 79.56
+    },
+    "missing_minutes_by_year": {
+      "2006": 4,
+      "2007": 3931,
+      "2008": 135,
+      "2009": 4280,
+      "2010": 17629
+    }
+  },
+  "kaggle_solar": {
+    "zip": "to_identify/chatgpt_datasets/archive.zip",
+    "files": {
+      "Plant_1_Generation_Data.csv": {
+        "datetime_sample": "15-05-2020 00:00",
+        "datetime_format": "%d-%m-%Y %H:%M",
+        "rows": 68778,
+        "columns": 7,
+        "dtypes": {
+          "DATE_TIME": "datetime64[us]",
+          "PLANT_ID": "int64",
+          "SOURCE_KEY": "str",
+          "DC_POWER": "float64",
+          "AC_POWER": "float64",
+          "DAILY_YIELD": "float64",
+          "TOTAL_YIELD": "float64"
+        },
+        "missing_pct": {},
+        "duplicate_rows": 0,
+        "plant_ids": [
+          4135001
+        ],
+        "n_source_keys": 22,
+        "time": {
+          "start": "2020-05-15 00:00:00",
+          "end": "2020-06-17 23:45:00",
+          "unique_timestamps": 3158,
+          "modal_interval": "0 days 00:15:00",
+          "share_at_modal_interval": 0.9971,
+          "largest_gap": "0 days 09:00:00"
+        },
+        "duplicate_timestamp_source": 0,
+        "negative_values": {},
+        "describe": {
+          "DC_POWER": {
+            "count": 68778.0,
+            "mean": 3147.426,
+            "std": 4036.457,
+            "min": 0.0,
+            "25%": 0.0,
+            "50%": 429.0,
+            "75%": 6366.964,
+            "max": 14471.125
+          },
+          "AC_POWER": {
+            "count": 68778.0,
+            "mean": 307.803,
+            "std": 394.396,
+            "min": 0.0,
+            "25%": 0.0,
+            "50%": 41.494,
+            "75%": 623.619,
+            "max": 1410.95
+          },
+          "DAILY_YIELD": {
+            "count": 68778.0,
+            "mean": 3295.969,
+            "std": 3145.178,
+            "min": 0.0,
+            "25%": 0.0,
+            "50%": 2658.714,
+            "75%": 6274.0,
+            "max": 9163.0
+          },
+          "TOTAL_YIELD": {
+            "count": 68778.0,
+            "mean": 6978711.761,
+            "std": 416271.983,
+            "min": 6183645.0,
+            "25%": 6512002.536,
+            "50%": 7146685.0,
+            "75%": 7268705.906,
+            "max": 7846821.0
+          }
+        },
+        "expected_slots_per_inverter": 3264,
+        "rows_per_inverter": {
+          "min": 3104,
+          "median": 3124,
+          "max": 3155
+        },
+        "missing_slot_pct_per_inverter_median": 4.27,
+        "dc_ac_ratio_when_on": {
+          "median": 10.22,
+          "p05": 10.18,
+          "p95": 10.347
+        },
+        "max_ac_power_per_inverter_median": 1394.36
+      },
+      "Plant_1_Weather_Sensor_Data.csv": {
+        "datetime_sample": "2020-05-15 00:00:00",
+        "datetime_format": "%Y-%m-%d %H:%M:%S",
+        "rows": 3182,
+        "columns": 6,
+        "dtypes": {
+          "DATE_TIME": "datetime64[us]",
+          "PLANT_ID": "int64",
+          "SOURCE_KEY": "str",
+          "AMBIENT_TEMPERATURE": "float64",
+          "MODULE_TEMPERATURE": "float64",
+          "IRRADIATION": "float64"
+        },
+        "missing_pct": {},
+        "duplicate_rows": 0,
+        "plant_ids": [
+          4135001
+        ],
+        "n_source_keys": 1,
+        "time": {
+          "start": "2020-05-15 00:00:00",
+          "end": "2020-06-17 23:45:00",
+          "unique_timestamps": 3182,
+          "modal_interval": "0 days 00:15:00",
+          "share_at_modal_interval": 0.9975,
+          "largest_gap": "0 days 07:15:00"
+        },
+        "duplicate_timestamp_source": 0,
+        "negative_values": {},
+        "describe": {
+          "AMBIENT_TEMPERATURE": {
+            "count": 3182.0,
+            "mean": 25.532,
+            "std": 3.355,
+            "min": 20.399,
+            "25%": 22.705,
+            "50%": 24.614,
+            "75%": 27.921,
+            "max": 35.252
+          },
+          "MODULE_TEMPERATURE": {
+            "count": 3182.0,
+            "mean": 31.091,
+            "std": 12.261,
+            "min": 18.14,
+            "25%": 21.091,
+            "50%": 24.618,
+            "75%": 41.308,
+            "max": 65.546
+          },
+          "IRRADIATION": {
+            "count": 3182.0,
+            "mean": 0.228,
+            "std": 0.301,
+            "min": 0.0,
+            "25%": 0.0,
+            "50%": 0.025,
+            "75%": 0.45,
+            "max": 1.222
+          }
+        },
+        "expected_slots": 3264,
+        "missing_slot_pct": 2.51
+      },
+      "Plant_2_Generation_Data.csv": {
+        "datetime_sample": "2020-05-15 00:00:00",
+        "datetime_format": "%Y-%m-%d %H:%M:%S",
+        "rows": 67698,
+        "columns": 7,
+        "dtypes": {
+          "DATE_TIME": "datetime64[us]",
+          "PLANT_ID": "int64",
+          "SOURCE_KEY": "str",
+          "DC_POWER": "float64",
+          "AC_POWER": "float64",
+          "DAILY_YIELD": "float64",
+          "TOTAL_YIELD": "float64"
+        },
+        "missing_pct": {},
+        "duplicate_rows": 0,
+        "plant_ids": [
+          4136001
+        ],
+        "n_source_keys": 22,
+        "time": {
+          "start": "2020-05-15 00:00:00",
+          "end": "2020-06-17 23:45:00",
+          "unique_timestamps": 3259,
+          "modal_interval": "0 days 00:15:00",
+          "share_at_modal_interval": 0.9985,
+          "largest_gap": "0 days 00:30:00"
+        },
+        "duplicate_timestamp_source": 0,
+        "negative_values": {},
+        "describe": {
+          "DC_POWER": {
+            "count": 67698.0,
+            "mean": 246.702,
+            "std": 370.57,
+            "min": 0.0,
+            "25%": 0.0,
+            "50%": 0.0,
+            "75%": 446.592,
+            "max": 1420.933
+          },
+          "AC_POWER": {
+            "count": 67698.0,
+            "mean": 241.278,
+            "std": 362.112,
+            "min": 0.0,
+            "25%": 0.0,
+            "50%": 0.0,
+            "75%": 438.215,
+            "max": 1385.42
+          },
+          "DAILY_YIELD": {
+            "count": 67698.0,
+            "mean": 3294.89,
+            "std": 2919.448,
+            "min": 0.0,
+            "25%": 272.75,
+            "50%": 2911.0,
+            "75%": 5534.0,
+            "max": 9873.0
+          },
+          "TOTAL_YIELD": {
+            "count": 67698.0,
+            "mean": 658944788.424,
+            "std": 729667771.073,
+            "min": 0.0,
+            "25%": 19964944.867,
+            "50%": 282627587.0,
+            "75%": 1348495113.0,
+            "max": 2247916295.0
+          }
+        },
+        "expected_slots_per_inverter": 3264,
+        "rows_per_inverter": {
+          "min": 2355,
+          "median": 3259,
+          "max": 3259
+        },
+        "missing_slot_pct_per_inverter_median": 0.15,
+        "dc_ac_ratio_when_on": {
+          "median": 1.022,
+          "p05": 1.018,
+          "p95": 1.035
+        },
+        "max_ac_power_per_inverter_median": 1366.45
+      },
+      "Plant_2_Weather_Sensor_Data.csv": {
+        "datetime_sample": "2020-05-15 00:00:00",
+        "datetime_format": "%Y-%m-%d %H:%M:%S",
+        "rows": 3259,
+        "columns": 6,
+        "dtypes": {
+          "DATE_TIME": "datetime64[us]",
+          "PLANT_ID": "int64",
+          "SOURCE_KEY": "str",
+          "AMBIENT_TEMPERATURE": "float64",
+          "MODULE_TEMPERATURE": "float64",
+          "IRRADIATION": "float64"
+        },
+        "missing_pct": {},
+        "duplicate_rows": 0,
+        "plant_ids": [
+          4136001
+        ],
+        "n_source_keys": 1,
+        "time": {
+          "start": "2020-05-15 00:00:00",
+          "end": "2020-06-17 23:45:00",
+          "unique_timestamps": 3259,
+          "modal_interval": "0 days 00:15:00",
+          "share_at_modal_interval": 0.9985,
+          "largest_gap": "0 days 00:30:00"
+        },
+        "duplicate_timestamp_source": 0,
+        "negative_values": {},
+        "describe": {
+          "AMBIENT_TEMPERATURE": {
+            "count": 3259.0,
+            "mean": 28.069,
+            "std": 4.062,
+            "min": 20.942,
+            "25%": 24.602,
+            "50%": 26.981,
+            "75%": 31.057,
+            "max": 39.182
+          },
+          "MODULE_TEMPERATURE": {
+            "count": 3259.0,
+            "mean": 32.772,
+            "std": 11.344,
+            "min": 20.265,
+            "25%": 23.717,
+            "50%": 27.535,
+            "75%": 40.481,
+            "max": 66.636
+          },
+          "IRRADIATION": {
+            "count": 3259.0,
+            "mean": 0.233,
+            "std": 0.313,
+            "min": 0.0,
+            "25%": 0.0,
+            "50%": 0.019,
+            "75%": 0.439,
+            "max": 1.099
+          }
+        },
+        "expected_slots": 3264,
+        "missing_slot_pct": 0.15
+      }
+    },
+    "plant_1_join": {
+      "gen_rows": 68778,
+      "gen_rows_without_weather": 4,
+      "ac_power_gt0_at_zero_irradiation": 0,
+      "ac_power_zero_at_irradiation_gt_0.1": 63,
+      "corr_ac_irradiation_daytime": 0.9798
+    },
+    "plant_2_join": {
+      "gen_rows": 67698,
+      "gen_rows_without_weather": 0,
+      "ac_power_gt0_at_zero_irradiation": 14,
+      "ac_power_zero_at_irradiation_gt_0.1": 3774,
+      "corr_ac_irradiation_daytime": 0.6559
+    }
+  },
+  "nasa_power": {
+    "to_identify/chatgpt_datasets/POWER_Point_Daily_20240101_20251231_022d31N_073d18E_LST.csv": {
+      "title": "NASA/POWER Source Native Resolution Daily Data",
+      "latitude": 22.3072,
+      "longitude": 73.1812,
+      "parameters": [
+        "T2M                   MERRA-2 Temperature at 2 Meters (C)",
+        "T2M_MAX               MERRA-2 Temperature at 2 Meters Maximum (C)",
+        "T2M_MIN               MERRA-2 Temperature at 2 Meters Minimum (C)",
+        "ALLSKY_SFC_SW_DWN     CERES SYN1deg All Sky Surface Shortwave Downward Irradiance (kW-hr/m^2/day)",
+        "PRECTOTCORR           MERRA-2 Precipitation Corrected (mm/day)"
+      ],
+      "rows": 731,
+      "columns": 8,
+      "dtypes": {
+        "YEAR": "int64",
+        "MO": "int64",
+        "DY": "int64",
+        "T2M": "float64",
+        "T2M_MAX": "float64",
+        "T2M_MIN": "float64",
+        "ALLSKY_SFC_SW_DWN": "float64",
+        "PRECTOTCORR": "float64"
+      },
+      "missing_pct": {},
+      "duplicate_rows": 0,
+      "time": {
+        "start": "2024-01-01 00:00:00",
+        "end": "2025-12-31 00:00:00",
+        "unique_timestamps": 731,
+        "modal_interval": "1 days 00:00:00",
+        "share_at_modal_interval": 1.0,
+        "largest_gap": "1 days 00:00:00"
+      },
+      "missing_minus999": {
+        "T2M": 0,
+        "T2M_MAX": 0,
+        "T2M_MIN": 0,
+        "ALLSKY_SFC_SW_DWN": 0,
+        "PRECTOTCORR": 0
+      },
+      "describe": {
+        "T2M": {
+          "count": 731.0,
+          "mean": 26.984,
+          "std": 5.241,
+          "min": 13.85,
+          "25%": 23.325,
+          "50%": 27.32,
+          "75%": 30.345,
+          "max": 39.26
+        },
+        "T2M_MAX": {
+          "count": 731.0,
+          "mean": 33.718,
+          "std": 5.388,
+          "min": 23.39,
+          "25%": 29.88,
+          "50%": 31.6,
+          "75%": 37.985,
+          "max": 47.59
+        },
+        "T2M_MIN": {
+          "count": 731.0,
+          "mean": 21.254,
+          "std": 5.962,
+          "min": 6.19,
+          "25%": 16.185,
+          "50%": 23.24,
+          "75%": 25.63,
+          "max": 31.44
+        },
+        "ALLSKY_SFC_SW_DWN": {
+          "count": 731.0,
+          "mean": 5.01,
+          "std": 1.497,
+          "min": 0.516,
+          "25%": 4.107,
+          "50%": 4.931,
+          "75%": 6.136,
+          "max": 8.078
+        },
+        "PRECTOTCORR": {
+          "count": 731.0,
+          "mean": 3.41,
+          "std": 10.04,
+          "min": 0.0,
+          "25%": 0.0,
+          "50%": 0.0,
+          "75%": 1.545,
+          "max": 149.11
+        }
+      }
+    },
+    "to_identify/chatgpt_datasets/POWER_Point_Hourly_20240101_20251231_022d31N_073d18E_LST.csv": {
+      "title": "NASA/POWER Source Native Resolution Hourly Data",
+      "latitude": 22.3072,
+      "longitude": 73.1812,
+      "parameters": [
+        "T2M                   MERRA-2 Temperature at 2 Meters (C)",
+        "ALLSKY_SFC_SW_DWN     CERES SYN1deg All Sky Surface Shortwave Downward Irradiance (Wh/m^2)",
+        "PRECTOTCORR           MERRA-2 Precipitation Corrected (mm/hour)"
+      ],
+      "rows": 17544,
+      "columns": 7,
+      "dtypes": {
+        "YEAR": "int64",
+        "MO": "int64",
+        "DY": "int64",
+        "HR": "int64",
+        "T2M": "float64",
+        "ALLSKY_SFC_SW_DWN": "float64",
+        "PRECTOTCORR": "float64"
+      },
+      "missing_pct": {},
+      "duplicate_rows": 0,
+      "time": {
+        "start": "2024-01-01 00:00:00",
+        "end": "2025-12-31 23:00:00",
+        "unique_timestamps": 17544,
+        "modal_interval": "0 days 01:00:00",
+        "share_at_modal_interval": 1.0,
+        "largest_gap": "0 days 01:00:00"
+      },
+      "missing_minus999": {
+        "T2M": 0,
+        "ALLSKY_SFC_SW_DWN": 0,
+        "PRECTOTCORR": 0
+      },
+      "describe": {
+        "T2M": {
+          "count": 17544.0,
+          "mean": 26.984,
+          "std": 7.022,
+          "min": 6.19,
+          "25%": 23.24,
+          "50%": 27.09,
+          "75%": 30.78,
+          "max": 47.59
+        },
+        "ALLSKY_SFC_SW_DWN": {
+          "count": 17544.0,
+          "mean": 208.763,
+          "std": 286.979,
+          "min": 0.0,
+          "25%": 0.0,
+          "50%": 7.1,
+          "75%": 399.552,
+          "max": 1079.18
+        },
+        "PRECTOTCORR": {
+          "count": 17544.0,
+          "mean": 0.142,
+          "std": 0.547,
+          "min": 0.0,
+          "25%": 0.0,
+          "50%": 0.0,
+          "75%": 0.02,
+          "max": 14.18
+        }
+      }
+    },
+    "to_identify/claude_datasets/POWER_Point_Daily_20230101_20251231_028d61N_077d21E_LST.csv": {
+      "title": "NASA/POWER Source Native Resolution Daily Data",
+      "latitude": 28.61,
+      "longitude": 77.21,
+      "parameters": [
+        "T2M                   MERRA-2 Temperature at 2 Meters (C)",
+        "PRECTOTCORR           MERRA-2 Precipitation Corrected (mm/day)",
+        "ALLSKY_SFC_SW_DWN     CERES SYN1deg All Sky Surface Shortwave Downward Irradiance (kW-hr/m^2/day)"
+      ],
+      "rows": 1096,
+      "columns": 6,
+      "dtypes": {
+        "YEAR": "int64",
+        "MO": "int64",
+        "DY": "int64",
+        "T2M": "float64",
+        "PRECTOTCORR": "float64",
+        "ALLSKY_SFC_SW_DWN": "float64"
+      },
+      "missing_pct": {},
+      "duplicate_rows": 0,
+      "time": {
+        "start": "2023-01-01 00:00:00",
+        "end": "2025-12-31 00:00:00",
+        "unique_timestamps": 1096,
+        "modal_interval": "1 days 00:00:00",
+        "share_at_modal_interval": 1.0,
+        "largest_gap": "1 days 00:00:00"
+      },
+      "missing_minus999": {
+        "T2M": 0,
+        "PRECTOTCORR": 0,
+        "ALLSKY_SFC_SW_DWN": 0
+      },
+      "describe": {
+        "T2M": {
+          "count": 1096.0,
+          "mean": 25.026,
+          "std": 7.311,
+          "min": 7.77,
+          "25%": 18.585,
+          "50%": 26.525,
+          "75%": 30.235,
+          "max": 41.23
+        },
+        "PRECTOTCORR": {
+          "count": 1096.0,
+          "mean": 2.439,
+          "std": 6.875,
+          "min": 0.0,
+          "25%": 0.0,
+          "50%": 0.0,
+          "75%": 1.045,
+          "max": 72.53
+        },
+        "ALLSKY_SFC_SW_DWN": {
+          "count": 1096.0,
+          "mean": 4.61,
+          "std": 1.566,
+          "min": 0.383,
+          "25%": 3.468,
+          "50%": 4.618,
+          "75%": 5.799,
+          "max": 7.988
+        }
+      }
+    }
+  },
+  "nca_radiation": {
+    "rows": 36909,
+    "columns": 20,
+    "dtypes": {
+      "SlNo": "int64",
+      "Station": "str",
+      "Agency": "str",
+      "State LGD Code": "int64",
+      "State": "str",
+      "District LGD Code": "int64",
+      "District": "str",
+      "Tehsil": "str",
+      "Block": "str",
+      "Village": "str",
+      "River": "str",
+      "Basin": "str",
+      "Tributary": "str",
+      "Subtributary": "str",
+      "SubSubtributary": "str",
+      "Local River": "str",
+      "Latitude": "float64",
+      "Longitude": "float64",
+      "Data Acquisition Time": "str",
+      "Solar Radiation (Watt/m2)": "int64"
+    },
+    "missing_pct": {},
+    "duplicate_rows": 0,
+    "datetime_parse_failures": 0,
+    "duplicate_station_timestamp": 11853,
+    "stations": [
+      {
+        "Station": "Sardarsarovar  Dam",
+        "District": "Narmada",
+        "Latitude": "21.83",
+        "Longitude": "73.75",
+        "rows": "36909",
+        "start": "2022-01-21 05:00:00",
+        "end": "2025-12-23 06:00:00"
+      }
+    ],
+    "agencies": [
+      "NCA"
+    ],
+    "states": [
+      "Gujarat"
+    ],
+    "value_describe": {
+      "count": 36909.0,
+      "mean": 153.93,
+      "std": 243.09,
+      "min": 0.0,
+      "25%": 13.0,
+      "50%": 47.0,
+      "75%": 139.0,
+      "max": 1516.0
+    },
+    "share_zero": 0.0556,
+    "rows_by_hour": {
+      "0": 1456,
+      "1": 1470,
+      "2": 1473,
+      "3": 1471,
+      "4": 1444,
+      "5": 1681,
+      "6": 1667,
+      "7": 1666,
+      "8": 1645,
+      "9": 1654,
+      "10": 1669,
+      "11": 1596,
+      "12": 1584,
+      "13": 1598,
+      "14": 1552,
+      "15": 1560,
+      "16": 1527,
+      "17": 1519,
+      "18": 1540,
+      "19": 1494,
+      "20": 1478,
+      "21": 1394,
+      "22": 1364,
+      "23": 1407
+    },
+    "max_value_by_hour": {
+      "0": 1023.0,
+      "1": 1023.0,
+      "2": 1023.0,
+      "3": 1023.0,
+      "4": 1023.0,
+      "5": 1023.0,
+      "6": 1023.0,
+      "7": 1023.0,
+      "8": 1023.0,
+      "9": 1023.0,
+      "10": 1023.0,
+      "11": 1023.0,
+      "12": 1023.0,
+      "13": 1023.0,
+      "14": 1023.0,
+      "15": 1023.0,
+      "16": 1516.0,
+      "17": 1023.0,
+      "18": 1516.0,
+      "19": 1023.0,
+      "20": 1023.0,
+      "21": 1023.0,
+      "22": 1023.0,
+      "23": 1023.0
+    }
+  },
+  "pvdaq_systems": {
+    "systems.csv": {
+      "rows": 158,
+      "columns": 8,
+      "dtypes": {
+        "system_id": "int64",
+        "system_public_name": "str",
+        "site_id": "int64",
+        "site_public_name": "str",
+        "site_location": "str",
+        "site_latitude": "float64",
+        "site_longitude": "float64",
+        "site_elevation": "float64"
+      },
+      "missing_pct": {
+        "site_location": 92.405
+      },
+      "duplicate_rows": 2,
+      "unique_system_ids": 156,
+      "systems_in_india_bbox": 0,
+      "has_time_series_columns": false
+    },
+    "systems_20250729.csv": {
+      "rows": 1862,
+      "columns": 26,
+      "dtypes": {
+        "system_id": "int64",
+        "system_public_name": "str",
+        "site_location": "str",
+        "timezone_or_utc_offset": "str",
+        "latitude": "float64",
+        "longitude": "float64",
+        "elevation_m": "float64",
+        "dc_capacity_kW": "float64",
+        "kg_climate": "str",
+        "pvcz_composite": "int64",
+        "pvcz_t_rack": "int64",
+        "pvcz_t_roof": "int64",
+        "pvcz_humidity": "int64",
+        "pvcz_wind": "int64",
+        "tracking": "str",
+        "type": "str",
+        "azimuth": "float64",
+        "tilt": "float64",
+        "first_timestamp": "str",
+        "last_timestamp": "str",
+        "years": "float64",
+        "number_records": "float64",
+        "dataset_size_mb": "float64",
+        "available_sensor_channels": "int64",
+        "qa_status": "str",
+        "qa_issue": "str"
+      },
+      "missing_pct": {
+        "site_location": 12.889,
+        "dc_capacity_kW": 3.491,
+        "kg_climate": 12.889,
+        "tracking": 12.943,
+        "type": 12.943,
+        "azimuth": 12.943,
+        "tilt": 15.575,
+        "first_timestamp": 0.107,
+        "last_timestamp": 0.107,
+        "years": 0.107,
+        "number_records": 0.107,
+        "dataset_size_mb": 0.107,
+        "qa_issue": 75.349
+      },
+      "duplicate_rows": 0,
+      "unique_system_ids": 1860,
+      "systems_in_india_bbox": 1,
+      "has_time_series_columns": false,
+      "dc_capacity_kW_describe": {
+        "count": 1797.0,
+        "mean": 266.22,
+        "std": 6891.3,
+        "min": 0.68,
+        "25%": 5.05,
+        "50%": 7.25,
+        "75%": 10.14,
+        "max": 205300.0
+      },
+      "qa_status_counts": {
+        "pass": 1564,
+        "fail": 298
+      }
+    }
+  },
+  "niti": {
+    "india_solar_irradiance.xlsx": {
+      "sheets": [
+        "India Map Solar Irradiance"
+      ],
+      "footer": [
+        "Copyright \u00a9 2026, NITI Aayog",
+        "https://iced.niti.gov.in",
+        "The information on this platform is mainly taken from official sources. However, in some cases, a few assumptions have been made and some data derived or assumed and is given in the detailed. While we believe that the data is reliable and adequately comprehensive, NITI Aayog ICED does not take guarantee that such information is in all respects accurate. NITI Aayog ICED does not accept any liability for any consequences resulting from the use of this data.sss"
+      ],
+      "rows": 732,
+      "columns": 5,
+      "dtypes": {
+        "State": "str",
+        "District": "str",
+        "Year": "float64",
+        "Month": "str",
+        "Insolation (in kWh/m\u00b2)": "float64"
+      },
+      "missing_pct": {},
+      "duplicate_rows": 47,
+      "value_column": "Insolation (in kWh/m\u00b2)",
+      "value_describe": {
+        "count": 732.0,
+        "mean": 71.24,
+        "std": 20.19,
+        "min": 29.0,
+        "25%": 53.0,
+        "50%": 70.0,
+        "75%": 87.0,
+        "max": 114.0
+      },
+      "unique_State": 36,
+      "unique_District": 641,
+      "unique_Year": 1,
+      "values_Year": [
+        "2024.0"
+      ],
+      "unique_Month": 1,
+      "values_Month": [
+        "December"
+      ]
+    },
+    "Monthly Average Insolation.xlsx": {
+      "sheets": [
+        "Monthly Average Insolation"
+      ],
+      "footer": [
+        "Copyright \u00a9 2026, NITI Aayog",
+        "https://iced.niti.gov.in",
+        "The information on this platform is mainly taken from official sources. However, in some cases, a few assumptions have been made and some data derived or assumed and is given in the detailed. While we believe that the data is reliable and adequately comprehensive, NITI Aayog ICED does not take guarantee that such information is in all respects accurate. NITI Aayog ICED does not accept any liability for any consequences resulting from the use of this data.sss"
+      ],
+      "rows": 12,
+      "columns": 5,
+      "dtypes": {
+        "Year": "str",
+        "Month": "str",
+        "State": "str",
+        "District": "str",
+        "Average Insolation (kWh/m\u00b2)": "float64"
+      },
+      "missing_pct": {},
+      "duplicate_rows": 0,
+      "value_column": "Average Insolation (kWh/m\u00b2)",
+      "value_describe": {
+        "count": 12.0,
+        "mean": 145.48,
+        "std": 30.4,
+        "min": 105.69,
+        "25%": 115.57,
+        "50%": 147.59,
+        "75%": 159.12,
+        "max": 197.23
+      },
+      "unique_Year": 1,
+      "values_Year": [
+        "2009-2023"
+      ],
+      "unique_Month": 12,
+      "values_Month": [
+        "Apr",
+        "Aug",
+        "Dec",
+        "Feb",
+        "Jan",
+        "Jul",
+        "Jun",
+        "Mar",
+        "May",
+        "Nov",
+        "Oct",
+        "Sep"
+      ],
+      "unique_State": 1,
+      "values_State": [
+        "Gujarat"
+      ],
+      "unique_District": 1,
+      "values_District": [
+        "Kheda"
+      ]
+    }
+  },
+  "pv360": {
+    "zip": "to_identify/claude_datasets/PV360_data.zip",
+    "member_dates": [
+      "2026-07-23 08:26"
+    ],
+    "specs": {
+      "PV_kWp": 5.4,
+      "modules": "12 x 450 W monocrystalline",
+      "inverter": "Deye/Sunsynk-class 5 kW hybrid, single-phase",
+      "battery": "51.2 V 300 Ah LiFePO4, 15.36 kWh nominal",
+      "installed_cost_PHP": 415832,
+      "cost_breakdown_PHP": {
+        "battery": 150000,
+        "inverter": 62000,
+        "modules": 60000,
+        "mounting_protection_cabling": 43832,
+        "labor": 100000
+      },
+      "tariff_PHP_per_kWh": 12.7,
+      "grid_emission_factor_kgCO2_per_kWh": 0.6032,
+      "annual": {
+        "pv_generation_kWh": 6299,
+        "consumption_kWh": 5758,
+        "grid_import_kWh": 520,
+        "specific_yield_kWh_kWp": 1166,
+        "capacity_factor_pct": 13.3,
+        "performance_ratio": 0.67,
+        "direct_self_consumption_pct": 41.5,
+        "solar_fraction_pct": 91.0
+      }
+    },
+    "results_forecast": "model,RMSE_kWh,MAE_kWh,R2\nPersistence,5.0602,3.6872,-0.7733\nLinear,2.9826,2.1519,0.3839\nRandomForest,3.2133,2.3465,0.285\nGradBoost,3.0888,2.25,0.3393\n",
+    "code_head": "\"\"\"\nDescriptive, predictive, and prescriptive analytics of a residential PV-battery system.\n\nReproduces the core results in:\n  \"Descriptive, predictive, and prescriptive analytics of a residential solar\n   photovoltaic-battery system in the Philippines using one year of high-resolution\n   monitoring data.\" J. B. Batacandolo.\n\nInputs (../data/):\n  measured_5min.csv          - 5-minute PV production, consumption, grid exchange (W)\n  daily_with_weather.csv     - daily energy totals + NASA POWER GHI and T2M\n  system_specifications.json - equipment ratings, costs, tariff, emission factor\n\nOutputs (printed; and see ../results/ for the archived result tables):\n  - Descriptive:  annual & monthly specific yield, capacity factor, performance ratio,\n                  self-consumption ratio, solar fraction (IEC 61724-1 style)\n  - Prescriptive: battery-capacity sizing sweep (annual grid import vs capacity)\n  - Prescriptive: 25-year techno-economic cash flow (payback, NPV, IRR, LCOE, CO2)\n\nThe predictive layer (ML forecasting) is provided separately as forecast_models.py\nbecause it requires scikit-learn; its archived output is results/forecast_model_comparison.csv.\n\nRequires: numpy, pandas (Python 3.9+).  Run:  python pv_analytics.py\n\"\"\"\nimport numpy as np, pandas as pd, json, os\nHERE=os.path.dirname(__file__); DATA=os.path.join(HERE,'..','data')\nspec=json.load(open(os.path.join(DATA,'system_specifications.json')))\nKWP=spec['PV_kWp']; CAPEX=spec['installed_cost_PHP']; TARIFF=spec['tariff_P",
+    "measured_5min": {
+      "rows": 92661,
+      "columns": 6,
+      "dtypes": {
+        "timestamp": "str",
+        "pv_production_W": "float64",
+        "consumption_W": "float64",
+        "grid_power_W": "float64",
+        "import_power_W": "float64",
+        "feedin_power_W": "float64"
+      },
+      "missing_pct": {
+        "pv_production_W": 0.003,
+        "consumption_W": 0.003,
+        "grid_power_W": 0.003,
+        "import_power_W": 0.679,
+        "feedin_power_W": 97.228
+      },
+      "duplicate_rows": 0,
+      "time": {
+        "start": "2024-11-01 00:00:00",
+        "end": "2025-10-31 23:50:00",
+        "unique_timestamps": 92661,
+        "modal_interval": "0 days 00:05:00",
+        "share_at_modal_interval": 0.8786,
+        "largest_gap": "1 days 23:10:00"
+      },
+      "timestamps_on_exact_5min_grid": 1.0,
+      "describe": {
+        "pv_production_W": {
+          "count": 92658.0,
+          "mean": 727.15,
+          "std": 1163.75,
+          "min": 0.0,
+          "25%": 7.0,
+          "50%": 44.0,
+          "75%": 972.0,
+          "max": 5965.0
+        },
+        "consumption_W": {
+          "count": 92658.0,
+          "mean": 664.85,
+          "std": 408.32,
+          "min": 0.0,
+          "25%": 402.0,
+          "50%": 607.0,
+          "75%": 829.0,
+          "max": 4352.0
+        },
+        "grid_power_W": {
+          "count": 92658.0,
+          "mean": 59.31,
+          "std": 237.25,
+          "min": -696.0,
+          "25%": 0.0,
+          "50%": 0.0,
+          "75%": 0.0,
+          "max": 4403.0
+        },
+        "import_power_W": {
+          "count": 92032.0,
+          "mean": 60.42,
+          "std": 237.61,
+          "min": 0.0,
+          "25%": 0.0,
+          "50%": 0.0,
+          "75%": 0.0,
+          "max": 4403.0
+        },
+        "feedin_power_W": {
+          "count": 2569.0,
+          "mean": -21.44,
+          "std": 53.83,
+          "min": -696.0,
+          "25%": 0.0,
+          "50%": 0.0,
+          "75%": 0.0,
+          "max": 0.0
+        }
+      }
+    },
+    "synthetic_checks": {
+      "pv_production_W": {
+        "unique_values": 4878,
+        "share_integer": 1.0,
+        "share_multiple_of_10": 0.0959,
+        "last_digit_share": {
+          "0": 0.096,
+          "1": 0.083,
+          "2": 0.091,
+          "3": 0.096,
+          "4": 0.095,
+          "5": 0.113,
+          "6": 0.098,
+          "7": 0.106,
+          "8": 0.111,
+          "9": 0.112
+        }
+      },
+      "consumption_W": {
+        "unique_values": 2698,
+        "share_integer": 1.0,
+        "share_multiple_of_10": 0.1003,
+        "last_digit_share": {
+          "0": 0.1,
+          "1": 0.1,
+          "2": 0.101,
+          "3": 0.099,
+          "4": 0.099,
+          "5": 0.1,
+          "6": 0.098,
+          "7": 0.102,
+          "8": 0.1,
+          "9": 0.1
+        }
+      },
+      "grid_power_W": {
+        "unique_values": 1836,
+        "share_integer": 1.0,
+        "share_multiple_of_10": 0.901,
+        "last_digit_share": {
+          "0": 0.901,
+          "1": 0.012,
+          "2": 0.012,
+          "3": 0.012,
+          "4": 0.01,
+          "5": 0.011,
+          "6": 0.011,
+          "7": 0.01,
+          "8": 0.011,
+          "9": 0.01
+        }
+      },
+      "import_power_W": {
+        "unique_values": 1614,
+        "share_integer": 1.0,
+        "share_multiple_of_10": 0.9236,
+        "last_digit_share": {
+          "0": 0.924,
+          "1": 0.009,
+          "2": 0.008,
+          "3": 0.009,
+          "4": 0.008,
+          "5": 0.009,
+          "6": 0.009,
+          "7": 0.008,
+          "8": 0.009,
+          "9": 0.008
+        }
+      },
+      "feedin_power_W": {
+        "unique_values": 207,
+        "share_integer": 1.0,
+        "share_multiple_of_10": 0.7859,
+        "last_digit_share": {
+          "0": 0.786,
+          "1": 0.028,
+          "2": 0.028,
+          "3": 0.028,
+          "4": 0.018,
+          "5": 0.023,
+          "6": 0.021,
+          "7": 0.021,
+          "8": 0.023,
+          "9": 0.024
+        }
+      },
+      "grid_minus_import_plus_feedin_abs_median": 16.0,
+      "pv_midday_diff_lag1_autocorr": -0.2818,
+      "pv_night_share_zero": 0.0008,
+      "pv_max_W_vs_rated_5400": 5965.0
+    },
+    "daily_rows": 364,
+    "daily_columns": [
+      "date",
+      "prod_e",
+      "cons_e",
+      "buy_e",
+      "self_e",
+      "n",
+      "maxp",
+      "coverage",
+      "ghi",
+      "t2m"
+    ],
+    "daily_corr_prod_ghi": 0.6014,
+    "daily_prod_kwh_sum": 6299.4,
+    "daily_cons_kwh_sum": 5757.6,
+    "nasa_rows": 365
+  },
+  "grid_india": {
+    "files": [
+      {
+        "file": "April 2022.xlsx",
+        "layout": "scada_sheet1",
+        "size_mb": 1.7,
+        "rows": 8640,
+        "start": "2022-04-01 00:00:00",
+        "end": "2022-04-30 23:55:00",
+        "unique_timestamps": 8640,
+        "modal_interval": "0 days 00:05:00",
+        "share_at_modal_interval": 1.0,
+        "largest_gap": "0 days 00:05:00",
+        "duplicate_timestamps": 0,
+        "missing_pct": {},
+        "columns": [
+          "TOTAL_THM_ONLY",
+          "TOTAL_NLDC_HYD",
+          "TOTAL_NLDC_GAS",
+          "TOTAL_NLDC_NPC",
+          "ALL_INDIA_WIND",
+          "ALL_IND_SOLAR",
+          "NLDC_DEMAND",
+          "INTRA_SYSTEM_INTERTIA",
+          "ER_Total_Inertia",
+          "SYS_IN"
+        ]
+      },
+      {
+        "file": "April 2023.xlsx",
+        "layout": "scada_sheet1",
+        "size_mb": 47.9,
+        "rows": 259200,
+        "start": "2023-04-01 00:00:00",
+        "end": "2023-04-30 23:59:50",
+        "unique_timestamps": 259200,
+        "modal_interval": "0 days 00:00:10",
+        "share_at_modal_interval": 1.0,
+        "largest_gap": "0 days 00:00:10",
+        "duplicate_timestamps": 0,
+        "missing_pct": {},
+        "columns": [
+          "TOTAL_THM_ONLY",
+          "TOTAL_NLDC_HYD",
+          "TOTAL_NLDC_GAS",
+          "TOTAL_NLDC_NPC",
+          "ALL_INDIA_WIND",
+          "ALL_IND_SOLAR",
+          "NLDC_DEMAND",
+          "INTRA_SYSTEM_INTERTIA",
+          "ER_Total_Inertia",
+          "SYS_IN"
+        ]
+      },
+      {
+        "file": "August 2022.xlsx",
+        "layout": "scada_sheet1",
+        "size_mb": 1.7,
+        "rows": 8928,
+        "start": "2022-08-01 00:00:00",
+        "end": "2022-08-31 23:55:00",
+        "unique_timestamps": 8928,
+        "modal_interval": "0 days 00:05:00",
+        "share_at_modal_interval": 1.0,
+        "largest_gap": "0 days 00:05:00",
+        "duplicate_timestamps": 0,
+        "missing_pct": {},
+        "columns": [
+          "TOTAL_THM_ONLY",
+          "TOTAL_NLDC_HYD",
+          "TOTAL_NLDC_GAS",
+          "TOTAL_NLDC_NPC",
+          "ALL_INDIA_WIND",
+          "ALL_IND_SOLAR",
+          "NLDC_DEMAND",
+          "INTRA_SYSTEM_INTERTIA",
+          "ER_Total_Inertia",
+          "SYS_IN"
+        ]
+      },
+      {
+        "file": "August 2023.xlsx",
+        "layout": "scada_sheet1",
+        "size_mb": 48.9,
+        "rows": 267840,
+        "start": "2023-08-01 00:00:00",
+        "end": "2023-08-31 23:59:50",
+        "unique_timestamps": 267840,
+        "modal_interval": "0 days 00:00:10",
+        "share_at_modal_interval": 1.0,
+        "largest_gap": "0 days 00:00:10",
+        "duplicate_timestamps": 0,
+        "missing_pct": {},
+        "columns": [
+          "TOTAL_THM_ONLY",
+          "TOTAL_NLDC_HYD",
+          "TOTAL_NLDC_GAS",
+          "TOTAL_NLDC_NPC",
+          "ALL_INDIA_WIND",
+          "ALL_IND_SOLAR",
+          "NLDC_DEMAND",
+          "INTRA_SYSTEM_INTERTIA",
+          "ER_Total_Inertia",
+          "SYS_IN"
+        ]
+      },
+      {
+        "file": "December 2021.xlsx",
+        "layout": "scada_sheet1",
+        "size_mb": 1.7,
+        "rows": 8928,
+        "start": "2021-12-01 00:00:00",
+        "end": "2021-12-31 23:55:00",
+        "unique_timestamps": 8928,
+        "modal_interval": "0 days 00:05:00",
+        "share_at_modal_interval": 1.0,
+        "largest_gap": "0 days 00:05:00",
+        "duplicate_timestamps": 0,
+        "missing_pct": {},
+        "columns": [
+          "TOTAL_THM_ONLY",
+          "TOTAL_NLDC_HYD",
+          "TOTAL_NLDC_GAS",
+          "TOTAL_NLDC_NPC",
+          "ALL_INDIA_WIND",
+          "ALL_IND_SOLAR",
+          "NLDC_DEMAND",
+          "INTRA_SYSTEM_INTERTIA",
+          "ER_Total_Inertia",
+          "SYS_IN"
+        ]
+      },
+      {
+        "file": "December 2022.xlsx",
+        "layout": "scada_sheet1",
+        "size_mb": 49.9,
+        "rows": 267840,
+        "start": "2022-12-01 00:00:00",
+        "end": "2022-12-31 23:59:50",
+        "unique_timestamps": 267840,
+        "modal_interval": "0 days 00:00:10",
+        "share_at_modal_interval": 1.0,
+        "largest_gap": "0 days 00:00:10",
+        "duplicate_timestamps": 0,
+        "missing_pct": {},
+        "columns": [
+          "TOTAL_THM_ONLY",
+          "TOTAL_NLDC_HYD",
+          "TOTAL_NLDC_GAS",
+          "TOTAL_NLDC_NPC",
+          "ALL_INDIA_WIND",
+          "ALL_IND_SOLAR",
+          "NLDC_DEMAND",
+          "INTRA_SYSTEM_INTERTIA",
+          "ER_Total_Inertia",
+          "SYS_IN"
+        ]
+      },
+      {
+        "file": "December 2023.xlsx",
+        "layout": "scada_sheet1",
+        "size_mb": 49.7,
+        "rows": 267840,
+        "start": "2023-12-01 00:00:00",
+        "end": "2023-12-31 23:59:50",
+        "unique_timestamps": 267840,
+        "modal_interval": "0 days 00:00:10",
+        "share_at_modal_interval": 1.0,
+        "largest_gap": "0 days 00:00:10",
+        "duplicate_timestamps": 0,
+        "missing_pct": {},
+        "columns": [
+          "TOTAL_THM_ONLY",
+          "TOTAL_NLDC_HYD",
+          "TOTAL_NLDC_GAS",
+          "TOTAL_NLDC_NPC",
+          "ALL_INDIA_WIND",
+          "ALL_IND_SOLAR",
+          "NLDC_DEMAND",
+          "INTRA_SYSTEM_INTERTIA",
+          "ER_Total_Inertia",
+          "SYS_IN"
+        ]
+      },
+      {
+        "file": "February 2022.xlsx",
+        "layout": "scada_sheet1",
+        "size_mb": 1.6,
+        "rows": 8064,
+        "start": "2022-02-01 00:00:00",
+        "end": "2022-02-28 23:55:00",
+        "unique_timestamps": 8064,
+        "modal_interval": "0 days 00:05:00",
+        "share_at_modal_interval": 1.0,
+        "largest_gap": "0 days 00:05:00",
+        "duplicate_timestamps": 0,
+        "missing_pct": {},
+        "columns": [
+          "TOTAL_THM_ONLY",
+          "TOTAL_NLDC_HYD",
+          "TOTAL_NLDC_GAS",
+          "TOTAL_NLDC_NPC",
+          "ALL_INDIA_WIND",
+          "ALL_IND_SOLAR",
+          "NLDC_DEMAND",
+          "INTRA_SYSTEM_INTERTIA",
+          "ER_Total_Inertia",
+          "SYS_IN"
+        ]
+      },
+      {
+        "file": "February 2023.xlsx",
+        "layout": "scada_sheet1",
+        "size_mb": 44.8,
+        "rows": 241920,
+        "start": "2023-02-01 00:00:00",
+        "end": "2023-02-28 23:59:50",
+        "unique_timestamps": 241920,
+        "modal_interval": "0 days 00:00:10",
+        "share_at_modal_interval": 1.0,
+        "largest_gap": "0 days 00:00:10",
+        "duplicate_timestamps": 0,
+        "missing_pct": {},
+        "columns": [
+          "TOTAL_THM_ONLY",
+          "TOTAL_NLDC_HYD",
+          "TOTAL_NLDC_GAS",
+          "TOTAL_NLDC_NPC",
+          "ALL_INDIA_WIND",
+          "ALL_IND_SOLAR",
+          "NLDC_DEMAND",
+          "INTRA_SYSTEM_INTERTIA",
+          "ER_Total_Inertia",
+          "SYS_IN"
+        ]
+      },
+      {
+        "file": "January 2022.xlsx",
+        "layout": "scada_sheet1",
+        "size_mb": 1.8,
+        "rows": 8928,
+        "start": "2022-01-01 00:00:00",
+        "end": "2022-01-31 23:55:00",
+        "unique_timestamps": 8928,
+        "modal_interval": "0 days 00:05:00",
+        "share_at_modal_interval": 1.0,
+        "largest_gap": "0 days 00:05:00",
+        "duplicate_timestamps": 0,
+        "missing_pct": {},
+        "columns": [
+          "TOTAL_THM_ONLY",
+          "TOTAL_NLDC_HYD",
+          "TOTAL_NLDC_GAS",
+          "TOTAL_NLDC_NPC",
+          "ALL_INDIA_WIND",
+          "ALL_IND_SOLAR",
+          "NLDC_DEMAND",
+          "INTRA_SYSTEM_INTERTIA",
+          "ER_Total_Inertia",
+          "SYS_IN"
+        ]
+      },
+      {
+        "file": "January 2023.xlsx",
+        "layout": "scada_sheet1",
+        "size_mb": 49.7,
+        "rows": 267840,
+        "start": "2023-01-01 00:00:00",
+        "end": "2023-01-31 23:59:50",
+        "unique_timestamps": 267840,
+        "modal_interval": "0 days 00:00:10",
+        "share_at_modal_interval": 1.0,
+        "largest_gap": "0 days 00:00:10",
+        "duplicate_timestamps": 0,
+        "missing_pct": {},
+        "columns": [
+          "TOTAL_THM_ONLY",
+          "TOTAL_NLDC_HYD",
+          "TOTAL_NLDC_GAS",
+          "TOTAL_NLDC_NPC",
+          "ALL_INDIA_WIND",
+          "ALL_IND_SOLAR",
+          "NLDC_DEMAND",
+          "INTRA_SYSTEM_INTERTIA",
+          "ER_Total_Inertia",
+          "SYS_IN"
+        ]
+      },
+      {
+        "file": "January 2024- June 2025.xlsx",
+        "layout": "hourly_report",
+        "size_mb": 0.7,
+        "rows": 12984,
+        "start": "2024-01-01 00:00:00",
+        "end": "2025-06-24 23:00:00",
+        "unique_timestamps": 12984,
+        "modal_interval": "0 days 01:00:00",
+        "share_at_modal_interval": 1.0,
+        "largest_gap": "0 days 01:00:00",
+        "duplicate_timestamps": 0,
+        "missing_pct": {},
+        "columns": [
+          "NLDC_DEMAND",
+          "ALL_INDIA_WIND",
+          "ALL_IND_SOLAR",
+          "TOTAL_GENERATION"
+        ]
+      },
+      {
+        "file": "July 2022.xlsx",
+        "layout": "scada_sheet1",
+        "size_mb": 1.6,
+        "rows": 8928,
+        "start": "2022-07-01 00:00:00",
+        "end": "2022-07-31 23:55:00",
+        "unique_timestamps": 8928,
+        "modal_interval": "0 days 00:05:00",
+        "share_at_modal_interval": 1.0,
+        "largest_gap": "0 days 00:05:00",
+        "duplicate_timestamps": 0,
+        "missing_pct": {},
+        "columns": [
+          "TOTAL_THM_ONLY",
+          "TOTAL_NLDC_HYD",
+          "TOTAL_NLDC_GAS",
+          "TOTAL_NLDC_NPC",
+          "ALL_INDIA_WIND",
+          "ALL_IND_SOLAR",
+          "NLDC_DEMAND",
+          "INTRA_SYSTEM_INTERTIA",
+          "ER_Total_Inertia",
+          "SYS_IN"
+        ]
+      },
+      {
+        "file": "July 2023.xlsx",
+        "layout": "scada_sheet1",
+        "size_mb": 49.0,
+        "rows": 267840,
+        "start": "2023-07-01 00:00:00",
+        "end": "2023-07-31 23:59:50",
+        "unique_timestamps": 267840,
+        "modal_interval": "0 days 00:00:10",
+        "share_at_modal_interval": 1.0,
+        "largest_gap": "0 days 00:00:10",
+        "duplicate_timestamps": 0,
+        "missing_pct": {},
+        "columns": [
+          "TOTAL_THM_ONLY",
+          "TOTAL_NLDC_HYD",
+          "TOTAL_NLDC_GAS",
+          "TOTAL_NLDC_NPC",
+          "ALL_INDIA_WIND",
+          "ALL_IND_SOLAR",
+          "NLDC_DEMAND",
+          "INTRA_SYSTEM_INTERTIA",
+          "ER_Total_Inertia",
+          "SYS_IN"
+        ]
+      },
+      {
+        "file": "June 2022.xlsx",
+        "layout": "scada_sheet1",
+        "size_mb": 1.6,
+        "rows": 8640,
+        "start": "2022-06-01 00:00:00",
+        "end": "2022-06-30 23:55:00",
+        "unique_timestamps": 8640,
+        "modal_interval": "0 days 00:05:00",
+        "share_at_modal_interval": 1.0,
+        "largest_gap": "0 days 00:05:00",
+        "duplicate_timestamps": 0,
+        "missing_pct": {},
+        "columns": [
+          "TOTAL_THM_ONLY",
+          "TOTAL_NLDC_HYD",
+          "TOTAL_NLDC_GAS",
+          "TOTAL_NLDC_NPC",
+          "ALL_INDIA_WIND",
+          "ALL_IND_SOLAR",
+          "NLDC_DEMAND",
+          "INTRA_SYSTEM_INTERTIA",
+          "ER_Total_Inertia",
+          "SYS_IN"
+        ]
+      },
+      {
+        "file": "June 2023.xlsx",
+        "layout": "scada_sheet1",
+        "size_mb": 46.7,
+        "rows": 259200,
+        "start": "2023-06-01 00:00:00",
+        "end": "2023-06-30 23:59:50",
+        "unique_timestamps": 259200,
+        "modal_interval": "0 days 00:00:10",
+        "share_at_modal_interval": 1.0,
+        "largest_gap": "0 days 00:00:10",
+        "duplicate_timestamps": 0,
+        "missing_pct": {},
+        "columns": [
+          "TOTAL_THM_ONLY",
+          "TOTAL_NLDC_HYD",
+          "TOTAL_NLDC_GAS",
+          "TOTAL_NLDC_NPC",
+          "ALL_INDIA_WIND",
+          "ALL_IND_SOLAR",
+          "NLDC_DEMAND",
+          "INTRA_SYSTEM_INTERTIA",
+          "ER_Total_Inertia",
+          "SYS_IN"
+        ]
+      },
+      {
+        "file": "March 2022.xlsx",
+        "layout": "scada_sheet1",
+        "size_mb": 1.7,
+        "rows": 8928,
+        "start": "2022-03-01 00:00:00",
+        "end": "2022-03-31 23:55:00",
+        "unique_timestamps": 8928,
+        "modal_interval": "0 days 00:05:00",
+        "share_at_modal_interval": 1.0,
+        "largest_gap": "0 days 00:05:00",
+        "duplicate_timestamps": 0,
+        "missing_pct": {},
+        "columns": [
+          "TOTAL_THM_ONLY",
+          "TOTAL_NLDC_HYD",
+          "TOTAL_NLDC_GAS",
+          "TOTAL_NLDC_NPC",
+          "ALL_INDIA_WIND",
+          "ALL_IND_SOLAR",
+          "NLDC_DEMAND",
+          "INTRA_SYSTEM_INTERTIA",
+          "ER_Total_Inertia",
+          "SYS_IN"
+        ]
+      },
+      {
+        "file": "March 2023.xlsx",
+        "layout": "scada_sheet1",
+        "size_mb": 49.5,
+        "rows": 267840,
+        "start": "2023-03-01 00:00:00",
+        "end": "2023-03-31 23:59:50",
+        "unique_timestamps": 267840,
+        "modal_interval": "0 days 00:00:10",
+        "share_at_modal_interval": 1.0,
+        "largest_gap": "0 days 00:00:10",
+        "duplicate_timestamps": 0,
+        "missing_pct": {},
+        "columns": [
+          "TOTAL_THM_ONLY",
+          "TOTAL_NLDC_HYD",
+          "TOTAL_NLDC_GAS",
+          "TOTAL_NLDC_NPC",
+          "ALL_INDIA_WIND",
+          "ALL_IND_SOLAR",
+          "NLDC_DEMAND",
+          "INTRA_SYSTEM_INTERTIA",
+          "ER_Total_Inertia",
+          "SYS_IN"
+        ]
+      },
+      {
+        "file": "May 2022.xlsx",
+        "layout": "scada_sheet1",
+        "size_mb": 1.7,
+        "rows": 8928,
+        "start": "2022-05-01 00:00:00",
+        "end": "2022-05-31 23:55:00",
+        "unique_timestamps": 8928,
+        "modal_interval": "0 days 00:05:00",
+        "share_at_modal_interval": 1.0,
+        "largest_gap": "0 days 00:05:00",
+        "duplicate_timestamps": 0,
+        "missing_pct": {},
+        "columns": [
+          "TOTAL_THM_ONLY",
+          "TOTAL_NLDC_HYD",
+          "TOTAL_NLDC_GAS",
+          "TOTAL_NLDC_NPC",
+          "ALL_INDIA_WIND",
+          "ALL_IND_SOLAR",
+          "NLDC_DEMAND",
+          "INTRA_SYSTEM_INTERTIA",
+          "ER_Total_Inertia",
+          "SYS_IN"
+        ]
+      },
+      {
+        "file": "May 2023.xlsx",
+        "layout": "scada_sheet1",
+        "size_mb": 48.9,
+        "rows": 267840,
+        "start": "2023-05-01 00:00:00",
+        "end": "2023-05-31 23:59:50",
+        "unique_timestamps": 267840,
+        "modal_interval": "0 days 00:00:10",
+        "share_at_modal_interval": 1.0,
+        "largest_gap": "0 days 00:00:10",
+        "duplicate_timestamps": 0,
+        "missing_pct": {},
+        "columns": [
+          "TOTAL_THM_ONLY",
+          "TOTAL_NLDC_HYD",
+          "TOTAL_NLDC_GAS",
+          "TOTAL_NLDC_NPC",
+          "ALL_INDIA_WIND",
+          "ALL_IND_SOLAR",
+          "NLDC_DEMAND",
+          "INTRA_SYSTEM_INTERTIA",
+          "ER_Total_Inertia",
+          "SYS_IN"
+        ]
+      },
+      {
+        "file": "November 2021.xlsx",
+        "layout": "scada_sheet1",
+        "size_mb": 1.5,
+        "rows": 8640,
+        "start": "2021-11-01 00:00:00",
+        "end": "2021-11-30 23:55:00",
+        "unique_timestamps": 8640,
+        "modal_interval": "0 days 00:05:00",
+        "share_at_modal_interval": 1.0,
+        "largest_gap": "0 days 00:05:00",
+        "duplicate_timestamps": 0,
+        "missing_pct": {},
+        "columns": [
+          "TOTAL_THM_ONLY",
+          "TOTAL_NLDC_HYD",
+          "TOTAL_NLDC_GAS",
+          "TOTAL_NLDC_NPC",
+          "ALL_INDIA_WIND",
+          "ALL_IND_SOLAR",
+          "NLDC_DEMAND",
+          "INTRA_SYSTEM_INTERTIA",
+          "ER_Total_Inertia",
+          "SYS_IN"
+        ]
+      },
+      {
+        "file": "November 2022.xlsx",
+        "layout": "scada_sheet1",
+        "size_mb": 48.3,
+        "rows": 259200,
+        "start": "2022-11-01 00:00:00",
+        "end": "2022-11-30 23:59:50",
+        "unique_timestamps": 259200,
+        "modal_interval": "0 days 00:00:10",
+        "share_at_modal_interval": 1.0,
+        "largest_gap": "0 days 00:00:10",
+        "duplicate_timestamps": 0,
+        "missing_pct": {},
+        "columns": [
+          "TOTAL_THM_ONLY",
+          "TOTAL_NLDC_HYD",
+          "TOTAL_NLDC_GAS",
+          "TOTAL_NLDC_NPC",
+          "ALL_INDIA_WIND",
+          "ALL_IND_SOLAR",
+          "NLDC_DEMAND",
+          "INTRA_SYSTEM_INTERTIA",
+          "ER_Total_Inertia",
+          "SYS_IN"
+        ]
+      },
+      {
+        "file": "Novemeber 2023.xlsx",
+        "layout": "scada_sheet1",
+        "size_mb": 48.1,
+        "rows": 259200,
+        "start": "2023-11-01 00:00:00",
+        "end": "2023-11-30 23:59:50",
+        "unique_timestamps": 259200,
+        "modal_interval": "0 days 00:00:10",
+        "share_at_modal_interval": 1.0,
+        "largest_gap": "0 days 00:00:10",
+        "duplicate_timestamps": 0,
+        "missing_pct": {},
+        "columns": [
+          "TOTAL_THM_ONLY",
+          "TOTAL_NLDC_HYD",
+          "TOTAL_NLDC_GAS",
+          "TOTAL_NLDC_NPC",
+          "ALL_INDIA_WIND",
+          "ALL_IND_SOLAR",
+          "NLDC_DEMAND",
+          "INTRA_SYSTEM_INTERTIA",
+          "ER_Total_Inertia",
+          "SYS_IN"
+        ]
+      },
+      {
+        "file": "October 2021.xlsx",
+        "layout": "scada_sheet1",
+        "size_mb": 1.6,
+        "rows": 8928,
+        "start": "2021-10-01 00:00:00",
+        "end": "2021-10-31 23:55:00",
+        "unique_timestamps": 8928,
+        "modal_interval": "0 days 00:05:00",
+        "share_at_modal_interval": 1.0,
+        "largest_gap": "0 days 00:05:00",
+        "duplicate_timestamps": 0,
+        "missing_pct": {},
+        "columns": [
+          "TOTAL_THM_ONLY",
+          "TOTAL_NLDC_HYD",
+          "TOTAL_NLDC_GAS",
+          "TOTAL_NLDC_NPC",
+          "ALL_INDIA_WIND",
+          "ALL_IND_SOLAR",
+          "NLDC_DEMAND",
+          "INTRA_SYSTEM_INTERTIA",
+          "ER_Total_Inertia",
+          "SYS_IN"
+        ]
+      },
+      {
+        "file": "October 2022.xlsx",
+        "layout": "scada_sheet1",
+        "size_mb": 47.8,
+        "rows": 267840,
+        "start": "2022-10-01 00:00:00",
+        "end": "2022-10-31 23:59:50",
+        "unique_timestamps": 267840,
+        "modal_interval": "0 days 00:00:10",
+        "share_at_modal_interval": 1.0,
+        "largest_gap": "0 days 00:00:10",
+        "duplicate_timestamps": 0,
+        "missing_pct": {},
+        "columns": [
+          "TOTAL_THM_ONLY",
+          "TOTAL_NLDC_HYD",
+          "TOTAL_NLDC_GAS",
+          "TOTAL_NLDC_NPC",
+          "ALL_INDIA_WIND",
+          "ALL_IND_SOLAR",
+          "NLDC_DEMAND",
+          "INTRA_SYSTEM_INTERTIA",
+          "ER_Total_Inertia",
+          "SYS_IN"
+        ]
+      },
+      {
+        "file": "October 2023.xlsx",
+        "layout": "scada_sheet1",
+        "size_mb": 49.5,
+        "rows": 267840,
+        "start": "2023-10-01 00:00:00",
+        "end": "2023-10-31 23:59:50",
+        "unique_timestamps": 267840,
+        "modal_interval": "0 days 00:00:10",
+        "share_at_modal_interval": 1.0,
+        "largest_gap": "0 days 00:00:10",
+        "duplicate_timestamps": 0,
+        "missing_pct": {},
+        "columns": [
+          "TOTAL_THM_ONLY",
+          "TOTAL_NLDC_HYD",
+          "TOTAL_NLDC_GAS",
+          "TOTAL_NLDC_NPC",
+          "ALL_INDIA_WIND",
+          "ALL_IND_SOLAR",
+          "NLDC_DEMAND",
+          "INTRA_SYSTEM_INTERTIA",
+          "ER_Total_Inertia",
+          "SYS_IN"
+        ]
+      },
+      {
+        "file": "September 2021.xlsx",
+        "layout": "scada_sheet1",
+        "size_mb": 1.5,
+        "rows": 8640,
+        "start": "2021-09-01 00:00:00",
+        "end": "2021-09-30 23:55:00",
+        "unique_timestamps": 8640,
+        "modal_interval": "0 days 00:05:00",
+        "share_at_modal_interval": 1.0,
+        "largest_gap": "0 days 00:05:00",
+        "duplicate_timestamps": 0,
+        "missing_pct": {},
+        "columns": [
+          "TOTAL_THM_ONLY",
+          "TOTAL_NLDC_HYD",
+          "TOTAL_NLDC_GAS",
+          "TOTAL_NLDC_NPC",
+          "ALL_INDIA_WIND",
+          "ALL_IND_SOLAR",
+          "NLDC_DEMAND",
+          "INTRA_SYSTEM_INTERTIA",
+          "ER_Total_Inertia",
+          "SYS_IN"
+        ]
+      },
+      {
+        "file": "September 2022.xlsx",
+        "layout": "scada_sheet1",
+        "size_mb": 1.6,
+        "rows": 8640,
+        "start": "2022-09-01 00:00:00",
+        "end": "2022-09-30 23:55:00",
+        "unique_timestamps": 8640,
+        "modal_interval": "0 days 00:05:00",
+        "share_at_modal_interval": 1.0,
+        "largest_gap": "0 days 00:05:00",
+        "duplicate_timestamps": 0,
+        "missing_pct": {},
+        "columns": [
+          "TOTAL_THM_ONLY",
+          "TOTAL_NLDC_HYD",
+          "TOTAL_NLDC_GAS",
+          "TOTAL_NLDC_NPC",
+          "ALL_INDIA_WIND",
+          "ALL_IND_SOLAR",
+          "NLDC_DEMAND",
+          "INTRA_SYSTEM_INTERTIA",
+          "ER_Total_Inertia",
+          "SYS_IN"
+        ]
+      },
+      {
+        "file": "September 2023.xlsx",
+        "layout": "scada_sheet1",
+        "size_mb": 47.4,
+        "rows": 259200,
+        "start": "2023-09-01 00:00:00",
+        "end": "2023-09-30 23:59:50",
+        "unique_timestamps": 259200,
+        "modal_interval": "0 days 00:00:10",
+        "share_at_modal_interval": 1.0,
+        "largest_gap": "0 days 00:00:10",
+        "duplicate_timestamps": 0,
+        "missing_pct": {},
+        "columns": [
+          "TOTAL_THM_ONLY",
+          "TOTAL_NLDC_HYD",
+          "TOTAL_NLDC_GAS",
+          "TOTAL_NLDC_NPC",
+          "ALL_INDIA_WIND",
+          "ALL_IND_SOLAR",
+          "NLDC_DEMAND",
+          "INTRA_SYSTEM_INTERTIA",
+          "ER_Total_Inertia",
+          "SYS_IN"
+        ]
+      }
+    ],
+    "hourly_rows": 33432,
+    "hourly_overlapping_hours": 0,
+    "time_hourly": {
+      "start": "2021-09-01 00:00:00",
+      "end": "2025-06-24 23:00:00",
+      "unique_timestamps": 33432,
+      "modal_interval": "0 days 01:00:00",
+      "share_at_modal_interval": 1.0,
+      "largest_gap": "0 days 01:00:00"
+    },
+    "describe_hourly_MW": {
+      "NLDC_DEMAND": {
+        "count": 33432.0,
+        "mean": 180705.0,
+        "std": 23979.8,
+        "min": 0.0,
+        "25%": 165189.3,
+        "50%": 183031.5,
+        "75%": 198025.9,
+        "max": 248688.2
+      },
+      "ALL_INDIA_WIND": {
+        "count": 33432.0,
+        "mean": 8170.6,
+        "std": 5450.9,
+        "min": 0.0,
+        "25%": 3891.3,
+        "50%": 6716.2,
+        "75%": 11387.0,
+        "max": 38701.0
+      },
+      "ALL_IND_SOLAR": {
+        "count": 33432.0,
+        "mean": 12268.2,
+        "std": 16268.1,
+        "min": -75.0,
+        "25%": 60.0,
+        "50%": 1305.4,
+        "75%": 24217.8,
+        "max": 64701.2
+      }
+    },
+    "negative_solar_hours": 2784
+  },
+  "solar_pv": {
+    "files": [
+      {
+        "file": "to_identify/solar_pv/PV_Rooftop_RGA/solar_PV_Rooftop_RGA.csv",
+        "rows": 403248,
+        "region_columns": 332,
+        "time": {
+          "start": "1980-01-01 00:00:00",
+          "end": "2025-12-31 23:00:00",
+          "unique_timestamps": 403248,
+          "modal_interval": "0 days 01:00:00",
+          "share_at_modal_interval": 1.0,
+          "largest_gap": "0 days 01:00:00"
+        },
+        "missing_values": 0,
+        "min": 0.0,
+        "max": 0.9724000096321106,
+        "mean_capacity_factor": 0.174,
+        "region_mean_cf_range": [
+          0.1098,
+          0.2085
+        ],
+        "all_zero_regions": 0,
+        "same_columns_as_first": true
+      },
+      {
+        "file": "to_identify/solar_pv/PV_Rooftop_RGB/solar_PV_Rooftop_RGB.csv",
+        "rows": 403248,
+        "region_columns": 330,
+        "time": {
+          "start": "1980-01-01 00:00:00",
+          "end": "2025-12-31 23:00:00",
+          "unique_timestamps": 403248,
+          "modal_interval": "0 days 01:00:00",
+          "share_at_modal_interval": 1.0,
+          "largest_gap": "0 days 01:00:00"
+        },
+        "missing_values": 0,
+        "min": 0.0,
+        "max": 0.9868000149726868,
+        "mean_capacity_factor": 0.1729,
+        "region_mean_cf_range": [
+          0.123,
+          0.2034
+        ],
+        "all_zero_regions": 0,
+        "same_columns_as_first": false
+      },
+      {
+        "file": "to_identify/solar_pv/PV_Rooftop_RGC/solar_PV_Rooftop_RGC.csv",
+        "rows": 403248,
+        "region_columns": 330,
+        "time": {
+          "start": "1980-01-01 00:00:00",
+          "end": "2025-12-31 23:00:00",
+          "unique_timestamps": 403248,
+          "modal_interval": "0 days 01:00:00",
+          "share_at_modal_interval": 1.0,
+          "largest_gap": "0 days 01:00:00"
+        },
+        "missing_values": 0,
+        "min": 0.0,
+        "max": 0.9836999773979187,
+        "mean_capacity_factor": 0.1714,
+        "region_mean_cf_range": [
+          0.0875,
+          0.2072
+        ],
+        "all_zero_regions": 0,
+        "same_columns_as_first": false
+      },
+      {
+        "file": "to_identify/solar_pv/PV_Utility_scale_no_tracking_RGA/solar_PV_no_tracking_RGA.csv",
+        "rows": 403248,
+        "region_columns": 330,
+        "time": {
+          "start": "1980-01-01 00:00:00",
+          "end": "2025-12-31 23:00:00",
+          "unique_timestamps": 403248,
+          "modal_interval": "0 days 01:00:00",
+          "share_at_modal_interval": 1.0,
+          "largest_gap": "0 days 01:00:00"
+        },
+        "missing_values": 0,
+        "min": 0.0,
+        "max": 1.0,
+        "mean_capacity_factor": 0.2078,
+        "region_mean_cf_range": [
+          0.147,
+          0.2393
+        ],
+        "all_zero_regions": 0,
+        "same_columns_as_first": false
+      },
+      {
+        "file": "to_identify/solar_pv/PV_Utility_scale_no_tracking_RGB/solar_PV_no_tracking_RGB.csv",
+        "rows": 403248,
+        "region_columns": 328,
+        "time": {
+          "start": "1980-01-01 00:00:00",
+          "end": "2025-12-31 23:00:00",
+          "unique_timestamps": 403248,
+          "modal_interval": "0 days 01:00:00",
+          "share_at_modal_interval": 1.0,
+          "largest_gap": "0 days 01:00:00"
+        },
+        "missing_values": 0,
+        "min": 0.0,
+        "max": 1.0,
+        "mean_capacity_factor": 0.2065,
+        "region_mean_cf_range": [
+          0.1461,
+          0.2389
+        ],
+        "all_zero_regions": 0,
+        "same_columns_as_first": false
+      },
+      {
+        "file": "to_identify/solar_pv/PV_Utility_scale_no_tracking_RGC/solar_PV_no_tracking_RGC.csv",
+        "rows": 403248,
+        "region_columns": 328,
+        "time": {
+          "start": "1980-01-01 00:00:00",
+          "end": "2025-12-31 23:00:00",
+          "unique_timestamps": 403248,
+          "modal_interval": "0 days 01:00:00",
+          "share_at_modal_interval": 1.0,
+          "largest_gap": "0 days 01:00:00"
+        },
+        "missing_values": 0,
+        "min": 0.0,
+        "max": 1.0,
+        "mean_capacity_factor": 0.2046,
+        "region_mean_cf_range": [
+          0.1312,
+          0.2386
+        ],
+        "all_zero_regions": 0,
+        "same_columns_as_first": false
+      },
+      {
+        "file": "to_identify/solar_pv/PV_Utility_scale_tracking_RGA/solar_PV_tracking_RGA.csv",
+        "rows": 403248,
+        "region_columns": 330,
+        "time": {
+          "start": "1980-01-01 00:00:00",
+          "end": "2025-12-31 23:00:00",
+          "unique_timestamps": 403248,
+          "modal_interval": "0 days 01:00:00",
+          "share_at_modal_interval": 1.0,
+          "largest_gap": "0 days 01:00:00"
+        },
+        "missing_values": 0,
+        "min": 0.0,
+        "max": 1.0,
+        "mean_capacity_factor": 0.2491,
+        "region_mean_cf_range": [
+          0.1652,
+          0.2979
+        ],
+        "all_zero_regions": 0,
+        "same_columns_as_first": false
+      },
+      {
+        "file": "to_identify/solar_pv/PV_Utility_scale_tracking_RGB/solar_PV_tracking_RGB.csv",
+        "rows": 403248,
+        "region_columns": 328,
+        "time": {
+          "start": "1980-01-01 00:00:00",
+          "end": "2025-12-31 23:00:00",
+          "unique_timestamps": 403248,
+          "modal_interval": "0 days 01:00:00",
+          "share_at_modal_interval": 1.0,
+          "largest_gap": "0 days 01:00:00"
+        },
+        "missing_values": 0,
+        "min": 0.0,
+        "max": 1.0,
+        "mean_capacity_factor": 0.2473,
+        "region_mean_cf_range": [
+          0.1585,
+          0.2975
+        ],
+        "all_zero_regions": 0,
+        "same_columns_as_first": false
+      },
+      {
+        "file": "to_identify/solar_pv/PV_Utility_scale_tracking_RGC/solar_PV_tracking_RGC.csv",
+        "rows": 403248,
+        "region_columns": 328,
+        "time": {
+          "start": "1980-01-01 00:00:00",
+          "end": "2025-12-31 23:00:00",
+          "unique_timestamps": 403248,
+          "modal_interval": "0 days 01:00:00",
+          "share_at_modal_interval": 1.0,
+          "largest_gap": "0 days 01:00:00"
+        },
+        "missing_values": 0,
+        "min": 0.0,
+        "max": 1.0,
+        "mean_capacity_factor": 0.2446,
+        "region_mean_cf_range": [
+          0.1428,
+          0.2969
+        ],
+        "all_zero_regions": 0,
+        "same_columns_as_first": false
+      }
+    ],
+    "region_id_range": [
+      0,
+      368
+    ],
+    "region_ids_missing_in_range": 37,
+    "lat_lon_lookup_present": false
+  }
+}

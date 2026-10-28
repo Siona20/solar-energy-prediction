@@ -1,0 +1,16 @@
+group,irradiation_band_kw_m2,intervals,off_share,inverters,plant
+other inverters,"(0.1, 0.4]",8998,0.0,22,Plant 1
+other inverters,"(0.4, 0.6]",6622,0.0028692237994563576,22,Plant 1
+other inverters,"(0.6, 0.8]",5192,0.001926040061633282,22,Plant 1
+other inverters,"(0.8, 1.0]",3388,0.007378984651711925,22,Plant 1
+other inverters,"(1.0, 1.4]",638,0.0109717868338558,22,Plant 1
+often-low inverters,"(0.1, 0.4]",3073,0.019850309144158803,7,Plant 2
+often-low inverters,"(0.4, 0.6]",1659,0.08800482218203737,7,Plant 2
+often-low inverters,"(0.6, 0.8]",1498,0.3104138851802403,7,Plant 2
+often-low inverters,"(0.8, 1.0]",1477,0.5280974949221394,7,Plant 2
+often-low inverters,"(1.0, 1.4]",70,0.5714285714285714,7,Plant 2
+other inverters,"(0.1, 0.4]",6289,0.012720623310542217,15,Plant 2
+other inverters,"(0.4, 0.6]",3299,0.059108820854804484,15,Plant 2
+other inverters,"(0.6, 0.8]",2882,0.18077723802914641,15,Plant 2
+other inverters,"(0.8, 1.0]",2701,0.23509811181044057,15,Plant 2
+other inverters,"(1.0, 1.4]",150,0.26,15,Plant 2

@@ -1,0 +1,177 @@
+{
+  "steps": [
+    {
+      "dataset": "consumption features",
+      "step": "join Sceaux daily NASA POWER weather on date",
+      "rows_before": 1440,
+      "rows_after": 1440,
+      "affected": 0,
+      "note": "0 household days without weather",
+      "removed": 0
+    },
+    {
+      "dataset": "consumption features",
+      "step": "drop rows with missing target or features",
+      "rows_before": 1440,
+      "rows_after": 1343,
+      "affected": 0,
+      "note": "first 30 days (rolling windows) and days around the missing-data gaps",
+      "removed": 97
+    },
+    {
+      "dataset": "india consumption features",
+      "step": "join NASA POWER weather of the mapped city; cooling degree-days base 24.0 \u00b0C",
+      "rows_before": 63000,
+      "rows_after": 63000,
+      "affected": 0,
+      "note": "Pune city -> pune, Pune -> pune, Aurangabad -> aurangabad, Kanpur rural -> kanpur, Gonda -> gonda",
+      "removed": 0
+    },
+    {
+      "dataset": "india consumption features",
+      "step": "drop rows whose target is missing or interpolated (targets must be measured)",
+      "rows_before": 62417,
+      "rows_after": 58440,
+      "affected": 0,
+      "note": "",
+      "removed": 3977
+    },
+    {
+      "dataset": "india consumption features",
+      "step": "drop rows with missing features",
+      "rows_before": 58440,
+      "rows_after": 52656,
+      "affected": 0,
+      "note": "first 30 days of each meter, days around gaps, days without a usable 15-minute load shape",
+      "removed": 5784
+    },
+    {
+      "dataset": "solar features",
+      "step": "drop rows with missing features or target",
+      "rows_before": 136472,
+      "rows_after": 136472,
+      "affected": 0,
+      "note": "",
+      "removed": 0
+    }
+  ],
+  "facts": {
+    "consumption_split_rows": {
+      "train": 709,
+      "valid": 352,
+      "test": 282
+    },
+    "consumption_split_ranges": {
+      "test": "2010-01-01 to 2010-11-25",
+      "train": "2007-01-10 to 2008-12-31",
+      "valid": "2009-01-01 to 2009-12-31"
+    },
+    "india_consumption_split_rows": {
+      "train": 19896,
+      "valid": 16708,
+      "test": 16052
+    },
+    "india_consumption_split_meters": {
+      "test": 104,
+      "train": 84,
+      "valid": 107
+    },
+    "india_consumption_test_periods": {
+      "lockdown": 8247,
+      "normal": 7805
+    },
+    "solar_split_test": {
+      "days": 5,
+      "rows": 21076,
+      "train_eligible_rows": 20580,
+      "range": "2020-06-13 to 2020-06-17"
+    },
+    "solar_split_train": {
+      "days": 24,
+      "rows": 94276,
+      "train_eligible_rows": 91428,
+      "range": "2020-05-15 to 2020-06-07"
+    },
+    "solar_split_valid": {
+      "days": 5,
+      "rows": 21120,
+      "train_eligible_rows": 20627,
+      "range": "2020-06-08 to 2020-06-12"
+    },
+    "consumption_features": [
+      "lag_1",
+      "lag_2",
+      "lag_7",
+      "lag_14",
+      "roll_mean_7",
+      "roll_std_7",
+      "roll_mean_30",
+      "roll_std_30",
+      "same_weekday_mean_4w",
+      "trend_7_vs_30",
+      "sub3_kwh_lag_1",
+      "peak_power_kw_lag_1",
+      "day_of_week",
+      "month",
+      "is_weekend",
+      "is_holiday",
+      "is_school_holiday",
+      "doy_sin",
+      "doy_cos",
+      "t2m_lag_1",
+      "t2m_min_lag_1",
+      "t2m_mean_3d",
+      "hdd_lag_1",
+      "hdd_sum_7d",
+      "ghi_lag_1"
+    ],
+    "consumption_forecast_proxy_features (experiment only)": [
+      "t2m_target_day",
+      "hdd_target_day"
+    ],
+    "india_consumption_features": [
+      "lag_1",
+      "lag_2",
+      "lag_7",
+      "lag_14",
+      "roll_mean_7",
+      "roll_std_7",
+      "roll_mean_30",
+      "roll_std_30",
+      "same_weekday_mean_4w",
+      "trend_7_vs_30",
+      "peak_kw_lag_1",
+      "base_kw_lag_1",
+      "peak_kw_mean_7d",
+      "evening_share_mean_7d",
+      "day_of_week",
+      "month",
+      "is_weekend",
+      "is_holiday",
+      "doy_sin",
+      "doy_cos",
+      "t2m_lag_1",
+      "t2m_max_lag_1",
+      "t2m_mean_3d",
+      "cdd_lag_1",
+      "cdd_sum_7d",
+      "rh2m_lag_1",
+      "precip_lag_1",
+      "household_type",
+      "region"
+    ],
+    "india_consumption_forecast_proxy_features (experiment only)": [
+      "t2m_max_target_day",
+      "cdd_target_day",
+      "rh2m_target_day"
+    ],
+    "solar_features": [
+      "irradiation_kw_m2",
+      "module_temp_c",
+      "ambient_temp_c",
+      "module_minus_ambient_c",
+      "hour_sin",
+      "hour_cos"
+    ]
+  }
+}

@@ -1,0 +1,464 @@
+{
+  "steps": [
+    {
+      "dataset": "household",
+      "step": "minute rows with all measurements missing ('?') kept as NaN",
+      "rows_before": 2075259,
+      "rows_after": 2075259,
+      "affected": 25979,
+      "note": "",
+      "removed": 0
+    },
+    {
+      "dataset": "household",
+      "step": "aggregate to days and reindex to a complete calendar",
+      "rows_before": 1442,
+      "rows_after": 1442,
+      "affected": 0,
+      "note": "2,075,259 minutes -> 1,442 days",
+      "removed": 0
+    },
+    {
+      "dataset": "household",
+      "step": "days below 90% minute coverage set to missing",
+      "rows_before": 1442,
+      "rows_after": 1442,
+      "affected": 24,
+      "note": "",
+      "removed": 0
+    },
+    {
+      "dataset": "household",
+      "step": "trim leading/trailing incomplete days",
+      "rows_before": 1442,
+      "rows_after": 1440,
+      "affected": 0,
+      "note": "series now 2006-12-17 to 2010-11-25",
+      "removed": 2
+    },
+    {
+      "dataset": "household",
+      "step": "interpolate gaps of <= 2 days",
+      "rows_before": 1440,
+      "rows_after": 1440,
+      "affected": 3,
+      "note": "19 days remain missing (longer gaps)",
+      "removed": 0
+    },
+    {
+      "dataset": "household weather",
+      "step": "rename 9 NASA variables, -999 -> NaN, add heating degree-days (base 18.0 \u00b0C)",
+      "rows_before": 1461,
+      "rows_after": 1461,
+      "affected": 0,
+      "note": "2006-12-01 to 2010-11-30",
+      "removed": 0
+    },
+    {
+      "dataset": "plant1 generation",
+      "step": "drop exact duplicate rows",
+      "rows_before": 68778,
+      "rows_after": 68778,
+      "affected": 0,
+      "note": "",
+      "removed": 0
+    },
+    {
+      "dataset": "plant1 generation",
+      "step": "drop rows with conflicting duplicate timestamp+inverter_id",
+      "rows_before": 68778,
+      "rows_after": 68778,
+      "affected": 0,
+      "note": "",
+      "removed": 0
+    },
+    {
+      "dataset": "plant1 weather",
+      "step": "drop exact duplicate rows",
+      "rows_before": 3182,
+      "rows_after": 3182,
+      "affected": 0,
+      "note": "",
+      "removed": 0
+    },
+    {
+      "dataset": "plant1 weather",
+      "step": "drop rows with conflicting duplicate timestamp",
+      "rows_before": 3182,
+      "rows_after": 3182,
+      "affected": 0,
+      "note": "",
+      "removed": 0
+    },
+    {
+      "dataset": "plant1",
+      "step": "negative ac_power_kw set to 0",
+      "rows_before": 68778,
+      "rows_after": 68778,
+      "affected": 0,
+      "note": "",
+      "removed": 0
+    },
+    {
+      "dataset": "plant1",
+      "step": "negative dc_power_raw set to 0",
+      "rows_before": 68778,
+      "rows_after": 68778,
+      "affected": 0,
+      "note": "",
+      "removed": 0
+    },
+    {
+      "dataset": "plant1",
+      "step": "negative irradiation_kw_m2 set to 0",
+      "rows_before": 3182,
+      "rows_after": 3182,
+      "affected": 0,
+      "note": "",
+      "removed": 0
+    },
+    {
+      "dataset": "plant1",
+      "step": "join generation to weather on timestamp + plant_id (inner)",
+      "rows_before": 68778,
+      "rows_after": 68774,
+      "affected": 0,
+      "note": "rows without a weather reading cannot be modelled",
+      "removed": 4
+    },
+    {
+      "dataset": "plant1",
+      "step": "flag AC power > 0 with zero irradiation",
+      "rows_before": 68774,
+      "rows_after": 68774,
+      "affected": 0,
+      "note": "",
+      "removed": 0
+    },
+    {
+      "dataset": "plant1",
+      "step": "flag inverter off (AC = 0) while irradiation > 0.1 kW/m2",
+      "rows_before": 68774,
+      "rows_after": 68774,
+      "affected": 63,
+      "note": "kept; excluded only when training the expected-output model",
+      "removed": 0
+    },
+    {
+      "dataset": "plant2 generation",
+      "step": "drop exact duplicate rows",
+      "rows_before": 67698,
+      "rows_after": 67698,
+      "affected": 0,
+      "note": "",
+      "removed": 0
+    },
+    {
+      "dataset": "plant2 generation",
+      "step": "drop rows with conflicting duplicate timestamp+inverter_id",
+      "rows_before": 67698,
+      "rows_after": 67698,
+      "affected": 0,
+      "note": "",
+      "removed": 0
+    },
+    {
+      "dataset": "plant2 weather",
+      "step": "drop exact duplicate rows",
+      "rows_before": 3259,
+      "rows_after": 3259,
+      "affected": 0,
+      "note": "",
+      "removed": 0
+    },
+    {
+      "dataset": "plant2 weather",
+      "step": "drop rows with conflicting duplicate timestamp",
+      "rows_before": 3259,
+      "rows_after": 3259,
+      "affected": 0,
+      "note": "",
+      "removed": 0
+    },
+    {
+      "dataset": "plant2",
+      "step": "negative ac_power_kw set to 0",
+      "rows_before": 67698,
+      "rows_after": 67698,
+      "affected": 0,
+      "note": "",
+      "removed": 0
+    },
+    {
+      "dataset": "plant2",
+      "step": "negative dc_power_raw set to 0",
+      "rows_before": 67698,
+      "rows_after": 67698,
+      "affected": 0,
+      "note": "",
+      "removed": 0
+    },
+    {
+      "dataset": "plant2",
+      "step": "negative irradiation_kw_m2 set to 0",
+      "rows_before": 3259,
+      "rows_after": 3259,
+      "affected": 0,
+      "note": "",
+      "removed": 0
+    },
+    {
+      "dataset": "plant2",
+      "step": "join generation to weather on timestamp + plant_id (inner)",
+      "rows_before": 67698,
+      "rows_after": 67698,
+      "affected": 0,
+      "note": "rows without a weather reading cannot be modelled",
+      "removed": 0
+    },
+    {
+      "dataset": "plant2",
+      "step": "flag AC power > 0 with zero irradiation",
+      "rows_before": 67698,
+      "rows_after": 67698,
+      "affected": 14,
+      "note": "",
+      "removed": 0
+    },
+    {
+      "dataset": "plant2",
+      "step": "flag inverter off (AC = 0) while irradiation > 0.1 kW/m2",
+      "rows_before": 67698,
+      "rows_after": 67698,
+      "affected": 3774,
+      "note": "kept; excluded only when training the expected-output model",
+      "removed": 0
+    },
+    {
+      "dataset": "india weather",
+      "step": "combine 50 NASA POWER city files; -999 -> NaN",
+      "rows_before": 456550,
+      "rows_after": 456550,
+      "affected": 0,
+      "note": "50 locations, 2001-01-01 to 2025-12-31",
+      "removed": 0
+    },
+    {
+      "dataset": "india weather",
+      "step": "check min <= mean <= max temperature",
+      "rows_before": 456550,
+      "rows_after": 456550,
+      "affected": 0,
+      "note": "",
+      "removed": 0
+    },
+    {
+      "dataset": "india weather",
+      "step": "check all-sky GHI <= 1.05 x clear-sky GHI",
+      "rows_before": 456550,
+      "rows_after": 456550,
+      "affected": 0,
+      "note": "kept; satellite clear-sky estimate can be slightly low",
+      "removed": 0
+    },
+    {
+      "dataset": "plant search grid",
+      "step": "combine NASA POWER 1\u00b0 grid files; -999 -> NaN",
+      "rows_before": 10309,
+      "rows_after": 10309,
+      "affected": 0,
+      "note": "169 cells, 2020-05-01 to 2020-06-30",
+      "removed": 0
+    },
+    {
+      "dataset": "emarc",
+      "step": "deployment metadata from the info sheet (daily-file labels compared)",
+      "rows_before": 273,
+      "rows_after": 216,
+      "affected": 2,
+      "note": "deployments with no daily data dropped; conflicts: D0239 (H128: daily says 'Water Heaters but no AC', info says 'With Air Conditioners'), D0240 (H128: daily says 'Water Heaters but no AC', info says 'With Air Conditioners')",
+      "removed": 57
+    },
+    {
+      "dataset": "emarc",
+      "step": "drop exact duplicate rows",
+      "rows_before": 111280,
+      "rows_after": 111273,
+      "affected": 7,
+      "note": "",
+      "removed": 7
+    },
+    {
+      "dataset": "emarc",
+      "step": "reindex every meter to a complete calendar (first..last report)",
+      "rows_before": 111273,
+      "rows_after": 118253,
+      "affected": 6980,
+      "note": "added days are missing (not reported)",
+      "removed": -6980
+    },
+    {
+      "dataset": "emarc",
+      "step": "runs of >= 3 consecutive 0 kWh days -> missing (meter/supply off or house empty)",
+      "rows_before": 118253,
+      "rows_after": 118253,
+      "affected": 1103,
+      "note": "shorter zero runs kept as real (e.g. full-day power cuts); 1235 zero days in total",
+      "removed": 0
+    },
+    {
+      "dataset": "emarc",
+      "step": "flag days above Q3 + 6.0 x IQR of that meter (kept, not removed)",
+      "rows_before": 118253,
+      "rows_after": 118253,
+      "affected": 81,
+      "note": "",
+      "removed": 0
+    },
+    {
+      "dataset": "emarc",
+      "step": "interpolate gaps of <= 2 days within each meter",
+      "rows_before": 118253,
+      "rows_after": 118253,
+      "affected": 264,
+      "note": "7819 meter-days remain missing",
+      "removed": 0
+    },
+    {
+      "dataset": "emarc",
+      "step": "cross-check daily kWh vs 15-minute blocks (days with >= 90 blocks, > 0.5 kWh)",
+      "rows_before": 101557,
+      "rows_after": 101557,
+      "affected": 2625,
+      "note": "median ratio 0.997; 97.4% of days within \u00b110%",
+      "removed": 0
+    },
+    {
+      "dataset": "emarc",
+      "step": "join each household's appliance meter to its mains meter (same household, same day)",
+      "rows_before": 63000,
+      "rows_after": 63000,
+      "affected": 46394,
+      "note": "322 days where appliance > mains (flagged)",
+      "removed": 0
+    },
+    {
+      "dataset": "emarc",
+      "step": "join 15-minute load-shape features (days with < 90 of 96 blocks -> missing)",
+      "rows_before": 63000,
+      "rows_after": 63000,
+      "affected": 1717,
+      "note": "meter-days without usable load shape",
+      "removed": 0
+    },
+    {
+      "dataset": "emarc",
+      "step": "mains meters with >= 180 measured days are model-eligible",
+      "rows_before": 116,
+      "rows_after": 112,
+      "affected": 4,
+      "note": "58,440 measured meter-days kept for modelling",
+      "removed": 4
+    },
+    {
+      "dataset": "niti districts",
+      "step": "drop exact duplicate rows",
+      "rows_before": 732,
+      "rows_after": 685,
+      "affected": 0,
+      "note": "",
+      "removed": 47
+    },
+    {
+      "dataset": "niti districts",
+      "step": "average districts listed twice with different values",
+      "rows_before": 685,
+      "rows_after": 646,
+      "affected": 68,
+      "note": "29 districts; spread kept in source_spread_kwh_m2",
+      "removed": 39
+    },
+    {
+      "dataset": "niti kheda monthly",
+      "step": "add month number and daily mean",
+      "rows_before": 12,
+      "rows_after": 12,
+      "affected": 0,
+      "note": "",
+      "removed": 0
+    }
+  ],
+  "facts": {
+    "household_interpolated_days": [
+      "2009-08-13",
+      "2010-03-20",
+      "2010-03-21"
+    ],
+    "household_missing_days": [
+      "2007-04-28",
+      "2007-04-29",
+      "2007-04-30",
+      "2009-06-13",
+      "2009-06-14",
+      "2009-06-15",
+      "2010-01-12",
+      "2010-01-13",
+      "2010-01-14",
+      "2010-08-17",
+      "2010-08-18",
+      "2010-08-19",
+      "2010-08-20",
+      "2010-08-21",
+      "2010-08-22",
+      "2010-09-25",
+      "2010-09-26",
+      "2010-09-27",
+      "2010-09-28"
+    ],
+    "household_daily_kwh_summary": {
+      "count": 1421.0,
+      "mean": 26.18,
+      "std": 10.0,
+      "min": 4.17,
+      "25%": 19.65,
+      "50%": 25.94,
+      "75%": 31.65,
+      "max": 79.56
+    },
+    "plant1_dc_ac_ratio_median": 10.22,
+    "plant1_ac_energy_vs_daily_yield": {
+      "inverter_days_compared": 554,
+      "ratio_median": 1.0001,
+      "ratio_p05": 0.9545,
+      "ratio_p95": 1.0093,
+      "share_within_5pct": 0.9675
+    },
+    "plant2_dc_ac_ratio_median": 1.022,
+    "plant2_ac_energy_vs_daily_yield": {
+      "inverter_days_compared": 691,
+      "ratio_median": 0.9999,
+      "ratio_p05": 0.9754,
+      "ratio_p95": 1.006,
+      "share_within_5pct": 0.9653
+    },
+    "emarc_blocks_vs_daily": {
+      "days": 101557,
+      "median_ratio": 0.9966,
+      "share_within_10pct": 0.9742
+    },
+    "emarc_mains_summary": {
+      "meters": 116,
+      "eligible": 112,
+      "daily_kwh": {
+        "count": 59113.0,
+        "mean": 5.2,
+        "std": 3.79,
+        "min": 0.0,
+        "25%": 2.87,
+        "50%": 4.33,
+        "75%": 6.34,
+        "max": 44.56
+      }
+    }
+  }
+}

@@ -85,4 +85,4 @@ Every step from the original project brief, plus the extra fine-tuning steps add
 - [x] pytest: parsing ✅, daily kWh ✅, no future rows in lags ✅, solar feature list ✅, holidays ✅, splits ✅, maintenance rules ✅, energy balance ✅, test guard ✅, model loading ✅, monitoring ✅, dashboard pages ✅ (68 tests)
 - [x] README: setup, phases, dashboard, sources and licences, limitations
 - [x] `python -m solvia.pipeline` runs everything (raw → test evaluation in 4 min 51 s; byte-identical models; raw data unchanged)
-- [ ] ➕ git repository with meaningful commits (offered; not yet set up)
+- [x] ➕ git repository (local, branch main; history grouped by phase, created at the end; no remote)

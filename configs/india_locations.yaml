@@ -1,0 +1,87 @@
+# Indian locations for NASA POWER daily weather (python -m solvia.data.download_nasa_power).
+# Chosen to cover every region and climate: desert, coastal, Deccan plateau, Himalaya, north-east,
+# islands, plus the places already in other datasets (Vadodara, Delhi, Kheda) for cross-checks.
+# Coordinates are city centres to 2 decimals; NASA POWER's native grid is ~0.5° x 0.625°.
+
+nasa_power:
+  base_url: https://power.larc.nasa.gov/api/temporal/daily/point
+  community: RE
+  start: "20010101"   # CERES SYN1deg irradiance starts in 2001
+  end: "20251231"
+  parameters: [ALLSKY_SFC_SW_DWN, CLRSKY_SFC_SW_DWN, ALLSKY_KT, T2M, T2M_MAX, T2M_MIN, PRECTOTCORR, RH2M, WS2M]
+  out_dir: data/raw/nasa_power/india_cities
+
+locations:
+  # name: [state, region, latitude, longitude]
+  # North
+  delhi: [Delhi, North, 28.61, 77.21]
+  chandigarh: [Chandigarh, North, 30.73, 76.78]
+  amritsar: [Punjab, North, 31.63, 74.87]
+  dehradun: [Uttarakhand, North, 30.32, 78.03]
+  shimla: [Himachal Pradesh, North, 31.10, 77.17]
+  srinagar: [Jammu and Kashmir, North, 34.08, 74.80]
+  leh: [Ladakh, North, 34.15, 77.58]
+  lucknow: [Uttar Pradesh, North, 26.85, 80.95]
+  kanpur: [Uttar Pradesh, North, 26.45, 80.33]
+  gonda: [Uttar Pradesh, North, 27.13, 81.96]   # eMARC households
+  varanasi: [Uttar Pradesh, North, 25.32, 82.97]
+  # West
+  jaipur: [Rajasthan, West, 26.91, 75.79]
+  jodhpur: [Rajasthan, West, 26.24, 73.02]
+  jaisalmer: [Rajasthan, West, 26.92, 70.91]
+  bikaner: [Rajasthan, West, 28.02, 73.31]
+  ahmedabad: [Gujarat, West, 23.02, 72.57]
+  gandhinagar: [Gujarat, West, 23.22, 72.65]
+  vadodara: [Gujarat, West, 22.31, 73.18]
+  kheda: [Gujarat, West, 22.75, 72.68]
+  surat: [Gujarat, West, 21.17, 72.83]
+  rajkot: [Gujarat, West, 22.30, 70.80]
+  bhuj: [Gujarat, West, 23.25, 69.67]
+  mumbai: [Maharashtra, West, 19.08, 72.88]
+  pune: [Maharashtra, West, 18.52, 73.86]
+  aurangabad: [Maharashtra, West, 19.88, 75.34]   # eMARC households (Chhatrapati Sambhajinagar)
+  panaji: [Goa, West, 15.49, 73.83]
+  # Central
+  bhopal: [Madhya Pradesh, Central, 23.26, 77.41]
+  indore: [Madhya Pradesh, Central, 22.72, 75.86]
+  nagpur: [Maharashtra, Central, 21.15, 79.09]
+  raipur: [Chhattisgarh, Central, 21.25, 81.63]
+  # East and North-East
+  kolkata: [West Bengal, East, 22.57, 88.36]
+  patna: [Bihar, East, 25.59, 85.14]
+  ranchi: [Jharkhand, East, 23.34, 85.31]
+  bhubaneswar: [Odisha, East, 20.30, 85.82]
+  guwahati: [Assam, North-East, 26.14, 91.74]
+  shillong: [Meghalaya, North-East, 25.58, 91.89]
+  imphal: [Manipur, North-East, 24.82, 93.94]
+  # South
+  hyderabad: [Telangana, South, 17.39, 78.49]
+  bengaluru: [Karnataka, South, 12.97, 77.59]
+  chennai: [Tamil Nadu, South, 13.08, 80.27]
+  coimbatore: [Tamil Nadu, South, 11.02, 76.96]
+  madurai: [Tamil Nadu, South, 9.93, 78.12]
+  thiruvananthapuram: [Kerala, South, 8.52, 76.94]
+  kochi: [Kerala, South, 9.93, 76.27]
+  mangaluru: [Karnataka, South, 12.91, 74.86]
+  visakhapatnam: [Andhra Pradesh, South, 17.69, 83.22]
+  vijayawada: [Andhra Pradesh, South, 16.51, 80.65]
+  kurnool: [Andhra Pradesh, South, 15.83, 78.04]
+  anantapur: [Andhra Pradesh, South, 14.68, 77.60]
+  # Islands
+  port_blair: [Andaman and Nicobar Islands, Islands, 11.62, 92.73]
+
+# Non-India points downloaded with the same parameters but their own period. The tag keeps the
+# file name distinct from older raw files at the same coordinates (which are never overwritten).
+extra_points:
+  # UCI household, Sceaux (France): full weather set for the consumption features (2006-12 .. 2010-11)
+  sceaux: {latitude: 48.78, longitude: 2.29, start: "20061201", end: "20101130", tag: full, out_dir: data/raw/nasa_power}
+
+# 1° grid (NASA's native irradiance resolution) over south/central India for the Kaggle plant period,
+# used to map where the plants' sensor irradiation best matches NASA (plant location ESTIMATE).
+search_grid:
+  name: plant_search_grid
+  start: "20200501"
+  end: "20200630"
+  lat: [10, 22]      # inclusive range, 1° steps
+  lon: [72, 84]
+  out_dir: data/raw/nasa_power/plant_search_grid_2020

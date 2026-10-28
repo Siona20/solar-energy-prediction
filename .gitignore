@@ -1,0 +1,19 @@
+# Environment
+.venv/
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+*.egg-info/
+.pytest_cache/
+.DS_Store
+
+# Data: raw files are large (UCI file is ~127 MB, over GitHub's 100 MB limit)
+data/raw/**
+!data/raw/.gitkeep
+data/interim/**
+!data/interim/.gitkeep
+data/processed/**
+!data/processed/.gitkeep
+
+# Large model files
+models/*.joblib

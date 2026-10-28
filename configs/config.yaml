@@ -1,0 +1,95 @@
+# SOLVIA configuration. All paths are relative to the project root.
+# Every threshold here is also recorded (with its reason) in docs/PROJECT_LOG.md.
+
+random_state: 42
+
+paths:
+  raw: data/raw
+  interim: data/interim
+  processed: data/processed
+  models: models
+  reports: reports
+  figures: reports/figures
+  metrics: reports/metrics
+
+datasets:
+  uci_household: data/raw/uci_household_power/household_power_consumption.txt
+  kaggle_solar_zip: data/raw/kaggle_solar_plants/archive.zip
+  niti_districts_dec2024: data/raw/india_solar_irradiance/india_solar_irradiance.xlsx
+  niti_kheda_monthly: data/raw/india_solar_irradiance/niti_kheda_monthly_avg_2009-2023.xlsx
+  # NASA POWER daily, 48 Indian cities, 2001-2025 (city list: configs/india_locations.yaml)
+  india_weather_dir: data/raw/nasa_power/india_cities
+  # The original short Vadodara (2024-25) and Delhi (2023-25) files in data/raw/nasa_power/ are
+  # superseded by the 25-year files above and no longer used by the pipeline.
+  # Downloaded 2026-10-28 with owner's approval: NASA POWER daily T2M/T2M_MAX/T2M_MIN at Sceaux (UCI household)
+  # Superseded 2026-10-28 by the _full file (adds GHI, rain, humidity, wind; same T2M values):
+  # data/raw/nasa_power/sceaux_48.78N_2.29E_daily_2006-2010.csv
+  household_weather: data/raw/nasa_power/sceaux_48.78N_2.29E_daily_2006-2010_full.csv
+  # French school holidays (Etalab compilation, Licence Ouverte); Sceaux = académie de Versailles = zone C
+  french_school_holidays: data/raw/french_school_holidays/vacances_scolaires_1990-2028.csv
+  # Prayas (Energy Group) eMARC smart meters, Maharashtra + Uttar Pradesh, 2018-01 .. 2020-06
+  # Harvard Dataverse doi:10.7910/DVN/YJ5SP1; non-commercial academic use, source must be acknowledged
+  emarc_dir: data/raw/prayas_emarc
+  # NASA POWER 1° grid over south/central India, May-June 2020 (plant-location estimate)
+  plant_search_grid_dir: data/raw/nasa_power/plant_search_grid_2020
+  # Audited but not used by the pipeline (see reports/data_audit.md, decisions D2, D4, D6)
+  grid_india: data/raw/electricity_demand_solar_wind
+  pv360_unverified: data/raw/unverified/pv360_philippines/PV360_data.zip
+
+consumption:
+  min_daily_coverage: 0.90      # fraction of 1,440 minutes needed for a day to count
+  max_interpolate_days: 2       # only gaps this short are interpolated
+  hdd_base_c: 18.0              # heating degree-days base temperature (French DJU convention)
+  cv_splits: 5                  # expanding-window CV folds inside the training years (tuning only)
+  split:
+    train_end: "2008-12-31"
+    valid_end: "2009-12-31"     # test = everything after valid_end
+
+emarc:                          # Indian households (each meter is its own series; never pooled into one household)
+  zero_run_days: 3              # >= this many consecutive 0-kWh days -> meter/supply off or house empty -> missing
+  outlier_iqr_k: 6.0            # flag (not remove) days above Q3 + k*IQR of that meter
+  max_interpolate_days: 2
+  min_valid_days: 180           # mains meters with fewer valid days are not used for modelling
+  min_blocks_per_day: 90        # of 96 15-minute blocks, for the load-shape features
+  solar_hours: [9, 16]          # daytime window used for "share of use rooftop solar can cover directly"
+  cdd_base_c: 24.0              # cooling degree-days base for India (fans/coolers/AC)
+  region_weather:               # eMARC region -> NASA POWER city in configs/india_locations.yaml
+    Pune city: pune
+    Pune: pune                  # rural Pune district; city grid cell used as proxy (~0.5° NASA cell)
+    Aurangabad: aurangabad
+    Kanpur rural: kanpur
+    Gonda: gonda
+  lockdown_start: "2020-03-25"  # national COVID-19 lockdown; reported separately, not a feature
+  cv_splits: 4                  # expanding-window CV folds over training days (tuning only)
+  split:
+    train_end: "2019-06-30"
+    valid_end: "2019-12-31"     # test = 2020-01-01 .. 2020-06-30
+
+solar:
+  interval_hours: 0.25          # 15-minute readings -> kWh = kW * 0.25
+  off_irradiation_threshold: 0.1  # kW/m2; AC = 0 above this means the inverter was off (decision D5)
+  split_fractions: {train: 0.70, valid: 0.15, test: 0.15}
+  # Healthy reference (decision D7): an inverter-day is healthy if its kWh per kWh/m² of irradiation is
+  # >= this share of the plant's 90th-percentile inverter that day. Plant 1 train 5th percentile = 0.908.
+  healthy_min_ratio: 0.90
+  cv_splits: 4                  # expanding-window CV over whole training days (tuning only)
+
+monitoring:
+  ratio_threshold: 0.85         # actual / expected below this counts as low
+  min_consecutive_days: 3
+  peer_z_threshold: -3.0        # robust z-score vs other inverters on the same day
+  min_train_days: 7             # expanding-window warm-up before the first monitored day
+  peer_max_pr: 0.95             # a peer outlier only counts if also >= 5 % below expected (Plant 1's spread is so
+                                # tight that z = -3 is only ~5 % below peers; 48 of 54 Plant 1 flags were that alone)
+
+maintenance:
+  gradual_decline_share: 0.6    # share of inverters that must be low for a "gradual" decline
+  days_since_cleaning: 30       # dry-season cleaning interval advised by rule R6
+  recent_rain_mm: 5.0           # estimated rain that counts as "washing" the panels
+  offline_hours: 1.0            # R1: inverter off in daylight for at least this long
+  decline_window_days: 10       # R4: window for the plant-PR trend
+  decline_slope_per_day: -0.005 # R4: -0.5 % of expected per day or steeper
+  sensor_high_pr: 1.15          # R5: plant output this far above expected -> check the sensor
+
+energy_balance:
+  default_performance_ratio: 0.75

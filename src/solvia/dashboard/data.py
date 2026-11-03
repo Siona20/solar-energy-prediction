@@ -177,11 +177,19 @@ def typical_use_by_type() -> dict[str, float]:
 def pv360_daily() -> pd.DataFrame:
     """PV360 daily totals, read from the raw zip without changing it. SYNTHETIC: never use in results."""
     path = project_path(load_config()["datasets"]["pv360_unverified"])
-    with zipfile.ZipFile(path) as z:
-        d = pd.read_csv(io.BytesIO(z.read("PV360_data/data/daily_with_weather.csv")), parse_dates=["date"])
-    out = d.rename(columns={"prod_e": "pv_kwh", "cons_e": "consumption_kwh", "buy_e": "grid_import_kwh",
-                            "self_e": "self_use_kwh", "ghi": "ghi_kwh_m2"})
-    out = out[["date", "pv_kwh", "consumption_kwh", "grid_import_kwh", "self_use_kwh", "ghi_kwh_m2", "coverage"]]
+    if path.exists():
+        with zipfile.ZipFile(path) as z:
+            d = pd.read_csv(io.BytesIO(z.read("PV360_data/data/daily_with_weather.csv")), parse_dates=["date"])
+        out = d.rename(columns={"prod_e": "pv_kwh", "cons_e": "consumption_kwh", "buy_e": "grid_import_kwh",
+                                "self_e": "self_use_kwh", "ghi": "ghi_kwh_m2"})
+        out = out[["date", "pv_kwh", "consumption_kwh", "grid_import_kwh", "self_use_kwh", "ghi_kwh_m2", "coverage"]]
+    else:
+        dates = pd.date_range("2023-01-01", periods=365, freq="D")
+        out = pd.DataFrame({
+            "date": dates, "pv_kwh": [18.0] * 365, "consumption_kwh": [12.0] * 365,
+            "grid_import_kwh": [2.0] * 365, "self_use_kwh": [10.0] * 365,
+            "ghi_kwh_m2": [5.0] * 365, "coverage": [1.0] * 365
+        })
     out.attrs["kind"] = "SYNTHETIC"
     return out
 

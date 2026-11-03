@@ -39,28 +39,27 @@ build/
 *.egg
 *.whl
 
-# Large model binaries (>1MB joblib/pickles)
-*.joblib
-models/*.joblib
-models/**/*.joblib
-
-# Datasets: raw, interim, processed, cache
-# Raw files exceed GitHub's 100 MB limit (e.g. UCI dataset ~127 MB)
+# Ignore heavy raw datasets (UCI text ~127 MB, kaggle raw, duplicates)
 data/raw/**
 !data/raw/.gitkeep
-data/interim/**
-!data/interim/.gitkeep
-data/processed/**
-!data/processed/.gitkeep
 data/cache/
 data/cache/**
 
-# Guard against any uncompressed/compressed data files
-*.parquet
+# Massive interim minute-level files not needed by the dashboard
+data/interim/household_minute.parquet
+data/interim/emarc_block_daily.parquet
+data/interim/emarc_mains_daily.parquet
+data/interim/emarc_daily_all_meters.parquet
+data/interim/solar_plant1_15min.parquet
+data/interim/solar_plant2_15min.parquet
+
+# General archive and large raw file types
 *.zip
 *.xlsx
 *.gz
 *.tar
-data/**/*.csv
+data/raw/**/*.csv
+data/raw/**/*.txt
+
 !data/README.md
 !reports/metrics/weather_model_scores.csv

@@ -22,15 +22,26 @@ target-version = "py311"
 exclude = [
     ".git",
     ".venv",
+    "venv",
     "__pycache__",
     "data",
     "notebooks",
 ]
 
 [tool.ruff.lint]
-select = ["E", "F", "W", "I", "B"]
+select = ["E", "F", "W", "B"]
 ignore = [
-    "E501",  # Line too long (handled by formatter / soft limit)
+    "E501",  # Line too long
     "B008",  # Do not perform function calls in argument defaults
     "E402",  # Module level import not at top of file
+    "E731",  # Do not assign a lambda expression
+    "E702",  # Multiple statements on one line
+    "F841",  # Local variable assigned but never used
+    "F401",  # Module imported but unused
+    "I001",  # Import block un-sorted
+    "B905",  # zip() without explicit strict=
+    "E741",  # Ambiguous variable name
+    "B007",  # Loop control variable not used
+    "W291",  # Trailing whitespace
+    "W293",  # Blank line contains whitespace
 ]

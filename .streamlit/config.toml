@@ -1,0 +1,51 @@
+# SOLVIA "sunrise" theme: warm cream and terracotta by day, charcoal and amber at night.
+# Headings: Fraunces (soft display serif). Body: Manrope. Numbers in tables: JetBrains Mono.
+
+[theme]
+font = "Manrope:https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&display=swap"
+headingFont = "Fraunces:https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&display=swap"
+codeFont = "'JetBrains Mono':https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&display=swap"
+baseFontSize = 15
+headingFontSizes = ["46px", "26px", "20px", "17px", "15px", "13px"]
+headingFontWeights = [600, 600, 600, 600, 600, 600]
+metricValueFontSize = "2.1rem"
+metricValueFontWeight = 600
+baseRadius = "14px"
+buttonRadius = "999px"
+showWidgetBorder = true
+paddingTop = "3rem"
+
+[theme.light]
+primaryColor = "#C2410C"
+backgroundColor = "#FBF7F1"
+secondaryBackgroundColor = "#F3EBDF"
+textColor = "#2A211B"
+borderColor = "#E7DCCB"
+linkColor = "#C2410C"
+grayColor = "#8A7B6C"
+orangeColor = "#D97706"
+blueColor = "#0F766E"
+greenColor = "#3F7D4E"
+redColor = "#B42318"
+chartCategoricalColors = ["#E8890C", "#0F766E", "#8A7B6C"]
+dataframeHeaderBackgroundColor = "#F3EBDF"
+dataframeBorderColor = "#E7DCCB"
+
+[theme.dark]
+primaryColor = "#D9530F"
+backgroundColor = "#15110E"
+secondaryBackgroundColor = "#211B16"
+textColor = "#F3EADF"
+borderColor = "#3A3028"
+linkColor = "#F59E0B"
+grayColor = "#A8998A"
+orangeColor = "#F59E0B"
+blueColor = "#2DD4BF"
+greenColor = "#6FCF8E"
+redColor = "#F97066"
+chartCategoricalColors = ["#F5A524", "#2DD4BF", "#A8998A"]
+dataframeHeaderBackgroundColor = "#211B16"
+dataframeBorderColor = "#3A3028"
+
+[client]
+toolbarMode = "minimal"

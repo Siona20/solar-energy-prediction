@@ -10,7 +10,7 @@ from solvia.config import get_path
 from solvia.dashboard import data as D
 
 APP = Path(__file__).resolve().parents[1] / "app"
-PAGES = ["Home.py", *sorted(p.relative_to(APP).as_posix() for p in (APP / "pages").glob("*.py"))]
+PAGES = ["Home.py", "simple/app.py", *sorted(p.relative_to(APP).as_posix() for p in (APP / "pages").glob("*.py"))]
 needs_outputs = pytest.mark.skipif(not (get_path("metrics") / "test_run_log.json").exists(),
                                    reason="pipeline outputs not built (run the pipeline first)")
 

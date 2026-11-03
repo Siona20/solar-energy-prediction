@@ -1,0 +1,24 @@
+{
+ "params": {
+  "k_c_per_kw_m2": 26.903204906098754,
+  "a_sunny_air": 0.7171034518869518,
+  "b_sunny_irradiance": 0.11327122627465364,
+  "gamma_per_c": -0.004,
+  "other_losses": 0.86
+ },
+ "k_r2_train": 0.872,
+ "train_days": 24,
+ "daily_check": {
+  "no_temperature_effect": {
+   "valid_mape_pct": 5.63,
+   "valid_mae_kwh_per_inverter_day": 353.0,
+   "valid_inverter_days": 150
+  },
+  "datasheet_gamma": {
+   "valid_mape_pct": 4.05,
+   "valid_mae_kwh_per_inverter_day": 269.9,
+   "valid_inverter_days": 150
+  }
+ },
+ "label": "ESTIMATE for home systems (fitted on two Indian utility plants)"
+}

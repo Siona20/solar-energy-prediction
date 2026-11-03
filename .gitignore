@@ -1,19 +1,66 @@
-# Environment
+# Environment & Virtualenvs
 .venv/
+env/
+venv/
+ENV/
 __pycache__/
-*.pyc
-.ipynb_checkpoints/
+*.py[cod]
+*$py.class
 *.egg-info/
 .pytest_cache/
-.DS_Store
+.coverage
+coverage.xml
+htmlcov/
+.ruff_cache/
+.mypy_cache/
 
-# Data: raw files are large (UCI file is ~127 MB, over GitHub's 100 MB limit)
+# OS specific files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+__MACOSX/
+
+# IDE & AI Agent scratch
+.idea/
+.vscode/
+*.swp
+*.swo
+.agents/
+.claude/
+.ipynb_checkpoints/
+
+# Packaging & Build outputs
+dist/
+build/
+*.egg
+*.whl
+
+# Large model binaries (>1MB joblib/pickles)
+*.joblib
+models/*.joblib
+models/**/*.joblib
+
+# Datasets: raw, interim, processed, cache
+# Raw files exceed GitHub's 100 MB limit (e.g. UCI dataset ~127 MB)
 data/raw/**
 !data/raw/.gitkeep
 data/interim/**
 !data/interim/.gitkeep
 data/processed/**
 !data/processed/.gitkeep
+data/cache/
+data/cache/**
 
-# Large model files
-models/**/*.joblib
+# Guard against any uncompressed/compressed data files
+*.parquet
+*.zip
+*.xlsx
+*.gz
+*.tar
+data/**/*.csv
+!data/README.md
+!reports/metrics/weather_model_scores.csv

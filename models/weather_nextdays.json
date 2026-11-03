@@ -1,0 +1,23 @@
+{
+ "selected": {
+  "tmax": "hist_gradient_boosting",
+  "tmin": "hist_gradient_boosting",
+  "tmean": "hist_gradient_boosting",
+  "ghi": "hist_gradient_boosting"
+ },
+ "validation_mae_all_h": {
+  "ridge/tmax": 1.5559930547566194,
+  "ridge/tmin": 1.327094274914586,
+  "ridge/tmean": 1.1969398773694193,
+  "ridge/ghi": 0.7606657087107886,
+  "hist_gradient_boosting/tmax": 1.5338632173793083,
+  "hist_gradient_boosting/tmin": 1.3094390218685712,
+  "hist_gradient_boosting/tmean": 1.1811080922246215,
+  "hist_gradient_boosting/ghi": 0.7573749489483639
+ },
+ "train_rows": 1723200,
+ "valid_rows": 569900,
+ "test_rows": 761500,
+ "cities": 50,
+ "data_end": "2025-12-31"
+}

@@ -401,3 +401,50 @@ Command: `streamlit run app/Home.py`. Code: `app/Home.py`, `app/pages/1_…7_*.p
   optimistic because the test split had been seen once (leakage check 9d).
 - Dashboard: India validation days marked in-sample (warning), "new meter" now means not in train + validation.
 - Tests: 68 pass.
+
+## 2026-10-28 — Latest data (2024–2025) on the dashboard
+
+- Owner asked to see 2024/2025 data. No download was needed: the project already held Grid-India (NLDC) all-India
+  hourly demand/solar for 1 Jan 2024 – 24 Jun 2025 and NASA POWER daily weather for 50 cities to 31 Dec 2025.
+- Audit decision D6 resolved: Grid-India is used as **grid-level context only** (whole country; never a household or
+  plant; never used to train or test a model). New loader `src/solvia/data/grid_india.py`, step `recent`.
+- Cleaning: the 6 summary rows at the end of the sheet are dropped; hours are flagged when a value is frozen (same value
+  ≥ 3 h in a row) or solar > 2,000 MW at night (20:00–04:00). The night window was first 00:00–04:00; widened after
+  24 Apr 2024 showed 20–37 GW of "solar" at 18:00–23:00. Result: 137 flagged hours, 521 of 541 days valid
+  (reports/recent_data_report.md). Raw file unchanged.
+- Sanity checks: peak demand 248.7 GW on 30 May 2024 14:00 (India's reported record that day was ~250 GW); summed
+  solar ≈ 135 TWh/year, consistent with published 2024 national solar generation.
+- Simple dashboard: new first tab "Latest 2024–25" (India's daily solar, typical hourly day per month, and city
+  rooftop ESTIMATE per kWp for 2024–2025 vs the 2001–2023 normal).
+
+## 2026-10-28 — "My home tomorrow": weather, solar units and home use (owner's first requirement)
+
+Owner's request: forecast a home's use for tomorrow / the next 7 days; let the user type in their solar size (kW);
+train a model that forecasts tomorrow's temperature/weather for any Indian city ("fetch the data"); forecast tomorrow's
+solar units from that weather. NASA POWER (already approved source) is fetched on demand for the chosen point; the
+owner's "fetch the data" is taken as approval for this source only. Cache: `data/cache/nasa_power/` (git-ignored).
+
+- **Weather** (`models/weather.py`, step `model_weather`): one HistGradientBoosting model per variable (max/min/mean
+  temperature, sunlight) for all 50 cities, forecasting the anomaly from the day-of-year normal, horizon 1–21 days as
+  a feature. Train ≤ 2018, validation 2019–2021 (HGB chosen over Ridge for all four), test 2022–2025 scored once with
+  the model refitted on 2001–2021. Test MAE, max temperature: 1.02 °C at 1 day (normal 1.76, persistence 1.00),
+  1.59 °C at 8–14 days; sunlight 0.61 kWh/m² at 1 day (normal 0.77), equal to the normal from 8 days.
+- **NASA lag** measured on 2026-10-28 for Pune: temperature published to 21 Oct, sunlight to 19 Oct, clear-sky
+  sunlight mostly missing (so normals of clear-sky sunlight are used, never recent values).
+- **Home solar** (`models/pv_home.py`, step `model_pv_home`): k = 26.9 °C per kW/m² module heating (R² 0.87),
+  sunny-hours air temperature = T_min + 0.72 (T_max − T_min), sunlight-weighted irradiance = 0.113 × daily sunlight,
+  all fitted on the 24 Kaggle train days. γ: fitting gave −0.15 to −0.75 %/°C depending on the band (unstable), so
+  the datasheet −0.4 %/°C is used; validation daily error 4.05 % vs 5.63 % without it. Other losses 0.86 (assumption).
+  The first daily check gave 16–18 % because days with inverter shutdowns were included; restricted to healthy
+  inverter-days. One exploratory run printed test-day errors of the a/b translation (disclosed, leakage row 13).
+  Example: 12 kW in Pune, uncalibrated clear-summer-day estimate 69.7 units; with the owner's 60 units the factor is
+  0.86 and tomorrow (29 Oct) is 42.5 units.
+- **Home use** (`models/home_simple.py`, step `model_home_simple`): needs only the last 7 days of units (or a typical
+  value), type of home, date and temperature. Validation MAE 0.711 (ensemble Ridge + relative HGB) vs 0.763 for the
+  7-day mean; target-day temperature replaced by the monthly normal: 0.720. 7 days recursive: the model alone is no
+  better than the 7-day mean from day 4, so each day ahead uses the model, the mean, or half of each (chosen on
+  validation: day 1 model, days 2–7 half): 0.679 → 0.894 kWh/day vs 0.735 → 0.909. eMARC test split not used.
+- Calendar: festival dates exist for 2018–2020 only; later dates get the fixed national holidays.
+- Dashboard: first tab "My home tomorrow"; a failed fetch shows an error on that tab only.
+
+- 2026-10-28: owner asked to keep only the forecast. `app/simple/app.py` now shows only "My home tomorrow" (inputs, Show my forecast button, results); the other tabs and headline cards were removed from that page. Their data functions and the detailed dashboard (`app/Home.py`) are unchanged.

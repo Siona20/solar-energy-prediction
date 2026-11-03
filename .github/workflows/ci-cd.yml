@@ -1,0 +1,167 @@
+name: CI/CD Pipeline & Code Quality
+
+on:
+  push:
+    branches: [ main, master ]
+  pull_request:
+    branches: [ main, master ]
+  workflow_dispatch:
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  # =========================================================================
+  # 1. CODE CHECKER: Syntax validation, Linting, Style & Static Analysis
+  # =========================================================================
+  code-checker:
+    name: Code Checker & Quality
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: "pip"
+
+      - name: Install Code Checker & Linting Tools
+        run: |
+          python -m pip install --upgrade pip
+          pip install ruff flake8 bandit
+
+      - name: 1. Python Syntax & Compilation Check
+        run: |
+          echo "Verifying syntax across all Python source modules..."
+          python -m compileall src tests app configs
+
+      - name: 2. Flake8 Critical Error Checker
+        run: |
+          echo "Checking for Python syntax errors and undefined names..."
+          # Stop the build if there are Python syntax errors or undefined names
+          flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics
+
+      - name: 3. Ruff Code Linter
+        run: |
+          echo "Running Ruff code analysis..."
+          ruff check . --output-format=github
+
+      - name: 4. Flake8 Style & Complexity Check
+        run: |
+          echo "Running Flake8 complexity and style warnings..."
+          # exit-zero treats all errors as warnings. Max line length matching pyproject
+          flake8 . --count --exit-zero --max-complexity=15 --max-line-length=120 --statistics
+
+      - name: 5. Security & Static Analysis (Bandit)
+        run: |
+          echo "Scanning code for security vulnerabilities..."
+          bandit -r src/ -s B101,B301,B403 -f custom --msg-template "{abspath}:{line}: {severity}: {test_id}: {msg}" || true
+
+  # =========================================================================
+  # 2. AUTOMATED TESTING: Unit & Integration tests with Coverage
+  # =========================================================================
+  test:
+    name: Test Suite (Python ${{ matrix.python-version }})
+    needs: code-checker
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        python-version: ["3.11", "3.12"]
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Set up Python ${{ matrix.python-version }}
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+          cache: "pip"
+
+      - name: Install Dependencies
+        run: |
+          python -m pip install --upgrade pip setuptools wheel
+          pip install -r requirements.txt
+          pip install -e .
+          pip install pytest pytest-cov
+
+      - name: Run Pytest Test Suite with Coverage
+        run: |
+          pytest --maxfail=5 -v --tb=short --cov=src --cov-report=xml --cov-report=term-missing
+
+      - name: Upload Coverage Artifact
+        uses: actions/upload-artifact@v4
+        if: matrix.python-version == '3.11'
+        with:
+          name: code-coverage-report
+          path: coverage.xml
+          retention-days: 7
+
+  # =========================================================================
+  # 3. BUILD & PACKAGE: Build Wheel & Source Distribution
+  # =========================================================================
+  build:
+    name: Package Build Verification
+    needs: test
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install Build Utilities
+        run: |
+          python -m pip install --upgrade pip
+          pip install build twine
+
+      - name: Build Source and Wheel Distributions
+        run: |
+          python -m build
+
+      - name: Check Package Integrity with Twine
+        run: |
+          twine check dist/*
+
+      - name: Upload Build Artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: python-package-distributions
+          path: dist/
+          retention-days: 14
+
+  # =========================================================================
+  # 4. CD / DEPLOYMENT: Continuous Deployment Verification & Release Preparation
+  # =========================================================================
+  deploy:
+    name: Deployment & Release
+    needs: [code-checker, test, build]
+    if: github.ref == 'refs/heads/main' || github.ref == 'refs/heads/master'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Download Built Packages
+        uses: actions/download-artifact@v4
+        with:
+          name: python-package-distributions
+          path: dist/
+
+      - name: Verify Deployment Readiness
+        run: |
+          echo "============================================="
+          echo "Continuous Deployment Verification Completed!"
+          echo "Commit: ${{ github.sha }}"
+          echo "Ref:    ${{ github.ref }}"
+          echo "Package artifacts:"
+          ls -la dist/
+          echo "============================================="
+          echo "Ready for automatic deployment to Streamlit Cloud / Hosting."

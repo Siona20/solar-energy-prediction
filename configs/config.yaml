@@ -32,8 +32,10 @@ datasets:
   emarc_dir: data/raw/prayas_emarc
   # NASA POWER 1° grid over south/central India, May-June 2020 (plant-location estimate)
   plant_search_grid_dir: data/raw/nasa_power/plant_search_grid_2020
-  # Audited but not used by the pipeline (see reports/data_audit.md, decisions D2, D4, D6)
+  # Grid-India (NLDC) all-India hourly demand/solar, Jan 2024 - Jun 2025: latest-data context only (D6 resolved:
+  # dashboard chart, grid level, never a household, never used by a model). Step: recent
   grid_india: data/raw/electricity_demand_solar_wind
+  # Audited but not used by the pipeline (see reports/data_audit.md, decisions D2, D4)
   pv360_unverified: data/raw/unverified/pv360_philippines/PV360_data.zip
 
 consumption:

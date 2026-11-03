@@ -1,0 +1,51 @@
+{
+ "source": "Grid-India (NLDC) hourly all-India report",
+ "label": "MEASURED (grid level, whole country)",
+ "first_hour": "2024-01-01 00:00:00",
+ "last_hour": "2025-06-24 23:00:00",
+ "hours": 12984,
+ "flagged_hours": 137,
+ "flag_counts": {
+  "flag_demand_stuck": 32,
+  "flag_solar_stuck": 54,
+  "flag_solar_night": 78,
+  "flag_wind_stuck": 282
+ },
+ "days": 541,
+ "valid_days": 521,
+ "invalid_dates": [
+  "2024-04-24",
+  "2024-04-25",
+  "2024-06-12",
+  "2024-06-16",
+  "2024-12-11",
+  "2024-12-12",
+  "2024-12-13",
+  "2024-12-14",
+  "2024-12-15",
+  "2024-12-16",
+  "2024-12-17",
+  "2025-01-08",
+  "2025-01-09",
+  "2025-01-10",
+  "2025-02-03",
+  "2025-03-06",
+  "2025-03-07",
+  "2025-03-08",
+  "2025-06-14",
+  "2025-06-18"
+ ],
+ "peak_demand_gw": 248.7,
+ "peak_demand_time": "2024-05-30 14:00:00",
+ "peak_solar_gw": 64.7,
+ "peak_solar_time": "2025-03-05 12:00:00",
+ "solar_gwh_per_day_h1": {
+  "2024": 338.5,
+  "2025": 450.8
+ },
+ "solar_share_pct_h1": {
+  "2024": 7.21,
+  "2025": 9.47
+ },
+ "solar_growth_h1_pct": 33.2
+}

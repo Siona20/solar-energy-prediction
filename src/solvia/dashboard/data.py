@@ -145,9 +145,9 @@ def maintenance() -> pd.DataFrame:
 
 # --------------------------------------------------------------------------- energy balance
 def locations() -> pd.DataFrame:
-    """The 50 NASA POWER cities: name, state, region, label for menus."""
+    """The 50 NASA POWER cities: name, state, region, coordinates, label for menus."""
     y = yaml.safe_load(project_path("configs/india_locations.yaml").read_text(encoding="utf-8"))["locations"]
-    out = pd.DataFrame([{"location": k, "state": v[0], "region": v[1]} for k, v in y.items()])
+    out = pd.DataFrame([{"location": k, "state": v[0], "region": v[1], "lat": v[2], "lon": v[3]} for k, v in y.items()])
     out["label"] = out["location"].str.replace("_", " ").str.title() + " (" + out["state"] + ")"
     clim = interim("india_monthly_climatology")
     return out[out["location"].isin(clim["location"])].sort_values("label").reset_index(drop=True)
@@ -183,4 +183,37 @@ def pv360_daily() -> pd.DataFrame:
                             "self_e": "self_use_kwh", "ghi": "ghi_kwh_m2"})
     out = out[["date", "pv_kwh", "consumption_kwh", "grid_import_kwh", "self_use_kwh", "ghi_kwh_m2", "coverage"]]
     out.attrs["kind"] = "SYNTHETIC"
+    return out
+
+
+# --------------------------------------------------------------------------- latest data (2024-2025)
+def grid_daily() -> pd.DataFrame:
+    """Grid-India all-India daily demand and solar (MEASURED, grid level). Only days with 24 clean hours."""
+    d = interim("grid_india_daily")
+    d = d[d["valid"]].reset_index(drop=True)
+    d.attrs["kind"] = "MEASURED"
+    return d
+
+
+def grid_profile(year: int, month: int) -> pd.DataFrame:
+    """Average all-India demand and solar (GW) by hour of the day for one month, clean hours only."""
+    h = interim("grid_india_hourly")
+    h = h[~h["bad_hour"] & (h["timestamp"].dt.year == year) & (h["timestamp"].dt.month == month)]
+    return (h.groupby(h["timestamp"].dt.hour)[["demand_mw", "solar_mw"]].mean().div(1000)
+            .rename(columns={"demand_mw": "demand_gw", "solar_mw": "solar_gw"}).rename_axis("hour").reset_index())
+
+
+def city_recent_solar(location: str, performance_ratio: float, years=(2024, 2025), typical_until: int = 2023) -> pd.DataFrame:
+    """ESTIMATE: rooftop output per 1 kWp, month by month, from NASA POWER daily sunlight of the given years,
+    next to the typical value for that month (mean of 2001..typical_until). Not a measurement of any panel."""
+    w = interim("india_weather_daily")
+    w = w[w["location"] == location].assign(year=lambda x: x["date"].dt.year, month=lambda x: x["date"].dt.month)
+    kwh = lambda g: g * performance_ratio                       # eb.daily_solar_kwh with kwp = 1
+    typical = kwh(w[w["year"] <= typical_until].groupby("month")["ghi_kwh_m2_day"].mean())
+    rec = w[w["year"].isin(years)].groupby(["year", "month"])["ghi_kwh_m2_day"].mean().map(kwh).rename("kwh_per_kwp_day")
+    out = rec.reset_index()
+    out["typical_kwh_per_kwp_day"] = out["month"].map(typical)
+    out["vs_typical_pct"] = 100 * (out["kwh_per_kwp_day"] / out["typical_kwh_per_kwp_day"] - 1)
+    out["month_start"] = pd.to_datetime(dict(year=out["year"], month=out["month"], day=1))
+    out.attrs |= {"kind": "ESTIMATE", "last_date": w["date"].max()}
     return out

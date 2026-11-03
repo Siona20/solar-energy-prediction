@@ -1,0 +1,71 @@
+{
+ "selected": "ensemble",
+ "valid_mae_1day": {
+  "ridge": 0.7155625346517391,
+  "hist_gradient_boosting_relative": 0.7266610133940421,
+  "ensemble": 0.7108103231955405,
+  "baseline_mean_7d": 0.7627214281895186
+ },
+ "valid_mae_1day_normal_weather": 0.7197202054283589,
+ "valid_7day": [
+  {
+   "h": 1,
+   "mae": 0.6793,
+   "baseline_mae": 0.7348,
+   "final_mae": 0.6793,
+   "model_weight": 1.0
+  },
+  {
+   "h": 2,
+   "mae": 0.7807,
+   "baseline_mae": 0.8041,
+   "final_mae": 0.7767,
+   "model_weight": 0.5
+  },
+  {
+   "h": 3,
+   "mae": 0.8366,
+   "baseline_mae": 0.8425,
+   "final_mae": 0.8243,
+   "model_weight": 0.5
+  },
+  {
+   "h": 4,
+   "mae": 0.8458,
+   "baseline_mae": 0.8438,
+   "final_mae": 0.8269,
+   "model_weight": 0.5
+  },
+  {
+   "h": 5,
+   "mae": 0.9025,
+   "baseline_mae": 0.8949,
+   "final_mae": 0.877,
+   "model_weight": 0.5
+  },
+  {
+   "h": 6,
+   "mae": 0.9384,
+   "baseline_mae": 0.9209,
+   "final_mae": 0.9069,
+   "model_weight": 0.5
+  },
+  {
+   "h": 7,
+   "mae": 0.9433,
+   "baseline_mae": 0.9087,
+   "final_mae": 0.8943,
+   "model_weight": 0.5
+  }
+ ],
+ "valid_7day_origins": 171,
+ "valid_7day_meters": 106,
+ "interval_80_coverage_valid": 0.7999210734017363,
+ "fit_on": "train_valid",
+ "train_meters": 84,
+ "household_types": [
+  "Basic",
+  "Water Heaters but no AC",
+  "With Air Conditioners"
+ ]
+}

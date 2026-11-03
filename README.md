@@ -67,11 +67,31 @@ NASA POWER weather can be fetched with `python -m solvia.data.download_nasa_powe
 | Phase 4 training (models, monitoring, maintenance, energy balance) | `python -m solvia.pipeline --steps model_solar monitor maintenance energy_balance model_consumption_india model_consumption_france` |
 | Phase 5 test evaluation (once; refuses changed models) | `python -m solvia.pipeline --steps evaluate` |
 | Phase 8 improvement experiments (validation only; not in the default run) | `python -m solvia.pipeline --steps improve` |
+| Latest data, 2024–25 (Grid-India + NASA POWER; context only, no model) | `python -m solvia.pipeline --steps recent` |
+| "My home tomorrow" models: weather (1–21 days), home solar units, home use from 7 days of units | `python -m solvia.pipeline --steps model_weather model_pv_home model_home_simple` |
 | Phase 6 dashboard | `streamlit run app/Home.py` → http://localhost:8501 |
+| Forecast for my home (tomorrow and the next 7 days) | `streamlit run app/simple/app.py` |
 | Tests | `pytest` |
 
 Training is deterministic (`random_state = 42`): re-running the pipeline produces byte-identical model files, so
 the test-set guard accepts a full re-run.
+
+## Forecast for my home (tomorrow and the next 7 days)
+
+The page `streamlit run app/simple/app.py`. Enter the place (any of 50 cities, or latitude/longitude), the
+solar system size in kW, optionally the units it gives on a clear sunny summer day (e.g. 12 kW → 60 units), the type
+of home and the units used recently (one typical number or the last 7 days). It fetches the latest NASA POWER weather
+for that point (cached in `data/cache/`, never in `data/raw/`) and chains three models:
+
+| Model | What it predicts | Accuracy |
+|---|---|---|
+| Weather (`reports/weather_model_report.md`) | Max / min / mean temperature and sunlight, 1–21 days ahead, any Indian point | Test 2022–2025, max temperature: ±1.02 °C one day ahead (normal for the date: ±1.76), ±1.59 °C 8–14 days ahead; sunlight 8+ days ahead is no better than the normal |
+| Home solar units (`reports/pv_home_report.md`) | kWh per day = kW × sunlight × losses × heat loss (0.4 %/°C); panel heating measured on the Kaggle plants | Daily error on validation days 4.05 % (5.63 % without the temperature effect); ESTIMATE for homes, calibrated by the user's sunny-day units |
+| Home use (`reports/home_use_simple_report.md`) | Units per day for the next 7 days from the last 7 days, type of home, date and temperature | Validation (Jul–Dec 2019): ±0.68 units/day for tomorrow, ±0.89 on day 7 (last 7 days' average: 0.74 / 0.91); eMARC test split not used |
+
+NASA POWER publishes new days about a week (temperature) to 10 days (sunlight) late, so "tomorrow" is 8–10 days
+after the latest data and its weather is close to the normal for the date. A real weather-forecast feed (for example
+Open-Meteo) would sharpen tomorrow's numbers; it is not used because it is a different external source.
 
 ## Dashboard
 

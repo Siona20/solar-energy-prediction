@@ -40,9 +40,11 @@ def test_history_row_uses_the_last_seven_days():
     assert (r["lag_1"], r["lag_2"], r["lag_7"], r["roll_mean_7"]) == (7, 6, 1, 4)
 
 
-needs_models = pytest.mark.skipif(not all((get_path("models") / f).exists() for f in
-                                          ["weather_nextdays.joblib", "pv_home.json", "home_use_simple.joblib"]),
-                                  reason="forecast models not trained")
+needs_models = pytest.mark.skipif(
+    not all((get_path("models") / f).exists() for f in ["weather_nextdays.joblib", "pv_home.json", "home_use_simple.joblib"])
+    or not (get_path("interim") / "india_weather_daily.parquet").exists(),
+    reason="forecast models or weather data not present (data not pushed)",
+)
 
 
 @needs_models

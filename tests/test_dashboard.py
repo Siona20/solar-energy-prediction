@@ -11,8 +11,11 @@ from solvia.dashboard import data as D
 
 APP = Path(__file__).resolve().parents[1] / "app"
 PAGES = ["Home.py", "simple/app.py", *sorted(p.relative_to(APP).as_posix() for p in (APP / "pages").glob("*.py"))]
-needs_outputs = pytest.mark.skipif(not (get_path("metrics") / "test_run_log.json").exists(),
-                                   reason="pipeline outputs not built (run the pipeline first)")
+needs_outputs = pytest.mark.skipif(
+    not (get_path("processed") / "solar_features_15min.parquet").exists()
+    or not (get_path("models") / "solar_expected_output.joblib").exists(),
+    reason="processed data and trained models not present (data not pushed)",
+)
 
 
 @needs_outputs

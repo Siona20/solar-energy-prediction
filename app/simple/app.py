@@ -5,6 +5,14 @@ Enter the place, the solar system size (kW), the type of home and recent use; th
 solar units and the units the home will use. It never trains a model; the only file it writes is the NASA POWER
 weather cache in data/cache/. Colours and fonts come from .streamlit/config.toml.
 """
+import sys
+from pathlib import Path
+
+_ROOT = Path(__file__).resolve().parents[2]
+_SRC = str(_ROOT / "src")
+if _SRC not in sys.path:
+    sys.path.insert(0, _SRC)
+
 import altair as alt
 import pandas as pd
 import streamlit as st

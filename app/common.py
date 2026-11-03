@@ -1,6 +1,18 @@
 """Shared helpers for the SOLVIA dashboard pages: page setup, labels, cached data, chart defaults."""
 from __future__ import annotations
 
+import sys
+from pathlib import Path
+
+# Ensure src/ and app/ are on sys.path regardless of execution working directory
+_ROOT = Path(__file__).resolve().parents[1]
+_SRC = str(_ROOT / "src")
+_APP = str(_ROOT / "app")
+if _SRC not in sys.path:
+    sys.path.insert(0, _SRC)
+if _APP not in sys.path:
+    sys.path.insert(0, _APP)
+
 import plotly.graph_objects as go
 import streamlit as st
 

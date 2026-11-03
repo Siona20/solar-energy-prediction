@@ -1,4 +1,16 @@
 """SOLVIA dashboard, Overview page. Run with: streamlit run app/Home.py"""
+import sys
+from pathlib import Path
+
+# Ensure src/ and app/ are on sys.path
+_ROOT = Path(__file__).resolve().parents[1]
+_SRC = str(_ROOT / "src")
+_APP = str(_ROOT / "app")
+if _SRC not in sys.path:
+    sys.path.insert(0, _SRC)
+if _APP not in sys.path:
+    sys.path.insert(0, _APP)
+
 import pandas as pd
 import streamlit as st
 
